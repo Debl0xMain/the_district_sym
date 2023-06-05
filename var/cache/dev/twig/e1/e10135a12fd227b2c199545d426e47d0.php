@@ -65,7 +65,7 @@ class __TwigTemplate_c92533c62c912f9709eccbdc1d633e2f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Mention Legales";
+        echo "Mentions Legales";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -114,7 +114,7 @@ class __TwigTemplate_c92533c62c912f9709eccbdc1d633e2f extends Template
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Mention Legales{% endblock %}
+{% block title %}Mentions Legales{% endblock %}
 
 {% block body %}
 

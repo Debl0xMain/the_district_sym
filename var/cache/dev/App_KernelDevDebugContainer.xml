@@ -354,6 +354,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\UtilisateurRepository" class="App\Repository\UtilisateurRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -4375,7 +4379,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.YvMoQzV"/>
+      <argument type="service" id=".service_locator.AUsL2_7"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -6212,6 +6216,8 @@
     <service id=".abstract.instanceof.App\Repository\DetailRepository" class="App\Repository\DetailRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PlatRepository" class="App\Repository\PlatRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\PlatRepository" class="App\Repository\PlatRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UtilisateurRepository" class="App\Repository\UtilisateurRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UtilisateurRepository" class="App\Repository\UtilisateurRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.7nzbL4K" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6826,13 +6832,14 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.YvMoQzV" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AUsL2_7" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CategorieRepository" type="service_closure" id="App\Repository\CategorieRepository"/>
         <argument key="App\Repository\CommandeRepository" type="service_closure" id="App\Repository\CommandeRepository"/>
         <argument key="App\Repository\DetailRepository" type="service_closure" id="App\Repository\DetailRepository"/>
         <argument key="App\Repository\PlatRepository" type="service_closure" id="App\Repository\PlatRepository"/>
+        <argument key="App\Repository\UtilisateurRepository" type="service_closure" id="App\Repository\UtilisateurRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KLVvNIq" class="Symfony\Component\DependencyInjection\ServiceLocator">
