@@ -14,6 +14,5 @@ const loginchange = () => {
     
 }
 
-
 document.getElementById("logincharge").addEventListener("click", loginchange);
 document.getElementById("changemodal").addEventListener("click", loginchange);
