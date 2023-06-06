@@ -147,6 +147,20 @@
   </div>
 </div>
 
+{# SearchBar #}
+<div class='row my-2'>
+<form action="/search.php" method='POST'>
+    <div class="input-group searchdiv">
+      <div class="row search mx-auto">
+        <label for="autocomplete">Search on site </label>
+      <div class="input-group-append">
+      <input id="autocomplete1" name='resultsearch' onkeypress="verifierCaracteres(event); return false;" required pattern="^[A-Za-z '-]+$" maxlength="8">
+      <button class="btn btn-outline-danger" id='searchbtn' type="submit">SEND</button>
+      <p id="msgerreur"></p>
+      </div>
+    </div>
+  </form>
+</div>
 
 <div class="background"><img class="background" src="/src/img/background/background.jpg" alt=""></div>
 {# Body #}

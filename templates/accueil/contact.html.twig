@@ -2,6 +2,47 @@
 
 {% block title %}Contact{% endblock %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{{('src/Css/contact.css')}}">{% endblock %}
+
 {% block body %}
+
+
+
+<div class='row my-5 align-items-center'>
+    <form action="#" method='POST'>
+        <div class="input-group ">
+            <div class="row mx-auto my-5">
+
+                        <div class="input-group-append col">
+                            <label for="nomcontact" class="contactlabel">Nom :</label>
+                            <input type="text" name="nomcontact" id="nomcontact" class="contactinput">
+                        </div>
+
+                        <div class="input-group-append col">
+                            <label for="prenomcontact" class="contactlabel">Prenom :</label>
+                            <input type="text" name="prenomcontact" id="prenomcontact" class="contactinput">
+                        </div>
+
+                        <div class="input-group-append col">
+                            <label for="mailcontact" class="contactlabel">Mail :</label>
+                            <input type="text" name="mailcontact" id="mailcontact" class="contactinput">
+                        </div>
+                        
+                        <div class='row my-5'>
+                            <label for="demandecontact" class="contactlabel">Demande :</label>
+                            <input type="text" name="demandecontact" id="demandecontact" class="contactinput demandecontact">
+                        </div>
+                        <div class="col-6"></div>
+                        <div class='col'>
+                        <input type="submit" class='btn btn-primary'>
+                        </div>
+
+            </div>
+        </div>
+    </form>
+  </div>
+
+
 
 {% endblock %}

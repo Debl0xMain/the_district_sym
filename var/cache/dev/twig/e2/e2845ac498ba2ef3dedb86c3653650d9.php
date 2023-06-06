@@ -223,13 +223,28 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
   </div>
 </div>
 
+";
+        // line 151
+        echo "<div class='row my-2'>
+<form action=\"/search.php\" method='POST'>
+    <div class=\"input-group searchdiv\">
+      <div class=\"row search mx-auto\">
+        <label for=\"autocomplete\">Search on site </label>
+      <div class=\"input-group-append\">
+      <input id=\"autocomplete1\" name='resultsearch' onkeypress=\"verifierCaracteres(event); return false;\" required pattern=\"^[A-Za-z '-]+\$\" maxlength=\"8\">
+      <button class=\"btn btn-outline-danger\" id='searchbtn' type=\"submit\">SEND</button>
+      <p id=\"msgerreur\"></p>
+      </div>
+    </div>
+  </form>
+</div>
 
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 ";
-        // line 153
+        // line 167
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 155
+        // line 169
         echo "<footer>
 <nav class=\"navbar navbar-expand-sm justify-content-center fixed-bottom bg-nav\">
     <div>
@@ -253,7 +268,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
             </li>
             <li class=\"nav-item pt-3\">
                 <a class=\"nav-link navtext reveal-bot\" href=\"";
-        // line 177
+        // line 191
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mlegal");
         echo "\"><p>Mentions Legales</p></a>
             </li>
@@ -272,9 +287,9 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
         ";
-        // line 193
+        // line 207
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 194
+        // line 208
         echo "    </body>
 </html>";
         
@@ -322,7 +337,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     }
 
-    // line 153
+    // line 167
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -340,7 +355,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     }
 
-    // line 193
+    // line 207
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -370,7 +385,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     public function getDebugInfo()
     {
-        return array (  344 => 193,  326 => 153,  308 => 22,  289 => 5,  278 => 194,  276 => 193,  257 => 177,  233 => 155,  230 => 153,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  359 => 207,  341 => 167,  323 => 22,  304 => 5,  293 => 208,  291 => 207,  272 => 191,  248 => 169,  245 => 167,  228 => 151,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -524,6 +539,20 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
   </div>
 </div>
 
+{# SearchBar #}
+<div class='row my-2'>
+<form action=\"/search.php\" method='POST'>
+    <div class=\"input-group searchdiv\">
+      <div class=\"row search mx-auto\">
+        <label for=\"autocomplete\">Search on site </label>
+      <div class=\"input-group-append\">
+      <input id=\"autocomplete1\" name='resultsearch' onkeypress=\"verifierCaracteres(event); return false;\" required pattern=\"^[A-Za-z '-]+\$\" maxlength=\"8\">
+      <button class=\"btn btn-outline-danger\" id='searchbtn' type=\"submit\">SEND</button>
+      <p id=\"msgerreur\"></p>
+      </div>
+    </div>
+  </form>
+</div>
 
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 {# Body #}

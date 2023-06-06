@@ -26,6 +26,7 @@ class __TwigTemplate_83fdbdf16f01205da79ca05511cde54c extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -75,6 +76,28 @@ class __TwigTemplate_83fdbdf16f01205da79ca05511cde54c extends Template
     }
 
     // line 5
+    public function block_stylesheets($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        // line 6
+        echo "<link rel=\"stylesheet\" href=\"";
+        echo "src/Css/contact.css";
+        echo "\">";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 8
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,8 +107,46 @@ class __TwigTemplate_83fdbdf16f01205da79ca05511cde54c extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 9
         echo "
+
+
+<div class='row my-5 align-items-center'>
+    <form action=\"#\" method='POST'>
+        <div class=\"input-group \">
+            <div class=\"row mx-auto my-5\">
+
+                        <div class=\"input-group-append col\">
+                            <label for=\"nomcontact\" class=\"contactlabel\">Nom :</label>
+                            <input type=\"text\" name=\"nomcontact\" id=\"nomcontact\" class=\"contactinput\">
+                        </div>
+
+                        <div class=\"input-group-append col\">
+                            <label for=\"prenomcontact\" class=\"contactlabel\">Prenom :</label>
+                            <input type=\"text\" name=\"prenomcontact\" id=\"prenomcontact\" class=\"contactinput\">
+                        </div>
+
+                        <div class=\"input-group-append col\">
+                            <label for=\"mailcontact\" class=\"contactlabel\">Mail :</label>
+                            <input type=\"text\" name=\"mailcontact\" id=\"mailcontact\" class=\"contactinput\">
+                        </div>
+                        
+                        <div class='row my-5'>
+                            <label for=\"demandecontact\" class=\"contactlabel\">Demande :</label>
+                            <input type=\"text\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
+                        </div>
+                        <div class=\"col-6\"></div>
+                        <div class='col'>
+                        <input type=\"submit\" class='btn btn-primary'>
+                        </div>
+
+            </div>
+        </div>
+    </form>
+  </div>
+
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -107,7 +168,7 @@ class __TwigTemplate_83fdbdf16f01205da79ca05511cde54c extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -116,7 +177,48 @@ class __TwigTemplate_83fdbdf16f01205da79ca05511cde54c extends Template
 
 {% block title %}Contact{% endblock %}
 
+{% block stylesheets %}
+<link rel=\"stylesheet\" href=\"{{('src/Css/contact.css')}}\">{% endblock %}
+
 {% block body %}
+
+
+
+<div class='row my-5 align-items-center'>
+    <form action=\"#\" method='POST'>
+        <div class=\"input-group \">
+            <div class=\"row mx-auto my-5\">
+
+                        <div class=\"input-group-append col\">
+                            <label for=\"nomcontact\" class=\"contactlabel\">Nom :</label>
+                            <input type=\"text\" name=\"nomcontact\" id=\"nomcontact\" class=\"contactinput\">
+                        </div>
+
+                        <div class=\"input-group-append col\">
+                            <label for=\"prenomcontact\" class=\"contactlabel\">Prenom :</label>
+                            <input type=\"text\" name=\"prenomcontact\" id=\"prenomcontact\" class=\"contactinput\">
+                        </div>
+
+                        <div class=\"input-group-append col\">
+                            <label for=\"mailcontact\" class=\"contactlabel\">Mail :</label>
+                            <input type=\"text\" name=\"mailcontact\" id=\"mailcontact\" class=\"contactinput\">
+                        </div>
+                        
+                        <div class='row my-5'>
+                            <label for=\"demandecontact\" class=\"contactlabel\">Demande :</label>
+                            <input type=\"text\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
+                        </div>
+                        <div class=\"col-6\"></div>
+                        <div class='col'>
+                        <input type=\"submit\" class='btn btn-primary'>
+                        </div>
+
+            </div>
+        </div>
+    </form>
+  </div>
+
+
 
 {% endblock %}
 ", "accueil/contact.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/accueil/contact.html.twig");

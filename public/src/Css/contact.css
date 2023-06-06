@@ -1,0 +1,24 @@
+@font-face {
+    font-family: craie;
+    src: url("../font/MontegoBay.ttf");
+}
+
+.contactlabel {
+    font-size: 1.875rem;
+    font-family: 'craie';
+    z-index: 2;
+    color: white;
+    text-shadow: 4px 0px 4px #9e0e40, 0 0 1em #9e0e40 , 0 0 0.2em #ff0059f3;
+    border-radius: 50px;
+    padding-right: 15px;
+
+}
+
+.contactinput {
+    border-radius: 15px;
+    left: 15px;
+}
+
+.demandecontact {
+    height: 250px;
+}
