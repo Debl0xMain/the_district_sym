@@ -133,7 +133,7 @@ class __TwigTemplate_b8a86723030d40c941431173e8d715a3 extends Template
                         
                         <div class='row my-5'>
                             <label for=\"demandecontact\" class=\"contactlabel\">Demande :</label>
-                            <input type=\"text\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
+                            <input type=\"textarea\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
                         </div>
                         <div class=\"col-6\"></div>
                         <div class='col'>
@@ -206,7 +206,7 @@ class __TwigTemplate_b8a86723030d40c941431173e8d715a3 extends Template
                         
                         <div class='row my-5'>
                             <label for=\"demandecontact\" class=\"contactlabel\">Demande :</label>
-                            <input type=\"text\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
+                            <input type=\"textarea\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
                         </div>
                         <div class=\"col-6\"></div>
                         <div class='col'>
