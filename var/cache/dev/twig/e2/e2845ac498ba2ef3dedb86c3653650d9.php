@@ -66,8 +66,14 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     <link rel=\"icon\" type=\"image/png\" href=\"./src/img/logo/favicon.png\" />
 
     <title>The District - Index</title>
-    <link rel=\"stylesheet\" href=\"./src/Css/unchanged.css\">
-    <link rel=\"stylesheet\" href=\"./src/Css/categorie.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 20
+        echo "src/Css/unchanged.css";
+        echo "\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 21
+        echo "src/Css/categorie.css";
+        echo "\">
         ";
         // line 22
         $this->displayBlock('stylesheets', $context, $blocks);
@@ -113,14 +119,117 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
                 </ul>
             </div>
         </div>
+
+          ";
+        // line 53
+        echo "
+        <div class=\"position-fixed btnlogin\">
+            <button type=\"button\" class=\"btn btn btn-outline-light btnicon\" id=\"logincharge\" data-bs-toggle=\"modal\" data-bs-target=\"#login\">
+            <i class=\"fa-solid fa-user\"></i>
+            <p class=\"btnlogintext\" id=\"btnlogintext\"> Login </p>
+            </button>
+        </div>
+
+        ";
+        // line 62
+        echo "        <div class=\"position-fixed btnlogin btnshop\">
+            <button type=\"button\" class=\"btn btn btn-outline-warning btnicon\" id=\"logincharge\" data-bs-toggle=\"modal\" data-bs-target=\"#basket-shopping\">
+            <i class=\"fa-sharp fa-solid fa-basket-shopping\"></i>
+            <p class=\"btnlogintext\" id=\"btnlogintext\">Panier</p>
+            </button>
+        </div>
     </nav>
 </header>
+";
+        // line 71
+        echo "
+    ";
+        // line 73
+        echo "
+    <div class=\"modal\" id=\"login\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+<div class=\"modal-dialog\">
+  <div class=\"modal-content loginmodal\">
+    <div class=\"modal-header mx-auto\">
+      <h5 class=\"modal-title\" id=\"exampleModalLabel\">Login<label class=\"switch\">
+      <input type=\"checkbox\" id=\"changemodal\">
+      <span class=\"slider round\"></span>
+      </label> Inscription</h5>
+    </div>
+        <div class=\"modal-body container text-center\">
+
+          <form action=\"#\" method=\"POST\" id='loginonoff'>
+            <div class=\"text-center login\" id=\"loginchange\">
+                <p class=\"align-self-center\">Email</p><i class=\"fa-solid fa-envelope\"></i>
+                <input name=\"mail\" type=\"email\" >
+                <p class=\"mt-3\">Password</p><i class=\"fa-solid fa-lock\"></i>
+                <input name=\"password\" type=\"password\">
+                <p class=\"passinv\"> <br> </p>
+                <button class=\"btn btn-outline-primary\" type=\"submit\" name=\"login\">Login</button>
+            </div>
+            </form>
+
+            <form action=\"#\" Method=\"POST\" enctype=\"multipart/form-data\" id='insconoff'>
+              <div class=\" text-center inscription fromins\" id=\"inscription\">
+                <p>Nom</p>
+                <i class=\"fa-solid fa-user\"></i>
+                <input type=\"text\" name=\"fristname\" id=\"fname\">
+                <br><br>
+                <p>Prenom</p>
+                <i class=\"fa-regular fa-user\"></i>
+                <input type=\"text\" name=\"surname\" id=\"sname\">
+                <br><br>
+                <p>Email</p>
+                <i class=\"fa-solid fa-envelope\"></i>
+                <input type=\"mail\" name=\"imail\" id=\"imail\">
+                <br><br>
+                <p>Password</p>
+                <i class=\"fa-solid fa-lock\"></i>
+                <input type=\"password\" name=\"password\" id=\"password\" >
+                <br><br>
+                <p>Image de profil</p>
+                <i class=\"fa-solid fa-camera\"></i>
+                <input type=\"file\" name=\"picture\" id=\"picture\">
+                <br><br>
+                <button type=\"submit\" class=\"btn btn-outline-primary\">inscription</button>
+              </div>
+  
+            </form>
+        </div>
+    <div class=\"modal-footer\">
+    <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\" aria-label=\"Close\">Close</button>
+    </div>
+</div>
+</div>
+</div>
+
+";
+        // line 131
+        echo "
+<div class=\"modal fade2\" id=\"basket-shopping\" tabindex=\"-1\" aria-labelledby=\"basket-shoppingLabel\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\">
+    <div class=\"modal-content shopmodal\">
+      <div class=\"modal-header mx-auto\">
+        <h5 class=\"modal-title\" id=\"basket-shoppingLabel\"><i class=\"fa-sharp fa-solid fa-basket-shopping\"></i>Panier</h5>
+      </div>
+      <div class=\"modal-body\">
+        
+                                        
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
+        <a href=\"../../../src/php/shoping/validcmd.php\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 ";
-        // line 55
+        // line 153
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 57
+        // line 155
         echo "<footer>
 <nav class=\"navbar navbar-expand-sm justify-content-center fixed-bottom bg-nav\">
     <div>
@@ -144,7 +253,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
             </li>
             <li class=\"nav-item pt-3\">
                 <a class=\"nav-link navtext reveal-bot\" href=\"";
-        // line 79
+        // line 177
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mlegal");
         echo "\"><p>Mentions Legales</p></a>
             </li>
@@ -154,14 +263,18 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
 </nav>
 </footer>
+        <script src=\"./src/js/btnclick.js\"></script>
         <script src=\"https://kit.fontawesome.com/3fd2d451cc.js\" crossorigin=\"anonymous\"></script>
-        <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
+        <script
+    src=\"https://code.jquery.com/jquery-3.7.0.js\"
+  integrity=\"sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=\"
+  crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
         ";
-        // line 91
+        // line 193
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 92
+        // line 194
         echo "    </body>
 </html>";
         
@@ -209,7 +322,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     }
 
-    // line 55
+    // line 153
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -227,7 +340,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     }
 
-    // line 91
+    // line 193
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -257,7 +370,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     public function getDebugInfo()
     {
-        return array (  231 => 91,  213 => 55,  195 => 22,  176 => 5,  165 => 92,  163 => 91,  148 => 79,  124 => 57,  121 => 55,  109 => 45,  103 => 42,  97 => 39,  91 => 36,  79 => 26,  75 => 23,  73 => 22,  53 => 5,  47 => 1,);
+        return array (  344 => 193,  326 => 153,  308 => 22,  289 => 5,  278 => 194,  276 => 193,  257 => 177,  233 => 155,  230 => 153,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -281,8 +394,8 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     <link rel=\"icon\" type=\"image/png\" href=\"./src/img/logo/favicon.png\" />
 
     <title>The District - Index</title>
-    <link rel=\"stylesheet\" href=\"./src/Css/unchanged.css\">
-    <link rel=\"stylesheet\" href=\"./src/Css/categorie.css\">
+    <link rel=\"stylesheet\" href=\"{{('src/Css/unchanged.css')}}\">
+    <link rel=\"stylesheet\" href=\"{{('src/Css/categorie.css')}}\">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -312,8 +425,106 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
                 </ul>
             </div>
         </div>
+
+          {# buton login§/insription #}
+
+        <div class=\"position-fixed btnlogin\">
+            <button type=\"button\" class=\"btn btn btn-outline-light btnicon\" id=\"logincharge\" data-bs-toggle=\"modal\" data-bs-target=\"#login\">
+            <i class=\"fa-solid fa-user\"></i>
+            <p class=\"btnlogintext\" id=\"btnlogintext\"> Login </p>
+            </button>
+        </div>
+
+        {# Buton panier #}
+        <div class=\"position-fixed btnlogin btnshop\">
+            <button type=\"button\" class=\"btn btn btn-outline-warning btnicon\" id=\"logincharge\" data-bs-toggle=\"modal\" data-bs-target=\"#basket-shopping\">
+            <i class=\"fa-sharp fa-solid fa-basket-shopping\"></i>
+            <p class=\"btnlogintext\" id=\"btnlogintext\">Panier</p>
+            </button>
+        </div>
     </nav>
 </header>
+{# Login/Inscription #}
+
+    {# Login Modal #}
+
+    <div class=\"modal\" id=\"login\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+<div class=\"modal-dialog\">
+  <div class=\"modal-content loginmodal\">
+    <div class=\"modal-header mx-auto\">
+      <h5 class=\"modal-title\" id=\"exampleModalLabel\">Login<label class=\"switch\">
+      <input type=\"checkbox\" id=\"changemodal\">
+      <span class=\"slider round\"></span>
+      </label> Inscription</h5>
+    </div>
+        <div class=\"modal-body container text-center\">
+
+          <form action=\"#\" method=\"POST\" id='loginonoff'>
+            <div class=\"text-center login\" id=\"loginchange\">
+                <p class=\"align-self-center\">Email</p><i class=\"fa-solid fa-envelope\"></i>
+                <input name=\"mail\" type=\"email\" >
+                <p class=\"mt-3\">Password</p><i class=\"fa-solid fa-lock\"></i>
+                <input name=\"password\" type=\"password\">
+                <p class=\"passinv\"> <br> </p>
+                <button class=\"btn btn-outline-primary\" type=\"submit\" name=\"login\">Login</button>
+            </div>
+            </form>
+
+            <form action=\"#\" Method=\"POST\" enctype=\"multipart/form-data\" id='insconoff'>
+              <div class=\" text-center inscription fromins\" id=\"inscription\">
+                <p>Nom</p>
+                <i class=\"fa-solid fa-user\"></i>
+                <input type=\"text\" name=\"fristname\" id=\"fname\">
+                <br><br>
+                <p>Prenom</p>
+                <i class=\"fa-regular fa-user\"></i>
+                <input type=\"text\" name=\"surname\" id=\"sname\">
+                <br><br>
+                <p>Email</p>
+                <i class=\"fa-solid fa-envelope\"></i>
+                <input type=\"mail\" name=\"imail\" id=\"imail\">
+                <br><br>
+                <p>Password</p>
+                <i class=\"fa-solid fa-lock\"></i>
+                <input type=\"password\" name=\"password\" id=\"password\" >
+                <br><br>
+                <p>Image de profil</p>
+                <i class=\"fa-solid fa-camera\"></i>
+                <input type=\"file\" name=\"picture\" id=\"picture\">
+                <br><br>
+                <button type=\"submit\" class=\"btn btn-outline-primary\">inscription</button>
+              </div>
+  
+            </form>
+        </div>
+    <div class=\"modal-footer\">
+    <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\" aria-label=\"Close\">Close</button>
+    </div>
+</div>
+</div>
+</div>
+
+{# Modal Panier #}
+
+<div class=\"modal fade2\" id=\"basket-shopping\" tabindex=\"-1\" aria-labelledby=\"basket-shoppingLabel\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\">
+    <div class=\"modal-content shopmodal\">
+      <div class=\"modal-header mx-auto\">
+        <h5 class=\"modal-title\" id=\"basket-shoppingLabel\"><i class=\"fa-sharp fa-solid fa-basket-shopping\"></i>Panier</h5>
+      </div>
+      <div class=\"modal-body\">
+        
+                                        
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
+        <a href=\"../../../src/php/shoping/validcmd.php\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 {# Body #}
         {% block body %}{% endblock %}
@@ -348,8 +559,12 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
 </nav>
 </footer>
+        <script src=\"./src/js/btnclick.js\"></script>
         <script src=\"https://kit.fontawesome.com/3fd2d451cc.js\" crossorigin=\"anonymous\"></script>
-        <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
+        <script
+    src=\"https://code.jquery.com/jquery-3.7.0.js\"
+  integrity=\"sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=\"
+  crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
         {% block javascripts %}{% endblock %}
