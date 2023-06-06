@@ -21,4 +21,5 @@ return [
     'app_plat' => [[], ['_controller' => 'App\\Controller\\AccueilController::plat'], [], [['text', '/plat']], [], [], []],
     'app_contact' => [[], ['_controller' => 'App\\Controller\\AccueilController::contact'], [], [['text', '/contact']], [], [], []],
     'app_mlegal' => [[], ['_controller' => 'App\\Controller\\AccueilController::mlegal'], [], [['text', '/mentionslegales']], [], [], []],
+    'app_cgu' => [[], ['_controller' => 'App\\Controller\\AccueilController::cgu'], [], [['text', '/cgu']], [], [], []],
 ];

@@ -43,4 +43,11 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
+    #[Route('/cgu', name: 'app_cgu')]
+    public function cgu(): Response
+    {
+        return $this->render('accueil/cgu.html.twig', [
+            'controller_name' => 'AccueilController',
+        ]);
+    }
 }

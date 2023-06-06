@@ -26,6 +26,7 @@ class __TwigTemplate_c92533c62c912f9709eccbdc1d633e2f extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -74,7 +75,29 @@ class __TwigTemplate_c92533c62c912f9709eccbdc1d633e2f extends Template
 
     }
 
-    // line 5
+    // line 4
+    public function block_stylesheets($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        // line 5
+        echo "<link rel=\"stylesheet\" href=\"";
+        echo "src/Css/contact.css";
+        echo "\">";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 7
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,8 +107,29 @@ class __TwigTemplate_c92533c62c912f9709eccbdc1d633e2f extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "
+        // line 8
+        echo "<div class=\"row mx-auto\">
+
+<p class='mlegal'>Le site Internet thedistrict.fr est la propriété exclusive de Sellier Antoine.</p>
+
+
+<p class='mlegal'>Identifiant siret : 123456789012345</p>
+
+
+<p class='mlegal'>Propriétaire : Sellier Antoine</p>
+
+
+<p class='mlegal'>E-mail : contact@thedistrict.fr</p>
+
+
+<p class='mlegal'>Téléphone : 00 00 00 00 00</p>
+
+
+<p class='mlegal'>Conception du site internet : Sellier Antoine</p>
+
+
+<p class='mlegal'>Le site est hébergé par la société localhost, 1 rue de l'afpa, 80100 Amiens, Capital de ~1 euros, Siret : 0123456799874663210</p>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -107,7 +151,7 @@ class __TwigTemplate_c92533c62c912f9709eccbdc1d633e2f extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  111 => 8,  101 => 7,  89 => 5,  79 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -115,9 +159,32 @@ class __TwigTemplate_c92533c62c912f9709eccbdc1d633e2f extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Mentions Legales{% endblock %}
+{% block stylesheets %}
+<link rel=\"stylesheet\" href=\"{{('src/Css/contact.css')}}\">{% endblock %}
 
 {% block body %}
+<div class=\"row mx-auto\">
 
+<p class='mlegal'>Le site Internet thedistrict.fr est la propriété exclusive de Sellier Antoine.</p>
+
+
+<p class='mlegal'>Identifiant siret : 123456789012345</p>
+
+
+<p class='mlegal'>Propriétaire : Sellier Antoine</p>
+
+
+<p class='mlegal'>E-mail : contact@thedistrict.fr</p>
+
+
+<p class='mlegal'>Téléphone : 00 00 00 00 00</p>
+
+
+<p class='mlegal'>Conception du site internet : Sellier Antoine</p>
+
+
+<p class='mlegal'>Le site est hébergé par la société localhost, 1 rue de l'afpa, 80100 Amiens, Capital de ~1 euros, Siret : 0123456799874663210</p>
+</div>
 {% endblock %}
 ", "accueil/mlegal.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/accueil/mlegal.html.twig");
     }

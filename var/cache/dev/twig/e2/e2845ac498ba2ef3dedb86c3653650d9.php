@@ -272,6 +272,12 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mlegal");
         echo "\"><p>Mentions Legales</p></a>
             </li>
+            <li class=\"nav-item pt-3\">
+                <a class=\"nav-link navtext reveal-bot\" href=\"";
+        // line 194
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cgu");
+        echo "\"><p>CGU</p></a>
+            </li>
             <img class=\"navlogo\" src=\"/src/img/logo/logo.png\" alt=\"Logo The District\">
             </ul>
         </div>
@@ -287,9 +293,9 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
         ";
-        // line 207
+        // line 210
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 208
+        // line 211
         echo "    </body>
 </html>";
         
@@ -355,7 +361,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     }
 
-    // line 207
+    // line 210
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -385,7 +391,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     public function getDebugInfo()
     {
-        return array (  359 => 207,  341 => 167,  323 => 22,  304 => 5,  293 => 208,  291 => 207,  272 => 191,  248 => 169,  245 => 167,  228 => 151,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  365 => 210,  347 => 167,  329 => 22,  310 => 5,  299 => 211,  297 => 210,  278 => 194,  272 => 191,  248 => 169,  245 => 167,  228 => 151,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -581,6 +587,9 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
             </li>
             <li class=\"nav-item pt-3\">
                 <a class=\"nav-link navtext reveal-bot\" href=\"{{ path(\"app_mlegal\") }}\"><p>Mentions Legales</p></a>
+            </li>
+            <li class=\"nav-item pt-3\">
+                <a class=\"nav-link navtext reveal-bot\" href=\"{{ path(\"app_cgu\") }}\"><p>CGU</p></a>
             </li>
             <img class=\"navlogo\" src=\"/src/img/logo/logo.png\" alt=\"Logo The District\">
             </ul>
