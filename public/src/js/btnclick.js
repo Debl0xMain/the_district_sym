@@ -1,6 +1,7 @@
+
 const loginchange = () => {
 
-    if ($("#changemodal").checked == true) {
+    if (document.getElementById("changemodal").checked == true) {
         $("#inscription").fadeIn(2000);
         $("#loginchange").fadeOut(0);
         $("#btnlogintext").html('inscription');
@@ -10,7 +11,9 @@ const loginchange = () => {
         $("#inscription").fadeOut(0);
         $("#btnlogintext").html('login');
     }
+    
 }
 
-$("#logincharge").on("click", loginchange);
-$("#changemodal").on("click", loginchange);
+
+document.getElementById("logincharge").addEventListener("click", loginchange);
+document.getElementById("changemodal").addEventListener("click", loginchange);

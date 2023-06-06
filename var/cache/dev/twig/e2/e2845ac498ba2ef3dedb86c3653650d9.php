@@ -146,7 +146,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     ";
         // line 73
         echo "
-    <div class=\"modal\" id=\"login\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+  <div class=\"modal\" id=\"login\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
 <div class=\"modal-dialog\">
   <div class=\"modal-content loginmodal\">
     <div class=\"modal-header mx-auto\">
@@ -157,10 +157,10 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
         <div class=\"modal-body container text-center\">
 
-          <form action=\"#\" method=\"POST\" id='loginonoff'>
+          <form action=\"./src/php/login/loginform.php\" method=\"POST\">
             <div class=\"text-center login\" id=\"loginchange\">
                 <p class=\"align-self-center\">Email</p><i class=\"fa-solid fa-envelope\"></i>
-                <input name=\"mail\" type=\"email\" >
+                <input name=\"mail\" type=\"email\">
                 <p class=\"mt-3\">Password</p><i class=\"fa-solid fa-lock\"></i>
                 <input name=\"password\" type=\"password\">
                 <p class=\"passinv\"> <br> </p>
@@ -168,8 +168,8 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
             </div>
             </form>
 
-            <form action=\"#\" Method=\"POST\" enctype=\"multipart/form-data\" id='insconoff'>
-              <div class=\" text-center inscription fromins\" id=\"inscription\">
+            <form action=\"../../../src/php/inscri/checkform.php\" Method=\"POST\" enctype=\"multipart/form-data\">
+              <div class=\" text-center inscription\" id=\"inscription\">
                 <p>Nom</p>
                 <i class=\"fa-solid fa-user\"></i>
                 <input type=\"text\" name=\"fristname\" id=\"fname\">
@@ -200,7 +200,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
 </div>
 </div>
-</div>
+</div>'
 
 ";
         // line 131
@@ -284,18 +284,19 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
 </nav>
 </footer>
-        <script src=\"./src/js/btnclick.js\"></script>
+
         <script src=\"https://kit.fontawesome.com/3fd2d451cc.js\" crossorigin=\"anonymous\"></script>
-        <script
-    src=\"https://code.jquery.com/jquery-3.7.0.js\"
+<script
+  src=\"https://code.jquery.com/jquery-3.7.0.js\"
   integrity=\"sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=\"
   crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
-        ";
-        // line 210
-        $this->displayBlock('javascripts', $context, $blocks);
+        <script src=\"src/js/btnclick.js\"></script>
+         ";
         // line 211
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 212
         echo "    </body>
 </html>";
         
@@ -361,7 +362,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     }
 
-    // line 210
+    // line 211
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -391,7 +392,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     public function getDebugInfo()
     {
-        return array (  365 => 210,  347 => 167,  329 => 22,  310 => 5,  299 => 211,  297 => 210,  278 => 194,  272 => 191,  248 => 169,  245 => 167,  228 => 151,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  366 => 211,  348 => 167,  330 => 22,  311 => 5,  300 => 212,  298 => 211,  278 => 194,  272 => 191,  248 => 169,  245 => 167,  228 => 151,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -469,7 +470,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     {# Login Modal #}
 
-    <div class=\"modal\" id=\"login\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+  <div class=\"modal\" id=\"login\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
 <div class=\"modal-dialog\">
   <div class=\"modal-content loginmodal\">
     <div class=\"modal-header mx-auto\">
@@ -480,10 +481,10 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
         <div class=\"modal-body container text-center\">
 
-          <form action=\"#\" method=\"POST\" id='loginonoff'>
+          <form action=\"./src/php/login/loginform.php\" method=\"POST\">
             <div class=\"text-center login\" id=\"loginchange\">
                 <p class=\"align-self-center\">Email</p><i class=\"fa-solid fa-envelope\"></i>
-                <input name=\"mail\" type=\"email\" >
+                <input name=\"mail\" type=\"email\">
                 <p class=\"mt-3\">Password</p><i class=\"fa-solid fa-lock\"></i>
                 <input name=\"password\" type=\"password\">
                 <p class=\"passinv\"> <br> </p>
@@ -491,8 +492,8 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
             </div>
             </form>
 
-            <form action=\"#\" Method=\"POST\" enctype=\"multipart/form-data\" id='insconoff'>
-              <div class=\" text-center inscription fromins\" id=\"inscription\">
+            <form action=\"../../../src/php/inscri/checkform.php\" Method=\"POST\" enctype=\"multipart/form-data\">
+              <div class=\" text-center inscription\" id=\"inscription\">
                 <p>Nom</p>
                 <i class=\"fa-solid fa-user\"></i>
                 <input type=\"text\" name=\"fristname\" id=\"fname\">
@@ -523,7 +524,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
 </div>
 </div>
-</div>
+</div>'
 
 {# Modal Panier #}
 
@@ -597,15 +598,16 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
     </div>
 </nav>
 </footer>
-        <script src=\"./src/js/btnclick.js\"></script>
+
         <script src=\"https://kit.fontawesome.com/3fd2d451cc.js\" crossorigin=\"anonymous\"></script>
-        <script
-    src=\"https://code.jquery.com/jquery-3.7.0.js\"
+<script
+  src=\"https://code.jquery.com/jquery-3.7.0.js\"
   integrity=\"sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=\"
   crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
-        {% block javascripts %}{% endblock %}
+        <script src=\"src/js/btnclick.js\"></script>
+         {% block javascripts %}{% endblock %}
     </body>
 </html>", "base.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/base.html.twig");
     }
