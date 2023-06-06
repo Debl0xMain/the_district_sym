@@ -235,6 +235,7 @@ Pour toute question relative à l’application des présentes CGU, vous pouvez 
 coordonnées inscrites à l’ARTICLE 1.<br>
 CGU réalisées sur http://legalplace.<br>fr/
 3</p>
+<div class='row my-5'></div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -395,6 +396,7 @@ Pour toute question relative à l’application des présentes CGU, vous pouvez 
 coordonnées inscrites à l’ARTICLE 1.<br>
 CGU réalisées sur http://legalplace.<br>fr/
 3</p>
+<div class='row my-5'></div>
 {% endblock %}", "accueil/cgu.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/accueil/cgu.html.twig");
     }
 }

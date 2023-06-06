@@ -276,7 +276,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
                 <a class=\"nav-link navtext reveal-bot\" href=\"";
         // line 194
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cgu");
-        echo "\"><p>CGU</p></a>
+        echo "\"><p>Cgu</p></a>
             </li>
             <img class=\"navlogo\" src=\"/src/img/logo/logo.png\" alt=\"Logo The District\">
             </ul>
@@ -589,7 +589,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
                 <a class=\"nav-link navtext reveal-bot\" href=\"{{ path(\"app_mlegal\") }}\"><p>Mentions Legales</p></a>
             </li>
             <li class=\"nav-item pt-3\">
-                <a class=\"nav-link navtext reveal-bot\" href=\"{{ path(\"app_cgu\") }}\"><p>CGU</p></a>
+                <a class=\"nav-link navtext reveal-bot\" href=\"{{ path(\"app_cgu\") }}\"><p>Cgu</p></a>
             </li>
             <img class=\"navlogo\" src=\"/src/img/logo/logo.png\" alt=\"Logo The District\">
             </ul>
