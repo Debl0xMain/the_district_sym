@@ -108,22 +108,47 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
-        echo "<div class='row my-5 align-items-center'>
-        <div class=\"input-group \">
-            <div class=\"row mx-auto my-5\">
+        echo "<div class=\"text-center my-5\">
+<div class=\"row my-5\">
 
     ";
-        // line 13
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'form');
-        echo " 
-
-            </div>
-        </div>
-  </div>
-";
-        // line 58
+        // line 12
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_start');
         echo "
+    <div class=\"my-custom-class-for-errors\">
+        ";
+        // line 14
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'errors');
+        echo "
+    </div>
 
+    <div class=\"row\">
+        <div class=\"col-9 mx-auto mb-2 mt-4\">
+            ";
+        // line 19
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), "objet", [], "any", false, false, false, 19), 'row');
+        echo "
+        </div>
+        <div class=\"col-9 mx-auto mb-2\">
+            ";
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "email", [], "any", false, false, false, 22), 'row');
+        echo "
+        </div>
+        <div class=\"col-9 mx-auto mb-2\">
+            ";
+        // line 25
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), "message", [], "any", false, false, false, 25), 'row');
+        echo "
+        </div>
+
+    </div>
+    ";
+        // line 29
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), 'form_end');
+        echo "
+</div>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -145,7 +170,7 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
 
     public function getDebugInfo()
     {
-        return array (  125 => 58,  117 => 13,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  148 => 29,  141 => 25,  135 => 22,  129 => 19,  121 => 14,  116 => 12,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -158,57 +183,29 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
 <link rel=\"stylesheet\" href=\"{{('src/Css/contact.css')}}\">{% endblock %}
 
 {% block body %}
-<div class='row my-5 align-items-center'>
-        <div class=\"input-group \">
-            <div class=\"row mx-auto my-5\">
+<div class=\"text-center my-5\">
+<div class=\"row my-5\">
 
-    {{ form(form) }} 
+    {{ form_start(form) }}
+    <div class=\"my-custom-class-for-errors\">
+        {{ form_errors(form) }}
+    </div>
 
-            </div>
+    <div class=\"row\">
+        <div class=\"col-9 mx-auto mb-2 mt-4\">
+            {{ form_row(form.objet) }}
         </div>
-  </div>
-{# 
-<div class='row my-5 align-items-center'>
-    <form action=\"#\" method='POST'>
-        <div class=\"input-group \">
-            <div class=\"row mx-auto my-5\">
-
-                        <div class=\"input-group-append col\">
-                            <label for=\"nomcontact\" class=\"contactlabel\">Nom :</label>
-                            <input type=\"text\" name=\"nomcontact\" id=\"nomcontact\" class=\"contactinput\">
-                        </div>
-
-                        <div class=\"input-group-append col\">
-                            <label for=\"prenomcontact\" class=\"contactlabel\">Prenom :</label>
-                            <input type=\"text\" name=\"prenomcontact\" id=\"prenomcontact\" class=\"contactinput\">
-                        </div>
-
-                        <div class=\"input-group-append col\">
-                            <label for=\"mailcontact\" class=\"contactlabel\">Mail :</label>
-                            <input type=\"text\" name=\"mailcontact\" id=\"mailcontact\" class=\"contactinput\">
-                        </div>
-
-                        <div class=\"input-group-append col\">
-                            <label for=\"objetcontact\" class=\"contactlabel\">Objet :</label>
-                            <input type=\"text\" name=\"objetcontact\" id=\"objetcontact\" class=\"contactinput\">
-                        </div>
-                        
-                        <div class='row my-5'>
-                            <label for=\"demandecontact\" class=\"contactlabel\">Demande :</label>
-                            <input type=\"textarea\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
-                        </div>
-                        <div class=\"col-6\"></div>
-                        <div class='col'>
-                        <input type=\"submit\" class='btn btn-primary'>
-                        </div>
-
-            </div>
+        <div class=\"col-9 mx-auto mb-2\">
+            {{ form_row(form.email) }}
         </div>
-    </form>
-  </div>
-#}
+        <div class=\"col-9 mx-auto mb-2\">
+            {{ form_row(form.message) }}
+        </div>
 
-
+    </div>
+    {{ form_end(form) }}
+</div>
+</div>
 {% endblock %}
 ", "contact/contact.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/contact/contact.html.twig");
     }

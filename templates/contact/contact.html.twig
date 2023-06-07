@@ -6,55 +6,27 @@
 <link rel="stylesheet" href="{{('src/Css/contact.css')}}">{% endblock %}
 
 {% block body %}
-<div class='row my-5 align-items-center'>
-        <div class="input-group ">
-            <div class="row mx-auto my-5">
+<div class="text-center my-5">
+<div class="row my-5">
 
-    {{ form(form) }} 
+    {{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
 
-            </div>
+    <div class="row">
+        <div class="col-9 mx-auto mb-2 mt-4">
+            {{ form_row(form.objet) }}
         </div>
-  </div>
-{# 
-<div class='row my-5 align-items-center'>
-    <form action="#" method='POST'>
-        <div class="input-group ">
-            <div class="row mx-auto my-5">
-
-                        <div class="input-group-append col">
-                            <label for="nomcontact" class="contactlabel">Nom :</label>
-                            <input type="text" name="nomcontact" id="nomcontact" class="contactinput">
-                        </div>
-
-                        <div class="input-group-append col">
-                            <label for="prenomcontact" class="contactlabel">Prenom :</label>
-                            <input type="text" name="prenomcontact" id="prenomcontact" class="contactinput">
-                        </div>
-
-                        <div class="input-group-append col">
-                            <label for="mailcontact" class="contactlabel">Mail :</label>
-                            <input type="text" name="mailcontact" id="mailcontact" class="contactinput">
-                        </div>
-
-                        <div class="input-group-append col">
-                            <label for="objetcontact" class="contactlabel">Objet :</label>
-                            <input type="text" name="objetcontact" id="objetcontact" class="contactinput">
-                        </div>
-                        
-                        <div class='row my-5'>
-                            <label for="demandecontact" class="contactlabel">Demande :</label>
-                            <input type="textarea" name="demandecontact" id="demandecontact" class="contactinput demandecontact">
-                        </div>
-                        <div class="col-6"></div>
-                        <div class='col'>
-                        <input type="submit" class='btn btn-primary'>
-                        </div>
-
-            </div>
+        <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.email) }}
         </div>
-    </form>
-  </div>
-#}
+        <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.message) }}
+        </div>
 
-
+    </div>
+    {{ form_end(form) }}
+</div>
+</div>
 {% endblock %}
