@@ -17,9 +17,9 @@ return [
         '/' => [[['_route' => 'app_accueil', '_controller' => 'App\\Controller\\AccueilController::index'], null, null, null, false, false, null]],
         '/categorie' => [[['_route' => 'app_cat', '_controller' => 'App\\Controller\\AccueilController::cat'], null, null, null, false, false, null]],
         '/plat' => [[['_route' => 'app_plat', '_controller' => 'App\\Controller\\AccueilController::plat'], null, null, null, false, false, null]],
-        '/contact' => [[['_route' => 'app_contact', '_controller' => 'App\\Controller\\AccueilController::contact'], null, null, null, false, false, null]],
         '/mentionslegales' => [[['_route' => 'app_mlegal', '_controller' => 'App\\Controller\\AccueilController::mlegal'], null, null, null, false, false, null]],
         '/cgu' => [[['_route' => 'app_cgu', '_controller' => 'App\\Controller\\AccueilController::cgu'], null, null, null, false, false, null]],
+        '/contact' => [[['_route' => 'app_contact', '_controller' => 'App\\Controller\\FormContactController::contactform'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -19,7 +19,7 @@ return [
     'app_accueil' => [[], ['_controller' => 'App\\Controller\\AccueilController::index'], [], [['text', '/']], [], [], []],
     'app_cat' => [[], ['_controller' => 'App\\Controller\\AccueilController::cat'], [], [['text', '/categorie']], [], [], []],
     'app_plat' => [[], ['_controller' => 'App\\Controller\\AccueilController::plat'], [], [['text', '/plat']], [], [], []],
-    'app_contact' => [[], ['_controller' => 'App\\Controller\\AccueilController::contact'], [], [['text', '/contact']], [], [], []],
     'app_mlegal' => [[], ['_controller' => 'App\\Controller\\AccueilController::mlegal'], [], [['text', '/mentionslegales']], [], [], []],
     'app_cgu' => [[], ['_controller' => 'App\\Controller\\AccueilController::cgu'], [], [['text', '/cgu']], [], [], []],
+    'app_contact' => [[], ['_controller' => 'App\\Controller\\FormContactController::contactform'], [], [['text', '/contact']], [], [], []],
 ];

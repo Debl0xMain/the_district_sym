@@ -109,43 +109,21 @@ class __TwigTemplate_b8a86723030d40c941431173e8d715a3 extends Template
 
         // line 9
         echo "
+<form action=\"\" method=\"post\">
+    ";
+        // line 12
+        echo "
+    <input type=\"hidden\" name=\"token\" value=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("delete-item"), "html", null, true);
+        echo "\"/>
 
+    <button type=\"submit\">Delete item</button>
+</form>
 
-<div class='row my-5 align-items-center'>
-    <form action=\"#\" method='POST'>
-        <div class=\"input-group \">
-            <div class=\"row mx-auto my-5\">
-
-                        <div class=\"input-group-append col\">
-                            <label for=\"nomcontact\" class=\"contactlabel\">Nom :</label>
-                            <input type=\"text\" name=\"nomcontact\" id=\"nomcontact\" class=\"contactinput\">
-                        </div>
-
-                        <div class=\"input-group-append col\">
-                            <label for=\"prenomcontact\" class=\"contactlabel\">Prenom :</label>
-                            <input type=\"text\" name=\"prenomcontact\" id=\"prenomcontact\" class=\"contactinput\">
-                        </div>
-
-                        <div class=\"input-group-append col\">
-                            <label for=\"mailcontact\" class=\"contactlabel\">Mail :</label>
-                            <input type=\"text\" name=\"mailcontact\" id=\"mailcontact\" class=\"contactinput\">
-                        </div>
-                        
-                        <div class='row my-5'>
-                            <label for=\"demandecontact\" class=\"contactlabel\">Demande :</label>
-                            <input type=\"textarea\" name=\"demandecontact\" id=\"demandecontact\" class=\"contactinput demandecontact\">
-                        </div>
-                        <div class=\"col-6\"></div>
-                        <div class='col'>
-                        <input type=\"submit\" class='btn btn-primary'>
-                        </div>
-
-            </div>
-        </div>
-    </form>
-  </div>
-
-
+";
+        // line 58
+        echo "
 
 ";
         
@@ -168,7 +146,7 @@ class __TwigTemplate_b8a86723030d40c941431173e8d715a3 extends Template
 
     public function getDebugInfo()
     {
-        return array (  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  126 => 58,  118 => 13,  115 => 12,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -182,8 +160,15 @@ class __TwigTemplate_b8a86723030d40c941431173e8d715a3 extends Template
 
 {% block body %}
 
+<form action=\"\" method=\"post\">
+    {# l'argument de la méthode csrf_token() est une chaîne de caractère aléatoire qui sert à générer le token  #}
 
+    <input type=\"hidden\" name=\"token\" value=\"{{ csrf_token('delete-item') }}\"/>
 
+    <button type=\"submit\">Delete item</button>
+</form>
+
+{# 
 <div class='row my-5 align-items-center'>
     <form action=\"#\" method='POST'>
         <div class=\"input-group \">
@@ -203,6 +188,11 @@ class __TwigTemplate_b8a86723030d40c941431173e8d715a3 extends Template
                             <label for=\"mailcontact\" class=\"contactlabel\">Mail :</label>
                             <input type=\"text\" name=\"mailcontact\" id=\"mailcontact\" class=\"contactinput\">
                         </div>
+
+                        <div class=\"input-group-append col\">
+                            <label for=\"objetcontact\" class=\"contactlabel\">Objet :</label>
+                            <input type=\"text\" name=\"objetcontact\" id=\"objetcontact\" class=\"contactinput\">
+                        </div>
                         
                         <div class='row my-5'>
                             <label for=\"demandecontact\" class=\"contactlabel\">Demande :</label>
@@ -217,7 +207,7 @@ class __TwigTemplate_b8a86723030d40c941431173e8d715a3 extends Template
         </div>
     </form>
   </div>
-
+#}
 
 
 {% endblock %}

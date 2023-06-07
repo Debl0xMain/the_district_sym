@@ -29,13 +29,13 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
-    #[Route('/contact', name: 'app_contact')]
-    public function contact(): Response
-    {
-        return $this->render('page/contact.html.twig', [
-            'controller_name' => 'AccueilController',
-        ]);
-    }
+    // #[Route('/contact', name: 'app_contact')]
+    // public function contact(): Response
+    // {
+    //     return $this->render('page/contact.html.twig', [
+    //         'controller_name' => 'AccueilController',
+    //     ]);
+    // }
         #[Route('/mentionslegales', name: 'app_mlegal')]
     public function mlegal(): Response
     {
@@ -50,4 +50,5 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
+    
 }
