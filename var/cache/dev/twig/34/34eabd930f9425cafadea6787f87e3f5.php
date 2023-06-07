@@ -108,9 +108,20 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
-        echo "form()
+        echo "<div class='row my-5 align-items-center'>
+        <div class=\"input-group \">
+            <div class=\"row mx-auto my-5\">
+
+    ";
+        // line 13
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'form');
+        echo " 
+
+            </div>
+        </div>
+  </div>
 ";
-        // line 50
+        // line 58
         echo "
 
 ";
@@ -134,7 +145,7 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
 
     public function getDebugInfo()
     {
-        return array (  114 => 50,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  125 => 58,  117 => 13,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -147,7 +158,15 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
 <link rel=\"stylesheet\" href=\"{{('src/Css/contact.css')}}\">{% endblock %}
 
 {% block body %}
-form()
+<div class='row my-5 align-items-center'>
+        <div class=\"input-group \">
+            <div class=\"row mx-auto my-5\">
+
+    {{ form(form) }} 
+
+            </div>
+        </div>
+  </div>
 {# 
 <div class='row my-5 align-items-center'>
     <form action=\"#\" method='POST'>
