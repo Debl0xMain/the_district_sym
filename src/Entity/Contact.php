@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+
+use Symfony\Component\Validator\Constraints as Assert;
+
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -63,4 +66,6 @@ class Contact
 
         return $this;
     }
+
+    
 }
