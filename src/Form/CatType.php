@@ -34,7 +34,7 @@ class CatType extends AbstractType
                 "class" =>"contactlabel"
                 ],
             'attr'=> [
-                    'placeholder'=>'yes or no ?',
+                    'placeholder'=>'yes = 1 or no = 0 ?',
                     'class'=>'contactinput my-2' 
                     ]
         ])

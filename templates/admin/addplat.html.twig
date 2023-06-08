@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}add plat{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{('src/Css/contact.css')}}">{% endblock %}
+
+{% block body %}
+<div class="text-center">
+    <div class="container">
+    <div class="row row-cols-3 my-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+        {{ form(form) }} 
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

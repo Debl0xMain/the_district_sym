@@ -1,7 +1,91 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
 
-{% endblock %}
+{# {% for categorie in categorie %}
+{{ categorie | length }}
+{{ categorie.libelle }}
+{{ categorie.image }}
+{{ categorie.active }}
+{{ categorie.id }}
+{% endfor %} #}
+
+{# <div class="row my-2 mx-5 text-center row-cols-1">
+<div class="col categoriemv"><p>Nos catégories | {{ categorie | length }}</p></div>
+</div>
+<div class="row my-1 mx-5 text-center row-cols-lg-3">
+{% for categorie in categorie %}
+    {% if categorie.active == 1 %}
+    <div class="col reveal-left boxsize">
+        <button type="submit" class="animcategory btn">
+                <div class="boxcat">
+                        <img class="catbackground" src="{{asset('src/img/category/')}}{{ categorie.image }}"
+                            alt="{{ categorie.libelle }}"
+                            title="{{ categorie.libelle }}" height="255px" width="255px">
+                        <p class="catname mx-auto">{{ categorie.libelle }}</p>
+                        <input type="hidden" value="{{ categorie.id }}" name="cat">
+                </div>
+        </button>
+    </div>
+    {% endif %}
+ {% endfor %}
+ </div>
+ {% endblock %} #}
+
+
+ {% extends 'base.html.twig' %}
+
+{% block title %}categorie{% endblock %}
+
+{% block body %}
+
+<div class="row my-2 mx-5 text-center row-cols-1">
+<div class="col platmv"><p>Nos categorie | {{ categorie | length }}</p></div>
+</div>
+<div class="row my-1 mx-5 text-center row-cols-lg-3">
+{% for categorie in categorie %}
+{% if categorie.active == 1 %}
+
+<!-- Button trigger modal -->
+<div>
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#{{ categorie.libelle }}{{ categorie.id }}">
+<div class="boxcat">
+                            <img class="catbackground" src="{{asset('src/img/category/')}}{{ categorie.image }}"
+                                alt="{{ categorie.libelle }}"
+                                title="{{ categorie.libelle }}" height="255px" width="255px">
+                            <p class="catname mx-auto">{{ categorie.libelle }}</p>
+                            <input type="hidden" value="{{ categorie.id }}" name="cat">
+                    </div>
+</button>
+ </div>
+ </div>
+
+<!-- Modal -->
+<div class="modal fade" id="{{ categorie.libelle }}{{ categorie.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="{{ categorie.libelle }}{{ categorie.id }}Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">{{ categorie.libelle }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+                        <img class="catbackground" src="{{asset('src/img/category/')}}{{ categorie.image }}"
+                            alt="{{ categorie.libelle }}"
+                            title="{{ categorie.libelle }}" height="255px" width="255px">
+                        <p class="catname mx-auto">{{ categorie.libelle }}</p>
+                        <input type="hidden" value="{{ categorie.id }}" name="cat">
+            <p>Description : {{ categorie.libelle }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+{% endif %}
+ {% endfor %}
+ {% endblock %}

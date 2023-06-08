@@ -15,12 +15,13 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_accueil', '_controller' => 'App\\Controller\\AccueilController::index'], null, null, null, false, false, null]],
-        '/categorie' => [[['_route' => 'app_cat', '_controller' => 'App\\Controller\\AccueilController::cat'], null, null, null, false, false, null]],
-        '/plat' => [[['_route' => 'app_plat', '_controller' => 'App\\Controller\\AccueilController::plat'], null, null, null, false, false, null]],
         '/mentionslegales' => [[['_route' => 'app_mlegal', '_controller' => 'App\\Controller\\AccueilController::mlegal'], null, null, null, false, false, null]],
         '/cgu' => [[['_route' => 'app_cgu', '_controller' => 'App\\Controller\\AccueilController::cgu'], null, null, null, false, false, null]],
-        '/Categorieadd' => [[['_route' => 'app_Categorieadd', '_controller' => 'App\\Controller\\AdminController::contactform'], null, null, null, false, false, null]],
+        '/categorie_add' => [[['_route' => 'app_Categorieadd', '_controller' => 'App\\Controller\\CatController::contactform'], null, null, null, false, false, null]],
+        '/categorie' => [[['_route' => 'app_cat', '_controller' => 'App\\Controller\\CatController::cat'], null, null, null, false, false, null]],
         '/contact' => [[['_route' => 'app_contact', '_controller' => 'App\\Controller\\FormContactController::contactform'], null, null, null, false, false, null]],
+        '/plat_add' => [[['_route' => 'app_platadd', '_controller' => 'App\\Controller\\PlatController::platform'], null, null, null, false, false, null]],
+        '/plat' => [[['_route' => 'app_plat', '_controller' => 'App\\Controller\\PlatController::cat'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -244,8 +244,9 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
         // line 167
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 169
-        echo "<footer>
+        // line 168
+        echo "
+<footer>
 <nav class=\"navbar navbar-expand-sm justify-content-center fixed-bottom bg-nav\">
     <div>
         <button class=\"navbar-toggler ms-auto\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#b_bar\" aria-controls=\"navbarNavAltMarkup\" aria-label=\"Toggle navigation\">
@@ -392,7 +393,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 
     public function getDebugInfo()
     {
-        return array (  366 => 211,  348 => 167,  330 => 22,  311 => 5,  300 => 212,  298 => 211,  278 => 194,  272 => 191,  248 => 169,  245 => 167,  228 => 151,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  367 => 211,  349 => 167,  331 => 22,  312 => 5,  301 => 212,  299 => 211,  279 => 194,  273 => 191,  248 => 168,  245 => 167,  228 => 151,  207 => 131,  148 => 73,  145 => 71,  135 => 62,  125 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -564,7 +565,7 @@ class __TwigTemplate_889f9b7f938eac54a1a70c0f5a95a815 extends Template
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 {# Body #}
         {% block body %}{% endblock %}
-{# Footer #}
+
 <footer>
 <nav class=\"navbar navbar-expand-sm justify-content-center fixed-bottom bg-nav\">
     <div>

@@ -90,6 +90,9 @@ class Categorie
 
         return $this;
     }
+    public function __toString(){
+        return $this->libelle;
+    }
 
     public function removePlat(Plat $plat): self
     {

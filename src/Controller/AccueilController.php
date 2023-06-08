@@ -15,27 +15,6 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
-    #[Route('/categorie', name: 'app_cat')]
-    public function cat(): Response
-    {
-        return $this->render('page/categorie.html.twig', [
-            'controller_name' => 'AccueilController',
-        ]);
-    }
-    #[Route('/plat', name: 'app_plat')]
-    public function plat(): Response
-    {
-        return $this->render('page/plat.html.twig', [
-            'controller_name' => 'AccueilController',
-        ]);
-    }
-    // #[Route('/contact', name: 'app_contact')]
-    // public function contact(): Response
-    // {
-    //     return $this->render('page/contact.html.twig', [
-    //         'controller_name' => 'AccueilController',
-    //     ]);
-    // }
         #[Route('/mentionslegales', name: 'app_mlegal')]
     public function mlegal(): Response
     {

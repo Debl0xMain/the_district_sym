@@ -108,12 +108,17 @@ class __TwigTemplate_2e960c7d5c68ff59631cd7285cfa0d0b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
-        echo "<div class=\"text-center my-5\">
-<div class=\"row my-5\">
-";
-        // line 11
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), 'form');
+        echo "<div class=\"text-center\">
+    <div class=\"container\">
+    <div class=\"row row-cols-3 my-5\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-6\">
+        ";
+        // line 14
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), 'form');
         echo " 
+        </div>
+    </div>
 </div>
 </div>
 
@@ -138,7 +143,7 @@ class __TwigTemplate_2e960c7d5c68ff59631cd7285cfa0d0b extends Template
 
     public function getDebugInfo()
     {
-        return array (  115 => 11,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  118 => 14,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -151,9 +156,14 @@ class __TwigTemplate_2e960c7d5c68ff59631cd7285cfa0d0b extends Template
 <link rel=\"stylesheet\" href=\"{{('src/Css/contact.css')}}\">{% endblock %}
 
 {% block body %}
-<div class=\"text-center my-5\">
-<div class=\"row my-5\">
-{{ form(form) }} 
+<div class=\"text-center\">
+    <div class=\"container\">
+    <div class=\"row row-cols-3 my-5\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-6\">
+        {{ form(form) }} 
+        </div>
+    </div>
 </div>
 </div>
 
