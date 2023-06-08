@@ -31,6 +31,9 @@ class Commande
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     private ?Utilisateur $utilisateur = null;
 
+    #[ORM\ManyToOne(inversedBy: 'commande')]
+    private ?Utilisateur $commande = null;
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
@@ -115,6 +118,18 @@ class Commande
     public function setUtilisateur(?Utilisateur $utilisateur): self
     {
         $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function getCommande(): ?Utilisateur
+    {
+        return $this->commande;
+    }
+
+    public function setCommande(?Utilisateur $commande): self
+    {
+        $this->commande = $commande;
 
         return $this;
     }
