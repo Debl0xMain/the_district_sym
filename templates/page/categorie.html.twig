@@ -65,18 +65,17 @@
 <!-- Modal -->
 <div class="modal fade" id="{{ categorie.libelle }}{{ categorie.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="{{ categorie.libelle }}{{ categorie.id }}Label" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content modalaffcss">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">{{ categorie.libelle }}</h1>
+        <h1 class="modal-title fs-5 libellemv"> <p class="libellemv ">{{ categorie.libelle }}</p></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
                         <img class="catbackground" src="{{asset('src/img/category/')}}{{ categorie.image }}"
                             alt="{{ categorie.libelle }}"
                             title="{{ categorie.libelle }}" height="255px" width="255px">
-                        <p class="catname mx-auto">{{ categorie.libelle }}</p>
                         <input type="hidden" value="{{ categorie.id }}" name="cat">
-            <p>Description : {{ categorie.libelle }}</p>
+            <p class="descmodal">Description : {{ categorie.libelle }}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

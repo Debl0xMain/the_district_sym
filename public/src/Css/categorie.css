@@ -2,7 +2,10 @@
     font-family: craie;
     src: url("../font/MontegoBay.ttf");
 }
-
+.modalaffcss {
+    border-radius: 20px !important;
+    box-shadow: 4px 4px 4px black;
+}
 /* search bar  */
 .search {
     margin-top: 110px !important;
@@ -121,4 +124,20 @@
 .mychange{
     margin-top : 190px !important;
     
+}
+
+.libellemv {
+    font-size: 3.1rem;
+    font-family: 'craie';
+    z-index: 2;
+    color: white;
+    text-shadow: 4px 0px 4px #9e0e40, 0 0 1em #9e0e40 , 0 0 0.2em #ff0059f3;
+}
+
+.descmodal {
+    font-size: 2.9rem;
+    font-family: 'craie';
+    z-index: 2;
+    color: white;
+    text-shadow: 4px 0px 4px #9e0e40, 0 0 1em #9e0e40 , 0 0 0.2em #ff0059f3;
 }

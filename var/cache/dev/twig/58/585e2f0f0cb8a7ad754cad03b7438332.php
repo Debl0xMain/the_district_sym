@@ -144,12 +144,12 @@ class __TwigTemplate_0b7f172021a75912f6a99733da3f7106 extends Template
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 27), "html", null, true);
                 echo "Label\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
-    <div class=\"modal-content\">
+    <div class=\"modal-content modalaffcss \">
       <div class=\"modal-header\">
-        <h1 class=\"modal-title fs-5\">";
+        <h1 class=\"modal-title fs-5\"><p class=\"libellemv \">";
                 // line 31
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 31), "html", null, true);
-                echo "</h1>
+                echo "</p></h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
       <div class=\"modal-body\">
@@ -166,15 +166,12 @@ class __TwigTemplate_0b7f172021a75912f6a99733da3f7106 extends Template
                 // line 37
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 37), "html", null, true);
                 echo "\" height=\"255px\" width=\"255px\">
-                        <p class=\"catname mx-auto\">";
-                // line 38
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 38), "html", null, true);
-                echo "</p>
+                       
                         <input type=\"hidden\" value=\"";
                 // line 39
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 39), "html", null, true);
                 echo "\" name=\"cat\">
-            <p>Description : ";
+            <p class=\"descmodal\">Description : ";
                 // line 40
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 40), "html", null, true);
                 echo "</p>
@@ -217,7 +214,7 @@ class __TwigTemplate_0b7f172021a75912f6a99733da3f7106 extends Template
 
     public function getDebugInfo()
     {
-        return array (  199 => 52,  193 => 51,  179 => 40,  175 => 39,  171 => 38,  167 => 37,  163 => 36,  158 => 35,  151 => 31,  140 => 27,  131 => 21,  127 => 20,  123 => 19,  119 => 18,  114 => 17,  108 => 15,  104 => 13,  102 => 12,  98 => 11,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  196 => 52,  190 => 51,  176 => 40,  172 => 39,  167 => 37,  163 => 36,  158 => 35,  151 => 31,  140 => 27,  131 => 21,  127 => 20,  123 => 19,  119 => 18,  114 => 17,  108 => 15,  104 => 13,  102 => 12,  98 => 11,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -250,18 +247,18 @@ class __TwigTemplate_0b7f172021a75912f6a99733da3f7106 extends Template
 <!-- Modal -->
 <div class=\"modal fade\" id=\"{{ plat.libelle }}{{ plat.id }}\" data-bs-backdrop=\"static\" data-bs-keyboard=\"false\" tabindex=\"-1\" aria-labelledby=\"{{ plat.libelle }}{{ plat.id }}Label\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
-    <div class=\"modal-content\">
+    <div class=\"modal-content modalaffcss \">
       <div class=\"modal-header\">
-        <h1 class=\"modal-title fs-5\">{{ plat.libelle }}</h1>
+        <h1 class=\"modal-title fs-5\"><p class=\"libellemv \">{{ plat.libelle }}</p></h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
       <div class=\"modal-body\">
             <img class=\"catbackground\" src=\"{{asset('src/img/plat/')}}{{ plat.image }}\"
                             alt=\"{{ plat.libelle }}\"
                             title=\"{{ plat.libelle }}\" height=\"255px\" width=\"255px\">
-                        <p class=\"catname mx-auto\">{{ plat.libelle }}</p>
+                       
                         <input type=\"hidden\" value=\"{{ plat.id }}\" name=\"cat\">
-            <p>Description : {{ plat.libelle }}</p>
+            <p class=\"descmodal\">Description : {{ plat.libelle }}</p>
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>

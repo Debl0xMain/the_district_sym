@@ -26,18 +26,18 @@
 <!-- Modal -->
 <div class="modal fade" id="{{ plat.libelle }}{{ plat.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="{{ plat.libelle }}{{ plat.id }}Label" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content modalaffcss ">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">{{ plat.libelle }}</h1>
+        <h1 class="modal-title fs-5"><p class="libellemv ">{{ plat.libelle }}</p></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
             <img class="catbackground" src="{{asset('src/img/plat/')}}{{ plat.image }}"
                             alt="{{ plat.libelle }}"
                             title="{{ plat.libelle }}" height="255px" width="255px">
-                        <p class="catname mx-auto">{{ plat.libelle }}</p>
+                       
                         <input type="hidden" value="{{ plat.id }}" name="cat">
-            <p>Description : {{ plat.libelle }}</p>
+            <p class="descmodal">Description : {{ plat.libelle }}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -146,15 +146,15 @@ class __TwigTemplate_7f0212eb46574b86e4c5dd440c7f955c extends Template
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 66), "html", null, true);
                 echo "Label\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
-    <div class=\"modal-content\">
+    <div class=\"modal-content modalaffcss\">
       <div class=\"modal-header\">
-        <h1 class=\"modal-title fs-5\">";
+        <h1 class=\"modal-title fs-5 libellemv\"> <p class=\"libellemv \">";
                 // line 70
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 70), "html", null, true);
-                echo "</h1>
+                echo "</p></h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
-      <div class=\"modal-body\">
+      <div class=\"modal-body text-center\">
                         <img class=\"catbackground\" src=\"";
                 // line 74
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/img/category/"), "html", null, true);
@@ -168,17 +168,13 @@ class __TwigTemplate_7f0212eb46574b86e4c5dd440c7f955c extends Template
                 // line 76
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 76), "html", null, true);
                 echo "\" height=\"255px\" width=\"255px\">
-                        <p class=\"catname mx-auto\">";
-                // line 77
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 77), "html", null, true);
-                echo "</p>
                         <input type=\"hidden\" value=\"";
-                // line 78
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 78), "html", null, true);
+                // line 77
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 77), "html", null, true);
                 echo "\" name=\"cat\">
-            <p>Description : ";
-                // line 79
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 79), "html", null, true);
+            <p class=\"descmodal\">Description : ";
+                // line 78
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 78), "html", null, true);
                 echo "</p>
       </div>
       <div class=\"modal-footer\">
@@ -191,13 +187,13 @@ class __TwigTemplate_7f0212eb46574b86e4c5dd440c7f955c extends Template
  
 ";
             }
-            // line 90
+            // line 89
             echo " ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 91
+        // line 90
         echo " ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -219,7 +215,7 @@ class __TwigTemplate_7f0212eb46574b86e4c5dd440c7f955c extends Template
 
     public function getDebugInfo()
     {
-        return array (  201 => 91,  195 => 90,  181 => 79,  177 => 78,  173 => 77,  169 => 76,  165 => 75,  160 => 74,  153 => 70,  142 => 66,  132 => 59,  128 => 58,  124 => 57,  120 => 56,  115 => 55,  109 => 53,  104 => 50,  102 => 49,  98 => 48,  92 => 45,  88 => 43,  78 => 42,  59 => 40,  36 => 38,);
+        return array (  197 => 90,  191 => 89,  177 => 78,  173 => 77,  169 => 76,  165 => 75,  160 => 74,  153 => 70,  142 => 66,  132 => 59,  128 => 58,  124 => 57,  120 => 56,  115 => 55,  109 => 53,  104 => 50,  102 => 49,  98 => 48,  92 => 45,  88 => 43,  78 => 42,  59 => 40,  36 => 38,);
     }
 
     public function getSourceContext()
@@ -291,18 +287,17 @@ class __TwigTemplate_7f0212eb46574b86e4c5dd440c7f955c extends Template
 <!-- Modal -->
 <div class=\"modal fade\" id=\"{{ categorie.libelle }}{{ categorie.id }}\" data-bs-backdrop=\"static\" data-bs-keyboard=\"false\" tabindex=\"-1\" aria-labelledby=\"{{ categorie.libelle }}{{ categorie.id }}Label\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
-    <div class=\"modal-content\">
+    <div class=\"modal-content modalaffcss\">
       <div class=\"modal-header\">
-        <h1 class=\"modal-title fs-5\">{{ categorie.libelle }}</h1>
+        <h1 class=\"modal-title fs-5 libellemv\"> <p class=\"libellemv \">{{ categorie.libelle }}</p></h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
-      <div class=\"modal-body\">
+      <div class=\"modal-body text-center\">
                         <img class=\"catbackground\" src=\"{{asset('src/img/category/')}}{{ categorie.image }}\"
                             alt=\"{{ categorie.libelle }}\"
                             title=\"{{ categorie.libelle }}\" height=\"255px\" width=\"255px\">
-                        <p class=\"catname mx-auto\">{{ categorie.libelle }}</p>
                         <input type=\"hidden\" value=\"{{ categorie.id }}\" name=\"cat\">
-            <p>Description : {{ categorie.libelle }}</p>
+            <p class=\"descmodal\">Description : {{ categorie.libelle }}</p>
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>
