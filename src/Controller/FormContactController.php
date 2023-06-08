@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ContactRepository;
 use App\Form\ContactType;
 use App\Entity\Contact;
 use AppBundle\Entity\Product;
@@ -13,6 +14,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FormContactController extends AbstractController
 {
+
+    private $contactRepo;
+
+    public function __construct(ContactRepository $contactRepo)
+    {
+        $this->contactRepo = $contactRepo;
+
+    }
+
     #[Route('/contact', name: 'app_contact')]
     public function contactform(Request $request,EntityManagerInterface $entityManager): Response
     {
@@ -35,10 +45,12 @@ class FormContactController extends AbstractController
             return $this->redirectToRoute('app_accueil');
         }
 
+        $contact = $this->contactRepo->findAll();
         return $this->render('contact/contact.html.twig', [
                 // 'form' => $form->createView(),
                 'form' => $form,
                 'controller_name' => 'AccueilController',
+                'contact' => $contact
         ]);
     }
 

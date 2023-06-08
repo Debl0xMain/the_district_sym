@@ -150,6 +150,34 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
 </div>
 </div>
 ";
+        // line 33
+        echo "             <div class=\"col-10 mx-auto\">
+                 <h1 class='contactlabel'>Message : ";
+        // line 34
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["contact"]) || array_key_exists("contact", $context) ? $context["contact"] : (function () { throw new RuntimeError('Variable "contact" does not exist.', 34, $this->source); })())), "html", null, true);
+        echo "</h1>
+                 ";
+        // line 35
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($context["contact"]);
+        foreach ($context['_seq'] as $context["_key"] => $context["contact"]) {
+            // line 36
+            echo "                 <span class=\"d-block contactlabel\">
+                     ";
+            // line 37
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "objet", [], "any", false, false, false, 37)), "html", null, true);
+            echo " - <b class=\"btn-primary p-1\">";
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["contact"], "message", [], "any", false, false, false, 37)), "html", null, true);
+            echo "</b>
+                 </span>
+                 ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['contact'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 40
+        echo "             </div>
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -170,7 +198,7 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
 
     public function getDebugInfo()
     {
-        return array (  148 => 29,  141 => 25,  135 => 22,  129 => 19,  121 => 14,  116 => 12,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  179 => 40,  168 => 37,  165 => 36,  161 => 35,  157 => 34,  154 => 33,  148 => 29,  141 => 25,  135 => 22,  129 => 19,  121 => 14,  116 => 12,  111 => 9,  101 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -206,6 +234,15 @@ class __TwigTemplate_e2284761d940c25934e8804866908caf extends Template
     {{ form_end(form) }}
 </div>
 </div>
+{# test affichage #}
+             <div class=\"col-10 mx-auto\">
+                 <h1 class='contactlabel'>Message : {{ contact | length }}</h1>
+                 {% for contact in contact %}
+                 <span class=\"d-block contactlabel\">
+                     {{ contact.objet |upper }} - <b class=\"btn-primary p-1\">{{ contact.message | upper }}</b>
+                 </span>
+                 {% endfor %}
+             </div>
 {% endblock %}
 ", "contact/contact.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/contact/contact.html.twig");
     }

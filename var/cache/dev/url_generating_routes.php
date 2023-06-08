@@ -21,5 +21,6 @@ return [
     'app_plat' => [[], ['_controller' => 'App\\Controller\\AccueilController::plat'], [], [['text', '/plat']], [], [], []],
     'app_mlegal' => [[], ['_controller' => 'App\\Controller\\AccueilController::mlegal'], [], [['text', '/mentionslegales']], [], [], []],
     'app_cgu' => [[], ['_controller' => 'App\\Controller\\AccueilController::cgu'], [], [['text', '/cgu']], [], [], []],
+    'app_Categorieadd' => [[], ['_controller' => 'App\\Controller\\AdminController::contactform'], [], [['text', '/Categorieadd']], [], [], []],
     'app_contact' => [[], ['_controller' => 'App\\Controller\\FormContactController::contactform'], [], [['text', '/contact']], [], [], []],
 ];

@@ -29,4 +29,13 @@
     {{ form_end(form) }}
 </div>
 </div>
+{# test affichage #}
+             <div class="col-10 mx-auto">
+                 <h1 class='contactlabel'>Message : {{ contact | length }}</h1>
+                 {% for contact in contact %}
+                 <span class="d-block contactlabel">
+                     {{ contact.objet |upper }} - <b class="btn-primary p-1">{{ contact.message | upper }}</b>
+                 </span>
+                 {% endfor %}
+             </div>
 {% endblock %}
