@@ -19,9 +19,11 @@ return [
     'app_accueil' => [[], ['_controller' => 'App\\Controller\\AccueilController::index'], [], [['text', '/']], [], [], []],
     'app_mlegal' => [[], ['_controller' => 'App\\Controller\\AccueilController::mlegal'], [], [['text', '/mentionslegales']], [], [], []],
     'app_cgu' => [[], ['_controller' => 'App\\Controller\\AccueilController::cgu'], [], [['text', '/cgu']], [], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\AccueilController::logout'], [], [['text', '/logout']], [], [], []],
     'app_Categorieadd' => [[], ['_controller' => 'App\\Controller\\CatController::contactform'], [], [['text', '/categorie_add']], [], [], []],
     'app_cat' => [[], ['_controller' => 'App\\Controller\\CatController::cat'], [], [['text', '/categorie']], [], [], []],
     'app_contact' => [[], ['_controller' => 'App\\Controller\\FormContactController::contactform'], [], [['text', '/contact']], [], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], [], []],
     'app_platadd' => [[], ['_controller' => 'App\\Controller\\PlatController::platform'], [], [['text', '/plat_add']], [], [], []],
     'app_plat' => [[], ['_controller' => 'App\\Controller\\PlatController::cat'], [], [['text', '/plat']], [], [], []],
 ];

@@ -64,4 +64,52 @@ class CatController extends AbstractController
         ]);
     }
 
+    public function AffBestPlat()
+{
+        $whereplat = $this->PlatlinkDetail();
+        $qb = $this->createQueryBuilder('a');
+        $qb
+            ->select('*')
+            ->from('plat')
+            ->Where('plat.details like = '.$whereplat.'')
+            ->setMaxResults(3)
+            ->getQuery();
+
+        $AffBestPlat = $qb->getResult();
+        return $AffBestPlat;
+    }
+    public function PlatlinkDetail()
+    {
+        $wheredetail = $this->DetaillinkCommande();
+    
+            $qb = $this->createQueryBuilder('plat');
+            $qb
+                ->select('plat.detail')
+                ->from('plat')
+                ->join('', $alias, $conditionType = null, $condition = null, $indexBy = null)
+                ->Where('plat like = '.$wheredetail.'')
+                ->orderBy('a.i', 'ASC')
+                ->getQuery();
+    
+            $PlatlinkDetail = $qb->getResult();
+            return $PlatlinkDetail;
+        }
+
+        public function DetaillinkCommande()
+        {
+        
+                $qb = $this->createQueryBuilder('a');
+                $qb
+                    ->select('plat.id')
+                    ->from('plat')
+                    ->join($join, $alias, $conditionType = null, $condition = null, $indexBy = null)
+                    ->groupBy($groupBy)
+                    ->orderBy('a.id', 'ASC')
+                    ->getQuery();
+        
+                $DetaillinkCommande = $qb->getResult();
+                return $DetaillinkCommande;
+            } 
+    
 }
+
