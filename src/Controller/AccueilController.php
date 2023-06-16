@@ -6,14 +6,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Repository\DetailRepository;
+use App\Repository\CategorieRepository;
 
 class AccueilController extends AbstractController
 {
+    private $CategorieRepo;
+    private $DetailRepo;
+
+    public function __construct(CategorieRepository $CategorieRepo,DetailRepository $DetailRepo)
+    {
+        $this->CategorieRepo = $CategorieRepo;
+        $this->DetailRepo = $DetailRepo;
+
+    }
+
     #[Route('/', name: 'app_accueil')]
     public function index(): Response
     {
+        $detail = $this->DetailRepo->AffPlatBest();
         return $this->render('page/accueil.html.twig', [
+            
             'controller_name' => 'AccueilController',
+            'detail' => $detail 
         ]);
     }
         #[Route('/mentionslegales', name: 'app_mlegal')]

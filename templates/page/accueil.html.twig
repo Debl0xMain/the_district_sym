@@ -4,4 +4,48 @@
 
 {% block body %}
 
-{% endblock %}
+<div class="row my-1 mx-5 text-center row-cols-lg-3">
+{% for plat in detail %}
+{% if plat['active'] == 1 %}
+<!-- Button trigger modal -->
+<div class='my-5'>
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal{{ plat["id"] }}">
+                <div class="boxcat">
+                        <img class="catbackground" src="{{asset('src/img/plat/')}}{{ plat["image"] }}"
+                            alt="{{ plat["libelle"]  }}"
+                            title="{{ plat["libelle"]  }}" height="255px" width="255px">
+                        <p class="catname mx-auto">{{ plat["libelle"] }}</p>
+                        <p class="catname mx-auto">{{ plat['prix'] }}</p>
+                        <input type="hidden" value="{{ plat["id"] }}" name="cat">
+                </div>
+</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal{{ plat["id"] }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal{{ plat["id"] }}Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modalaffcss ">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"><p class="libellemv ">{{ plat["libelle"] }}</p></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <img class="catbackground" src="{{asset('src/img/plat/')}}{{ plat["image"] }}"
+                            alt="{{ plat["libelle"] }}"
+                            title="{{ plat["libelle"] }}" height="255px" width="255px">
+                       
+                        <input type="hidden" value="{{ plat["id"] }}" name="cat">
+            <p class="descmodal">Description : {{ plat["libelle"] }}</p>
+             <p class="descmodal">Prix : {{ plat["prix"] }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+{% endif %}
+ {% endfor %}
+ {% endblock %}

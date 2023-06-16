@@ -39,6 +39,16 @@ class PlatRepository extends ServiceEntityRepository
         }
     }
 
+    public function Aff_Search($searchinplat): array
+    {
+        return $this->createQueryBuilder('p')
+
+        ->Where('p.libelle like :search')
+        ->setParameter('search', "%".$searchinplat."%")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 //    /**
 //     * @return Plat[] Returns an array of Plat objects
 //     */

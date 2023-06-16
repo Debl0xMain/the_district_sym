@@ -22,8 +22,11 @@ return [
     'app_logout' => [[], ['_controller' => 'App\\Controller\\AccueilController::logout'], [], [['text', '/logout']], [], [], []],
     'app_Categorieadd' => [[], ['_controller' => 'App\\Controller\\CatController::contactform'], [], [['text', '/categorie_add']], [], [], []],
     'app_cat' => [[], ['_controller' => 'App\\Controller\\CatController::cat'], [], [['text', '/categorie']], [], [], []],
+    'app_platcat' => [['libelle'], ['_controller' => 'App\\Controller\\CatController::platcat'], [], [['variable', '/', '[^/]++', 'libelle', true], ['text', '/search']], [], [], []],
+    'app_platsearch' => [[], ['_controller' => 'App\\Controller\\CatController::platsearch'], [], [['text', '/search']], [], [], []],
     'app_contact' => [[], ['_controller' => 'App\\Controller\\FormContactController::contactform'], [], [['text', '/contact']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], [], []],
+    'app_mailer_sendemail' => [[], ['_controller' => 'App\\Controller\\MailerController::sendEmail'], [], [['text', '/email']], [], [], []],
     'app_platadd' => [[], ['_controller' => 'App\\Controller\\PlatController::platform'], [], [['text', '/plat_add']], [], [], []],
     'app_plat' => [[], ['_controller' => 'App\\Controller\\PlatController::cat'], [], [['text', '/plat']], [], [], []],
 ];

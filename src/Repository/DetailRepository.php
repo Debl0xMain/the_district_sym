@@ -39,20 +39,22 @@ class DetailRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Detail[] Returns an array of Detail objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('d.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Detail[] Returns an array of Detail objects
+    */
+   public function AffPlatBest(): array
+   {
+       return $this->createQueryBuilder('d')
+           ->Select('p.id,p.active,p.prix,p.libelle,p.image, (COUNT(c.id)*SUM(d.quantite)) as resultat')
+           ->Join('d.plat','p')
+           ->Join('d.commande','c')
+           ->GroupBy('p.id')
+           ->orderBy("resultat", 'DESC')
+           ->setMaxResults(3)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Detail
 //    {

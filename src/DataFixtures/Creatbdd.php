@@ -10,12 +10,17 @@ use App\Entity\Contact;
 use App\Entity\Detail;
 use App\Entity\Plat;
 use App\Entity\Utilisateur;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class Creatbdd extends Fixture
 {
+    private $hasher;
+
+    public function __construct(UserPasswordHasherInterface $hasher){
+        $this->hasher = $hasher;
+    }
     public function load(ObjectManager $manager): void
     {
-
         $categorie1 = new categorie();
 
         $categorie1->setLibelle("Pizza");
@@ -245,7 +250,7 @@ class Creatbdd extends Fixture
         $user1->SetEmail("admin@admin.fr");
         $user1->getRoles('ROLE_USER');
         $user1->setIsVerified(1);
-        $user1->SetPassword('undown');
+        $user1->SetPassword($this->hasher->hashPassword($user1, 'admin'));
         $user1->SetNom('Admin');
         $user1->SetPrenom('Admin');
         $user1->SetTelephone('0000000000');
@@ -305,6 +310,36 @@ class Creatbdd extends Fixture
         $commande6->setEtat(0);
 
         $manager->persist($commande6);
+
+        $detail1 =new detail();
+        $detail1->setPlat($plat1);
+        $detail1->setQuantite(3);
+        $detail1->setCommande($commande1);
+
+        $manager->persist($detail1);
+
+
+        $detail2 =new detail();
+        $detail2->setPlat($plat3);
+        $detail2->setQuantite(2);
+        $detail2->setCommande($commande3);
+
+        $manager->persist($detail2);
+
+
+        $detail3 =new detail();
+        $detail3->setPlat($plat2);
+        $detail3->setQuantite(1);
+        $detail3->setCommande($commande4);
+
+        $manager->persist($detail3);
+
+        $detail4 =new detail();
+        $detail4->setPlat($plat3);
+        $detail4->setQuantite(2);
+        $detail4->setCommande($commande3);
+
+        $manager->persist($detail4);
 
         $manager->flush();
     }

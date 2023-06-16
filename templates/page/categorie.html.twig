@@ -49,15 +49,17 @@
 {% for categorie in categorie %}
 {% if categorie.active == 1 %}
                 <div>
-                    <button type="button" class="btn">
+                <a href="{{ path("app_platcat", {"libelle" :categorie.libelle }) }}">
+                    <button type="submit" class="btn" name="categorie" value="{{ categorie.libelle }}">
                           <div class="boxcat">
                             <img class="catbackground" src="{{asset('src/img/category/')}}{{ categorie.image }}"
                                 alt="{{ categorie.libelle }}"
                                 title="{{ categorie.libelle }}" height="255px" width="255px">
                             <p class="catname mx-auto">{{ categorie.libelle }}</p>
                             <input type="hidden" value="{{ categorie.id }}" name="cat">
-                          </div>
+                          </a>
                   </button>
+                  </form>
                 </div>
  
 {% endif %}

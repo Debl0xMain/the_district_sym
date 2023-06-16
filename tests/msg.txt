@@ -1,0 +1,35 @@
+Livrée = 3
+En cours de livraison" = 2
+En préparation = 1
+Annulé = 0
+
+
+ACTIVE P^LAT :
+Yes = 1
+No = 0
+
+$categorie1 = pizza
+$categorie2 = burger
+$categorie3 = wraps
+$categorie4 = pasta
+$categorie5 = Sandwich
+$categorie6 = Asian
+$categorie7 = Salade
+$categorie8 = Veggie
+
+
+
+make User : 
+
+  make:registration-form     
+  make:reset-password
+  make:login
+  
+  
+Select plat.id,(COUNT(commande.id)*SUM(quantite)) as 'resultat' 
+From detail 
+Join plat on plat.id = detail.plat_id 
+Join commande on detail.commande_id = commande.id 
+GROUP BY plat.id ORDER 
+BY `resultat` DESC 
+                 LIMIT 0,3

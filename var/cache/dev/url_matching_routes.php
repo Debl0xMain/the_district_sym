@@ -20,8 +20,10 @@ return [
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\AccueilController::logout'], null, null, null, false, false, null]],
         '/categorie_add' => [[['_route' => 'app_Categorieadd', '_controller' => 'App\\Controller\\CatController::contactform'], null, null, null, false, false, null]],
         '/categorie' => [[['_route' => 'app_cat', '_controller' => 'App\\Controller\\CatController::cat'], null, null, null, false, false, null]],
+        '/search' => [[['_route' => 'app_platsearch', '_controller' => 'App\\Controller\\CatController::platsearch'], null, null, null, false, false, null]],
         '/contact' => [[['_route' => 'app_contact', '_controller' => 'App\\Controller\\FormContactController::contactform'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginController::index'], null, null, null, false, false, null]],
+        '/email' => [[['_route' => 'app_mailer_sendemail', '_controller' => 'App\\Controller\\MailerController::sendEmail'], null, null, null, false, false, null]],
         '/plat_add' => [[['_route' => 'app_platadd', '_controller' => 'App\\Controller\\PlatController::platform'], null, null, null, false, false, null]],
         '/plat' => [[['_route' => 'app_plat', '_controller' => 'App\\Controller\\PlatController::cat'], null, null, null, false, false, null]],
     ],
@@ -42,6 +44,7 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/search/([^/]++)(*:185)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -51,8 +54,9 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        185 => [
+            [['_route' => 'app_platcat', '_controller' => 'App\\Controller\\CatController::platcat'], ['libelle'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
