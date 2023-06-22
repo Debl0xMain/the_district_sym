@@ -1,0 +1,156 @@
+<?php
+
+namespace App\Form;
+
+use App\Entity\Utilisateur;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+class ProfilFormType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+
+            ->add('email', EmailType::class, [
+                'constraints' => [
+                    new NotBlank(['message' => 'Adresse email manquante.']),
+                    new Email(['message' => 'Adresse email invalide.']),
+                ],
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+                        'class'=>'contactinput my-2' 
+                        ]
+            ])
+        
+            ->add('plainPassword', RepeatedType::class, [
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+                        'class'=>'contactinput my-2' 
+                ],
+                'type' => PasswordType::class,
+                'invalid_message' => 'Les mots de passe ne correspondent pas.',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new Length([
+                        'min' => 8,
+                        'minMessage' => 'Le mot de passe doit faire au moins 8 caractères.',
+                        'max' => 4096,
+                        'maxMessage' => 'Le mot de passe ne doit pas dépasser 8 caractères.',
+                    ])
+                ],
+            ])
+            ->add('nom', TextType::class, [
+                'constraints' => [
+                    new NotBlank(['message' => 'nom manquant.']),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Le nom doit faire au moins 3 caractères.',
+                        'max' => 30,
+                        'maxMessage' => 'Le nom ne doit pas dépasser 3 caractères.',
+                    ]),
+                    new Regex([
+                        'pattern' => '~^[a-zA-Z0-9_.-]+$~',
+                        'message' => 'Le nom ne doit contenir que des caractères alphanumériques non accentués et ".", "-" et "_".',
+                    ]),
+                ],
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+                        'class'=>'contactinput my-2' 
+                        ]
+            ])
+            ->add('prenom', TextType::class, [
+                'constraints' => [
+                    new NotBlank(['message' => 'prenom manquant.']),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Le prenom doit faire au moins 3 caractères.',
+                        'max' => 30,
+                        'maxMessage' => 'Le prenom ne doit pas dépasser 3 caractères.',
+                    ]),
+                    new Regex([
+                        'pattern' => '~^[a-zA-Z0-9_.-]+$~',
+                        'message' => 'Le prenom ne doit contenir que des caractères alphanumériques non accentués et ".", "-" et "_".',
+                    ]),
+                    
+                ],
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+                        'class'=>'contactinput my-2' 
+                        ]
+            ])
+            ->add('telephone',TextType::class,[
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+                        'class'=>'contactinput my-2' 
+                        ]
+            ])
+            ->add('adresse',TextType::class,[
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+
+                        'class'=>'contactinput my-2' 
+                        ]
+            ])
+            ->add('cp',TextType::class,[
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+
+                        'class'=>'contactinput my-2' 
+                        ]
+            ])
+            ->add('ville',TextType::class,[
+                'label_attr' => [
+                    "class" =>"contactlabel"
+                    ],
+                'attr'=> [
+                        'class'=>'contactinput my-2' 
+                        ]
+            ])
+        ;
+    }
+    #[UniqueEntity(
+        fields: ['email'],
+        message: 'Cette adresse email est déjà utilisée.',
+    )]
+    #[UniqueEntity(
+        fields: ['pseudo'],
+        message: 'Ce pseudo est déjà utilisé.',
+    )]
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Utilisateur::class,
+        ]);
+    }
+}

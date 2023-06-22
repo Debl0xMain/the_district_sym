@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{('src/Css/contact.css')}}">{% endblock %}
+{% block body %}
+
+{% for type, message_list in app.flashes %}
+    {% for message in message_list %}
+        <div class="notification is-{{ type }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+{% block content %}
+    <div class="section">
+		<div class="text-center my-5">
+<div class="row my-5">
+
+        <div class="content row">
+            {{ form_start(form) }}
+
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.email, { label: 'Adresse email :' }) }}
+            </div>
+
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.nom, { label: 'Nom :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.prenom, { label: 'Prenom :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.ville, { label: 'Ville:' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.cp, { label: 'Code postal :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.adresse, { label: 'Adresse :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.telephone, { label: 'Telephone :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.plainPassword.first, { label: 'Mot de passe :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(form.plainPassword.second, { label: 'Confirmez le mot de passe :' }) }}
+
+            </div>
+        </div>
+            <div class="col-9 mx-auto mb-2">
+                <button type="submit" class="button btn btn-primary">Mettre à jour</button>
+            </div>
+            {{ form_end(form) }}
+
+            <h3>Événements:</h3>
+        
+</div>
+</div>
+{% endblock %}
+
+{% endblock %}
