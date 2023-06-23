@@ -123,9 +123,6 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
 ";
         // line 14
         $this->displayBlock('content', $context, $blocks);
-        // line 62
-        echo "
-";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -134,7 +131,6 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
 
     }
 
-    // line 14
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -218,11 +214,61 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
             ";
         // line 55
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 55, $this->source); })()), 'form_end');
-        echo "
-
-            <h3>Événements:</h3>
-        
+        echo "        
 </div>
+</div>
+
+<div class='row my-5'>
+<h2>Historique des commandes</h2>
+
+<div class=\"row\">
+
+    ";
+        // line 64
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["cmddetail"]) || array_key_exists("cmddetail", $context) ? $context["cmddetail"] : (function () { throw new RuntimeError('Variable "cmddetail" does not exist.', 64, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["cmd"]) {
+            // line 65
+            echo "    <div class=\"row\">
+
+        <div class=\"col test\"><p>";
+            // line 67
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cmd"], "libelle", [], "any", false, false, false, 67), "html", null, true);
+            echo "</p></div>
+        <div class=\"col test\"><p> prix/u ";
+            // line 68
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cmd"], "prix", [], "any", false, false, false, 68), "html", null, true);
+            echo "</p></div>
+        <div class=\"col test\">date ";
+            // line 69
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cmd"], "date_commande", [], "any", false, false, false, 69), "d-m-Y"), "html", null, true);
+            echo "</div>
+        <div class=\"col test\"> etat ";
+            // line 70
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cmd"], "etat", [], "any", false, false, false, 70), "html", null, true);
+            echo "</div>
+        <div class=\"col test\">quantite ";
+            // line 71
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cmd"], "quantite", [], "any", false, false, false, 71), "html", null, true);
+            echo "</div>
+        <div class=\"col test\">prix/t ";
+            // line 72
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cmd"], "total", [], "any", false, false, false, 72), "html", null, true);
+            echo "</div>
+        <div class=\"col test\">id commande ";
+            // line 73
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cmd"], "id", [], "any", false, false, false, 73), "html", null, true);
+            echo "</div>
+    </div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cmd'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 76
+        echo "
+</div>
+
 </div>
 ";
         
@@ -245,7 +291,7 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
 
     public function getDebugInfo()
     {
-        return array (  220 => 55,  210 => 48,  204 => 45,  198 => 42,  192 => 39,  186 => 36,  180 => 33,  174 => 30,  168 => 27,  161 => 23,  155 => 20,  148 => 15,  138 => 14,  127 => 62,  125 => 14,  122 => 13,  109 => 9,  104 => 8,  99 => 7,  95 => 6,  92 => 5,  82 => 4,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  269 => 76,  260 => 73,  256 => 72,  252 => 71,  248 => 70,  244 => 69,  240 => 68,  236 => 67,  232 => 65,  228 => 64,  216 => 55,  206 => 48,  200 => 45,  194 => 42,  188 => 39,  182 => 36,  176 => 33,  170 => 30,  164 => 27,  157 => 23,  151 => 20,  144 => 15,  125 => 14,  122 => 13,  109 => 9,  104 => 8,  99 => 7,  95 => 6,  92 => 5,  82 => 4,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -304,14 +350,33 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
             <div class=\"col-9 mx-auto mb-2\">
                 <button type=\"submit\" class=\"button btn btn-primary\">Mettre à jour</button>
             </div>
-            {{ form_end(form) }}
-
-            <h3>Événements:</h3>
-        
+            {{ form_end(form) }}        
 </div>
+</div>
+
+<div class='row my-5'>
+<h2>Historique des commandes</h2>
+
+<div class=\"row\">
+
+    {% for cmd in cmddetail %}
+    <div class=\"row\">
+
+        <div class=\"col test\"><p>{{ cmd.libelle }}</p></div>
+        <div class=\"col test\"><p> prix/u {{ cmd.prix }}</p></div>
+        <div class=\"col test\">date {{ cmd.date_commande |date('d-m-Y') }}</div>
+        <div class=\"col test\"> etat {{ cmd.etat }}</div>
+        <div class=\"col test\">quantite {{ cmd.quantite }}</div>
+        <div class=\"col test\">prix/t {{ cmd.total }}</div>
+        <div class=\"col test\">id commande {{ cmd.id }}</div>
+    </div>
+    {% endfor %}
+
+</div>
+
 </div>
 {% endblock %}
-
-{% endblock %}", "profil/user.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/profil/user.html.twig");
+{% endblock %}
+", "profil/user.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/profil/user.html.twig");
     }
 }

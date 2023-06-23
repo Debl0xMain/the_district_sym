@@ -125,7 +125,7 @@ class __TwigTemplate_6d354a1b4ea1a09372439d4ce73c99ef extends Template
                 // line 20
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 20), "html", null, true);
                 echo "</p>
-                        <p class=\"catname mx-auto\">";
+                        <p class=\"catprix mx-auto\">";
                 // line 21
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "prix", [], "any", false, false, false, 21), "html", null, true);
                 echo "</p>
@@ -244,7 +244,7 @@ class __TwigTemplate_6d354a1b4ea1a09372439d4ce73c99ef extends Template
                             alt=\"{{ plat.libelle }}\"
                             title=\"{{ plat.libelle }}\" height=\"255px\" width=\"255px\">
                         <p class=\"catname mx-auto\">{{ plat.libelle }}</p>
-                        <p class=\"catname mx-auto\">{{ plat.prix }}</p>
+                        <p class=\"catprix mx-auto\">{{ plat.prix }}</p>
                         <input type=\"hidden\" value=\"{{ plat.id }}\" name=\"cat\">
                 </div>
 </button>

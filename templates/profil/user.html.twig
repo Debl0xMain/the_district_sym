@@ -52,12 +52,30 @@
             <div class="col-9 mx-auto mb-2">
                 <button type="submit" class="button btn btn-primary">Mettre à jour</button>
             </div>
-            {{ form_end(form) }}
-
-            <h3>Événements:</h3>
-        
+            {{ form_end(form) }}        
 </div>
+</div>
+
+<div class='row my-5'>
+<h2>Historique des commandes</h2>
+
+<div class="row">
+
+    {% for cmd in cmddetail %}
+    <div class="row">
+
+        <div class="col test"><p>{{ cmd.libelle }}</p></div>
+        <div class="col test"><p> prix/u {{ cmd.prix }}</p></div>
+        <div class="col test">date {{ cmd.date_commande |date('d-m-Y') }}</div>
+        <div class="col test"> etat {{ cmd.etat }}</div>
+        <div class="col test">quantite {{ cmd.quantite }}</div>
+        <div class="col test">prix/t {{ cmd.total }}</div>
+        <div class="col test">id commande {{ cmd.id }}</div>
+    </div>
+    {% endfor %}
+
+</div>
+
 </div>
 {% endblock %}
-
 {% endblock %}

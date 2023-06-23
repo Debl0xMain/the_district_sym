@@ -52,6 +52,7 @@ class AccueilController extends AbstractController
     public function index(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppCustomAuthenticator $authenticator, EntityManagerInterface $entityManager,AuthenticationUtils $authenticationUtils): Response
     {
         $detail = $this->DetailRepo->AffPlatBest();
+        $AffCatBest = $this->DetailRepo->AffCatBest();
         $lastUsername = $this->lastUsername;
         $error = $this->error;
         $user = new Utilisateur();
@@ -91,7 +92,8 @@ class AccueilController extends AbstractController
             'detail' => $detail,
             'last_username' => $lastUsername,
             'error' => $error,
-            'registrationForm' => $form->createView()
+            'registrationForm' => $form->createView(),
+            'AffCatBest' => $AffCatBest
         ]);
     }
     #[Route('/verify/email', name: 'app_verify_email')]

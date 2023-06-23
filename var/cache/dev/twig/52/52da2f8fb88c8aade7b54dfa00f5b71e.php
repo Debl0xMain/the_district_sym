@@ -79,32 +79,25 @@ class __TwigTemplate_9f22d6fe260dd3a24d82b408c901eef2 extends Template
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_error'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 7
-        echo "
-    <h1>Register</h1>
+        echo "    <div>
+<h1>Hi! Please confirm your email!</h1>
 
-    ";
-        // line 10
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 10, $this->source); })()), 'form_start');
-        echo "
-        ";
-        // line 11
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 11, $this->source); })()), "email", [], "any", false, false, false, 11), 'row');
-        echo "
-        ";
+<p>
+    Please confirm your email address by clicking the following link: <br><br>
+    <a href=\"";
         // line 12
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 12, $this->source); })()), "plainPassword", [], "any", false, false, false, 12), 'row', ["label" => "Password"]);
-        // line 14
-        echo "
-        ";
-        // line 15
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 15, $this->source); })()), "agreeTerms", [], "any", false, false, false, 15), 'row');
-        echo "
+        echo (isset($context["signedUrl"]) || array_key_exists("signedUrl", $context) ? $context["signedUrl"] : (function () { throw new RuntimeError('Variable "signedUrl" does not exist.', 12, $this->source); })());
+        echo "\">Confirm my Email</a>.
+    This link will expire in ";
+        // line 13
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["expiresAtMessageKey"]) || array_key_exists("expiresAtMessageKey", $context) ? $context["expiresAtMessageKey"] : (function () { throw new RuntimeError('Variable "expiresAtMessageKey" does not exist.', 13, $this->source); })()), (isset($context["expiresAtMessageData"]) || array_key_exists("expiresAtMessageData", $context) ? $context["expiresAtMessageData"] : (function () { throw new RuntimeError('Variable "expiresAtMessageData" does not exist.', 13, $this->source); })()), "VerifyEmailBundle"), "html", null, true);
+        echo ".
+</p>
 
-        <button type=\"submit\" class=\"btn\">Register</button>
-    ";
-        // line 18
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 18, $this->source); })()), 'form_end');
-        echo "
+<p>
+    Cheers!
+</p>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -126,7 +119,7 @@ class __TwigTemplate_9f22d6fe260dd3a24d82b408c901eef2 extends Template
 
     public function getDebugInfo()
     {
-        return array (  106 => 18,  100 => 15,  97 => 14,  95 => 12,  91 => 11,  87 => 10,  82 => 7,  73 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  93 => 13,  89 => 12,  82 => 7,  73 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -137,18 +130,19 @@ class __TwigTemplate_9f22d6fe260dd3a24d82b408c901eef2 extends Template
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class=\"alert alert-danger\" role=\"alert\">{{ flash_error }}</div>
     {% endfor %}
+    <div>
+<h1>Hi! Please confirm your email!</h1>
 
-    <h1>Register</h1>
+<p>
+    Please confirm your email address by clicking the following link: <br><br>
+    <a href=\"{{ signedUrl|raw }}\">Confirm my Email</a>.
+    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type=\"submit\" class=\"btn\">Register</button>
-    {{ form_end(registrationForm) }}
+<p>
+    Cheers!
+</p>
+</div>
 {% endblock %}
 ", "registration/register.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/registration/register.html.twig");
     }

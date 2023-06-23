@@ -11,6 +11,24 @@
     margin-top: 110px !important;
     margin-bottom: 10px;
 }
+.contactinput {
+    color: black !important;
+    text-shadow: none !important;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+    left: 15px;
+    z-index: 6 !important;
+}
+.form-control {
+    color: black !important;
+    text-shadow: none !important;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+    left: 15px;
+    z-index: 6 !important;
+}
 #searchbar {
     width: 200px;
 }
@@ -48,14 +66,27 @@
     transition-property: border-radius;
 }
 .catname {
-    font-size: 4rem;
+    font-size: 2.8rem;
     font-family: 'craie';
     position: absolute;
     z-index: 2;
     color: white;
     text-shadow: 4px 0px 4px #9e0e40, 0 0 1em #9e0e40 , 0 0 0.2em #ff0059f3;
     left: 10px;
-    top: -5px;
+    top: 150px;
+    backdrop-filter: blur(2px);
+    border-radius: 50px;
+
+}
+.catprix {
+    font-size: 2.8rem;
+    font-family: 'craie';
+    position: absolute;
+    z-index: 2;
+    color: white;
+    text-shadow: 4px 0px 4px #9e0e40, 0 0 1em #9e0e40 , 0 0 0.2em #ff0059f3;
+    left: 10px;
+    top: 5px;
     backdrop-filter: blur(2px);
     border-radius: 50px;
 
@@ -140,4 +171,10 @@
     z-index: 2;
     color: white;
     text-shadow: 4px 0px 4px #9e0e40, 0 0 1em #9e0e40 , 0 0 0.2em #ff0059f3;
+}
+
+
+.test {
+    color: white !important;
+    font-size: 1.5rem;
 }

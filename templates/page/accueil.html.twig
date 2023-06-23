@@ -3,7 +3,34 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+<div class="row my-5 mx-5 text-center row-cols-lg-1">
+  <div class="col platmv"><p>Nos meilleurs catégories </p></div>
+</div>
+<div class="row my-5 mx-5 text-center row-cols-lg-3">
+{% for categorie in AffCatBest %}
+{% if categorie['active'] == 1 %}
+<div>
+                <a href="{{ path("app_platcat", {"libelle" :categorie.libelle }) }}">
+                    <button type="submit" class="btn" name="categorie" value="{{ categorie.libelle }}">
+                          <div class="boxcat">
+                            <img class="catbackground" src="{{asset('/src/img/category/')}}{{ categorie.image }}"
+                                alt="{{ categorie.libelle }}"
+                                title="{{ categorie.libelle }}" height="255px" width="255px">
+                            <p class="catname mx-auto">{{ categorie.libelle }}</p>
+                            <input type="hidden" value="{{ categorie.id }}" name="cat">
+                          </a>
+                  </button>
+                  </form>
+                </div>
+{% endif %}
+ {% endfor %}
+ </div>
 
+<div class="row my-5 mx-5 text-center row-cols-lg-1"></div>
+
+<div class="row my-5 mx-5 text-center row-cols-lg-1">
+  <div class="col platmv"><p>Nos meilleurs plats </p></div>
+</div>
 <div class="row my-1 mx-5 text-center row-cols-lg-3">
 {% for plat in detail %}
 {% if plat['active'] == 1 %}
@@ -15,7 +42,7 @@
                             alt="{{ plat["libelle"]  }}"
                             title="{{ plat["libelle"]  }}" height="255px" width="255px">
                         <p class="catname mx-auto">{{ plat["libelle"] }}</p>
-                        <p class="catname mx-auto">{{ plat['prix'] }}</p>
+                        <p class="catprix mx-auto">{{ plat['prix'] }}</p>
                         <input type="hidden" value="{{ plat["id"] }}" name="cat">
                 </div>
 </button>

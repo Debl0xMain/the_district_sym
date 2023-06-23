@@ -56,6 +56,37 @@ class DetailRepository extends ServiceEntityRepository
        ;
    }
 
+   public function AffCatBest(): array
+   {
+       return $this->createQueryBuilder('d')
+           ->Select('k.id,k.libelle,k.image,k.active, (COUNT(c.id)*SUM(d.quantite)) as resultat')
+           ->Join('d.plat','p')
+           ->Join('p.categorie','k')
+           ->Join('d.commande','c')
+           ->GroupBy('k.id')
+           ->orderBy("resultat", 'DESC')
+           ->setMaxResults(3)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
+   public function AffHistoriqueCmd($userid): array
+   {
+       return $this->createQueryBuilder('d')
+        ->Select('p.libelle,p.prix,k.date_commande,k.etat,d.quantite,k.total,k.id')
+        ->Join('d.plat','p')
+        ->Join('d.commande','k')
+        //   ->GroupBy('p.id')
+        ->Join('d.commande','c')
+        ->Join('c.utilisateur','u')
+        ->Where('u.id = :userid')
+        ->setParameter('userid', "29")
+        ->getQuery()
+        ->getResult()
+       ;
+   }
+
 //    public function findOneBySomeField($value): ?Detail
 //    {
 //        return $this->createQueryBuilder('d')

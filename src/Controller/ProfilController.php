@@ -6,6 +6,7 @@ use App\Repository\UtilisateurRepository;
 
 use App\Form\ProfilFormType;
 use App\Repository\Utilisateur;
+use App\Repository\DetailRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,12 +27,15 @@ class ProfilController extends AbstractController
 {
     private $userRepo;
 
-    public function __construct(UtilisateurRepository $userRepo){
+    public function __construct(DetailRepository $detailrepo,UtilisateurRepository $userRepo){
         $this->userRepo = $userRepo;
+        $this->DetailRepo = $detailrepo;
     }
     #[Route('/profil', name: 'app_profil')]
     public function index(AppCustomAuthenticator $authenticator,AuthenticationUtils $authenticationUtils,Request $request,UserPasswordHasherInterface $passwordHasher,EntityManagerInterface $entityManager): Response
     {
+        $userid = "29";
+        $cmddetail = $this->DetailRepo->AffHistoriqueCmd($userid);
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
         $identifiant = $this->getUser()->getUserIdentifier();
@@ -55,12 +59,12 @@ class ProfilController extends AbstractController
     
         }
 
-
         return $this->render('profil/user.html.twig', [
             'informations' => $info,
             'last_username' => $lastUsername,
             'error' => $error,
             'form' => $form->createView(),
+            'cmddetail' => $cmddetail
 
         ]);
     }

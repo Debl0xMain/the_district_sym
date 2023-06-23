@@ -29,6 +29,8 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
+            'login' => [$this, 'block_login'],
+            'register' => [$this, 'block_register'],
             'body' => [$this, 'block_body'],
             'javascripts' => [$this, 'block_javascripts'],
         ];
@@ -213,12 +215,12 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
             // line 109
             echo "
                                     <h1 class=\"h3 mb-3 font-weight-normal\">Login</h1>
-                                    <label for=\"inputEmail\">Email</label>
+                                    <label class='form-label' for=\"inputEmail\">Email</label>
                                     <input type=\"email\" value=\"";
             // line 112
             echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 112, $this->source); })()), "html", null, true);
             echo "\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
-                                    <label for=\"inputPassword\">Password</label>
+                                    <label class='form-label' for=\"inputPassword\">Password</label>
                                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
 
                                     <input type=\"hidden\" name=\"_csrf_token\"
@@ -246,9 +248,9 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
             </div>
         
               <div class=\" text-center inscription\" id=\"inscription\">
-              <form action=\"";
+              <form method=\"post\" action=\"";
             // line 138
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_accueil");
             echo "\">
 
     <div class=\"content row\">
@@ -316,21 +318,21 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
         </div>
             <div class=\"col-9 mx-auto mb-2\">
                         <div class=\"form-group\">
-                        <a href=\"";
+                        ";
             // line 175
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cgu");
-            echo "\">";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 175, $this->source); })()), "agreeTerms", [], "any", false, false, false, 175), 'label', ["label" => "Terms"]);
-            echo " ";
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 175, $this->source); })()), "agreeTerms", [], "any", false, false, false, 175), 'widget');
-            echo "</a>
+            echo "
+                        <a href=\"";
+            // line 176
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cgu");
+            echo "\"> link</a>
                          </div>
 
                 <button type=\"submit\" class=\"button btn btn-primary\">Inscription</button>
             </div>
             ";
-            // line 180
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 180, $this->source); })()), 'form_end');
+            // line 181
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 181, $this->source); })()), 'form_end');
             echo "
 
                     </form>
@@ -346,7 +348,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 </div>'
 ";
         }
-        // line 195
+        // line 196
         echo "
 <div class=\"modal fade\" id=\"basket-shopping\" tabindex=\"-1\" aria-labelledby=\"basket-shoppingLabel\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
@@ -367,10 +369,10 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 </div>
 
 ";
-        // line 215
+        // line 216
         echo "<div class='row my-2'>
 <form action=\"";
-        // line 216
+        // line 217
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_platsearch");
         echo "\" method=\"POST\">
     <div class=\"input-group searchdiv\">
@@ -387,10 +389,16 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 ";
-        // line 231
+        // line 232
+        echo "        ";
+        $this->displayBlock('login', $context, $blocks);
+        // line 233
+        echo "        ";
+        $this->displayBlock('register', $context, $blocks);
+        // line 234
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 232
+        // line 235
         echo "
 <footer>
 <nav class=\"navbar navbar-expand-sm justify-content-center fixed-bottom bg-nav\">
@@ -415,13 +423,13 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
             </li>
             <li class=\"nav-item pt-3\">
                 <a class=\"nav-link navtext reveal-bot\" href=\"";
-        // line 255
+        // line 258
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mlegal");
         echo "\"><p>Mentions Legales</p></a>
             </li>
             <li class=\"nav-item pt-3\">
                 <a class=\"nav-link navtext reveal-bot\" href=\"";
-        // line 258
+        // line 261
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cgu");
         echo "\"><p>Cgu</p></a>
             </li>
@@ -439,14 +447,17 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
   crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
-        <script src=\"";
-        // line 274
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/btnclick.js"), "html", null, true);
-        echo "\"></script>
          ";
-        // line 275
+        // line 277
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 277, $this->source); })()), "user", [], "any", false, false, false, 277) == null)) {
+            echo "<script src=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/btnclick.js"), "html", null, true);
+            echo "\"></script>  ";
+        }
+        // line 278
+        echo "         ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 276
+        // line 279
         echo "    </body>
 </html>";
         
@@ -494,7 +505,43 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     }
 
-    // line 231
+    // line 232
+    public function block_login($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "login"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "login"));
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 233
+    public function block_register($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "register"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "register"));
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 234
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -512,7 +559,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     }
 
-    // line 275
+    // line 278
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -542,7 +589,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     public function getDebugInfo()
     {
-        return array (  516 => 275,  498 => 231,  480 => 22,  461 => 5,  450 => 276,  448 => 275,  444 => 274,  425 => 258,  419 => 255,  394 => 232,  391 => 231,  374 => 216,  371 => 215,  350 => 195,  333 => 180,  321 => 175,  312 => 169,  306 => 166,  300 => 163,  294 => 160,  288 => 157,  282 => 154,  276 => 151,  270 => 148,  263 => 144,  257 => 141,  251 => 138,  234 => 123,  227 => 117,  219 => 112,  214 => 109,  208 => 107,  206 => 106,  202 => 105,  186 => 91,  183 => 89,  181 => 88,  178 => 87,  168 => 78,  165 => 76,  156 => 69,  153 => 68,  149 => 65,  141 => 60,  136 => 58,  128 => 54,  126 => 53,  115 => 45,  109 => 42,  103 => 39,  97 => 36,  85 => 26,  81 => 23,  79 => 22,  75 => 21,  71 => 20,  53 => 5,  47 => 1,);
+        return array (  563 => 278,  545 => 234,  527 => 233,  509 => 232,  491 => 22,  472 => 5,  461 => 279,  458 => 278,  452 => 277,  433 => 261,  427 => 258,  402 => 235,  399 => 234,  396 => 233,  393 => 232,  376 => 217,  373 => 216,  352 => 196,  335 => 181,  327 => 176,  323 => 175,  314 => 169,  308 => 166,  302 => 163,  296 => 160,  290 => 157,  284 => 154,  278 => 151,  272 => 148,  265 => 144,  259 => 141,  253 => 138,  236 => 123,  229 => 117,  221 => 112,  216 => 109,  210 => 107,  208 => 106,  204 => 105,  188 => 91,  185 => 89,  183 => 88,  180 => 87,  170 => 78,  167 => 76,  158 => 69,  155 => 68,  151 => 65,  143 => 60,  138 => 58,  130 => 54,  128 => 53,  117 => 45,  111 => 42,  105 => 39,  99 => 36,  87 => 26,  83 => 23,  81 => 22,  77 => 21,  73 => 20,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -657,9 +704,9 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
                                     {% endif %}
 
                                     <h1 class=\"h3 mb-3 font-weight-normal\">Login</h1>
-                                    <label for=\"inputEmail\">Email</label>
+                                    <label class='form-label' for=\"inputEmail\">Email</label>
                                     <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
-                                    <label for=\"inputPassword\">Password</label>
+                                    <label class='form-label' for=\"inputPassword\">Password</label>
                                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
 
                                     <input type=\"hidden\" name=\"_csrf_token\"
@@ -684,7 +731,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
             </div>
         
               <div class=\" text-center inscription\" id=\"inscription\">
-              <form action=\"{{path('app_register')}}\">
+              <form method=\"post\" action=\"{{ path('app_accueil')}}\">
 
     <div class=\"content row\">
             {{ form_start(registrationForm) }}
@@ -721,7 +768,8 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
         </div>
             <div class=\"col-9 mx-auto mb-2\">
                         <div class=\"form-group\">
-                        <a href=\"{{ path(\"app_cgu\") }}\">{{ form_label(registrationForm.agreeTerms, 'Terms') }} {{ form_widget(registrationForm.agreeTerms) }}</a>
+                        {{ form_widget(registrationForm.agreeTerms) }}
+                        <a href=\"{{ path(\"app_cgu\") }}\"> link</a>
                          </div>
 
                 <button type=\"submit\" class=\"button btn btn-primary\">Inscription</button>
@@ -777,6 +825,8 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 {# Body #}
+        {% block login %}{% endblock %}
+        {% block register %}{% endblock %}
         {% block body %}{% endblock %}
 
 <footer>
@@ -820,7 +870,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
   crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
-        <script src=\"{{asset('src/js/btnclick.js')}}\"></script>
+         {% if app.user == null %}<script src=\"{{asset('src/js/btnclick.js')}}\"></script>  {% endif %}
          {% block javascripts %}{% endblock %}
     </body>
 </html>", "base.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/base.html.twig");

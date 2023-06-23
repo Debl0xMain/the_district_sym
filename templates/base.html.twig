@@ -108,9 +108,9 @@
                                     {% endif %}
 
                                     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-                                    <label for="inputEmail">Email</label>
+                                    <label class='form-label' for="inputEmail">Email</label>
                                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                                    <label for="inputPassword">Password</label>
+                                    <label class='form-label' for="inputPassword">Password</label>
                                     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
                                     <input type="hidden" name="_csrf_token"
@@ -135,7 +135,7 @@
             </div>
         
               <div class=" text-center inscription" id="inscription">
-              <form action="{{path('app_register')}}">
+              <form method="post" action="{{ path('app_accueil')}}">
 
     <div class="content row">
             {{ form_start(registrationForm) }}
@@ -172,7 +172,8 @@
         </div>
             <div class="col-9 mx-auto mb-2">
                         <div class="form-group">
-                        <a href="{{ path("app_cgu") }}">{{ form_label(registrationForm.agreeTerms, 'Terms') }} {{ form_widget(registrationForm.agreeTerms) }}</a>
+                        {{ form_widget(registrationForm.agreeTerms) }}
+                        <a href="{{ path("app_cgu") }}"> link</a>
                          </div>
 
                 <button type="submit" class="button btn btn-primary">Inscription</button>
@@ -228,6 +229,8 @@
 
 <div class="background"><img class="background" src="/src/img/background/background.jpg" alt=""></div>
 {# Body #}
+        {% block login %}{% endblock %}
+        {% block register %}{% endblock %}
         {% block body %}{% endblock %}
 
 <footer>
@@ -271,7 +274,7 @@
   crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="{{asset('src/js/btnclick.js')}}"></script>
+         {% if app.user == null %}<script src="{{asset('src/js/btnclick.js')}}"></script>  {% endif %}
          {% block javascripts %}{% endblock %}
     </body>
 </html>
