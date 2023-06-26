@@ -17,9 +17,11 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use App\Repository\ContactRepository;
+use App\Service\MailService;
 use App\Form\ContactType;
 use App\Entity\Contact;
 use AppBundle\Entity\Product;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
@@ -39,9 +41,10 @@ class FormContactController extends AbstractController
         
 
     }
+    
 
     #[Route('/contact', name: 'app_contact')]
-    public function contactform(Request $request,UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppCustomAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
+    public function contactform(MailerInterface $mailer, MailService $ms,Request $request,UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppCustomAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
         $lastUsername = $this->lastUsername;
         $error = $this->error;
@@ -60,6 +63,7 @@ class FormContactController extends AbstractController
             $entityManager->persist($message);
             $entityManager->flush();
 
+            $email = $ms->sendMail('the_discrit@contact.fr', $message->getEmail(), $message->getObjet(), $message->getMessage() );
             // Redirection vers accueil
             return $this->redirectToRoute('app_accueil');
         }
