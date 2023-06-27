@@ -3,6 +3,10 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+<pre>
+  {{ dump(app.session.get('panier')) }}
+</pre>
+
 <div class="row my-5 mx-5 text-center row-cols-lg-1">
   <div class="col platmv"><p>Nos meilleurs catégories </p></div>
 </div>

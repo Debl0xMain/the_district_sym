@@ -65,7 +65,7 @@ class DetailRepository extends ServiceEntityRepository
            ->Join('d.commande','c')
            ->GroupBy('k.id')
            ->orderBy("resultat", 'DESC')
-           ->setMaxResults(3)
+           ->setMaxResults(6)
            ->getQuery()
            ->getResult()
        ;
@@ -77,11 +77,10 @@ class DetailRepository extends ServiceEntityRepository
         ->Select('p.libelle,p.prix,k.date_commande,k.etat,d.quantite,k.total,k.id')
         ->Join('d.plat','p')
         ->Join('d.commande','k')
-        //   ->GroupBy('p.id')
         ->Join('d.commande','c')
         ->Join('c.utilisateur','u')
         ->Where('u.id = :userid')
-        ->setParameter('userid', "29")
+        ->setParameter('userid', "$userid")
         ->getQuery()
         ->getResult()
        ;

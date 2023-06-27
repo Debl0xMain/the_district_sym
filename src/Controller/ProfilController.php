@@ -18,6 +18,7 @@ use App\Form\RegistrationFormType;
 use App\Security\AppCustomAuthenticator;
 use App\Security\EmailVerifier;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
@@ -26,15 +27,18 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 class ProfilController extends AbstractController
 {
     private $userRepo;
+    private $DetailRepo;
 
     public function __construct(DetailRepository $detailrepo,UtilisateurRepository $userRepo){
         $this->userRepo = $userRepo;
         $this->DetailRepo = $detailrepo;
     }
     #[Route('/profil', name: 'app_profil')]
-    public function index(AppCustomAuthenticator $authenticator,AuthenticationUtils $authenticationUtils,Request $request,UserPasswordHasherInterface $passwordHasher,EntityManagerInterface $entityManager): Response
+    public function index(Security $security,AppCustomAuthenticator $authenticator,AuthenticationUtils $authenticationUtils,Request $request,UserPasswordHasherInterface $passwordHasher,EntityManagerInterface $entityManager): Response
     {
-        $userid = "29";
+        $usertest = $security->getUser();
+        if($usertest){
+        $userid = $usertest->getId();
         $cmddetail = $this->DetailRepo->AffHistoriqueCmd($userid);
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
@@ -64,9 +68,16 @@ class ProfilController extends AbstractController
             'last_username' => $lastUsername,
             'error' => $error,
             'form' => $form->createView(),
-            'cmddetail' => $cmddetail
+            'userid' => $userid,
+            'cmddetail' => $cmddetail,
+            'usertest' => $usertest
+            
 
         ]);
+        }
+        else {
+            return $this->redirectToRoute('app_accueil');
+        }
     }
 
 }

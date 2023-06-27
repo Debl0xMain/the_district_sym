@@ -339,4 +339,6 @@
     padding-right: 15px;
 
 }
-
+.modal-backdrop  {
+    position: relative !important;
+}

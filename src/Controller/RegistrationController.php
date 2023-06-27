@@ -17,19 +17,25 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;
+    private $error;
+    private $lastUsername;
 
-    public function __construct(EmailVerifier $emailVerifier)
+    public function __construct(AuthenticationUtils $authenticationUtils,EmailVerifier $emailVerifier)
     {
         $this->emailVerifier = $emailVerifier;
+        $this->error = $authenticationUtils->getLastAuthenticationError();
+        $this->lastUsername = $authenticationUtils->getLastUsername();
     }
 
-    #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppCustomAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
+    public function register(AuthenticationUtils $authenticationUtils,Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppCustomAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
+        $error = $this->error;
+        $lastUsername = $this->lastUsername;
         $user = new Utilisateur();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -63,12 +69,16 @@ class RegistrationController extends AbstractController
             );
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render(
+            'auth/_register.html.twig',
+            [
             'registrationForm' => $form->createView(),
-        ]);
+            'last_username' => $lastUsername,
+            'error' => $error,
+            ]
+        );
     }
 
-    #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -87,4 +97,15 @@ class RegistrationController extends AbstractController
 
         return $this->redirectToRoute('app_profil');
     }
+
+    public function recentArticles(int $max = 3): Response
+    {
+        // get the recent articles somehow (e.g. making a database query)
+        $articles = ['...', '...', '...'];
+
+        return $this->render('page/_article.html.twig', [
+            'articles' => $articles
+        ]);
+    }
 }
+

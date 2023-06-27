@@ -46,8 +46,7 @@ class FormContactController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function contactform(MailerInterface $mailer, MailService $ms,Request $request,UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppCustomAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
-        $lastUsername = $this->lastUsername;
-        $error = $this->error;
+
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
@@ -69,46 +68,12 @@ class FormContactController extends AbstractController
         }
 
         $contact = $this->contactRepo->findAll();
-        $user = new Utilisateur();
-        $rform = $this->createForm(RegistrationFormType::class, $user);
-        $rform->handleRequest($request);
-
-        if ($rform->isSubmitted() && $rform->isValid()) {
-            // encode the plain password
-            $user->setPassword(
-                $userPasswordHasher->hashPassword(
-                    $user,
-                    $rform->get('plainPassword')->getData()
-                )
-            );
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
-                (new TemplatedEmail())
-                    ->from(new Address('the_district@contact.fr', 'Mail Auto'))
-                    ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
-            );
-            // do anything else you need here, like send an email
-
-            return $userAuthenticator->authenticateUser(
-                $user,
-                $authenticator,
-                $request
-            );
-        }
+        
         return $this->render('contact/contact.html.twig', [
-                // 'form' => $form->createView(),
                 'form' => $form,
                 'controller_name' => 'AccueilController',
                 'contact' => $contact,
-                'last_username' => $lastUsername,
-                'error' => $error,
-                'registrationForm' => $rform->createView()
+
         ]);
     }
 

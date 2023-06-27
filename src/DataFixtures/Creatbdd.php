@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Categorie;
 use App\Entity\Commande;
+use App\Entity\Admin;
 use App\Entity\Contact;
 use App\Entity\Detail;
 use App\Entity\Plat;
@@ -248,7 +249,7 @@ class Creatbdd extends Fixture
 
         $user1=New Utilisateur();
         $user1->SetEmail("admin@admin.fr");
-        $user1->getRoles('ROLE_USER');
+        $user1->getRoles('[ROLE_USER]');
         $user1->setIsVerified(1);
         $user1->SetPassword($this->hasher->hashPassword($user1, 'admin'));
         $user1->SetNom('Admin');
@@ -260,6 +261,21 @@ class Creatbdd extends Fixture
 
         $manager->persist($user1);
 
+        $user=New Utilisateur();
+        $user->SetEmail("sadmin@admin.fr");
+        $user->SetPassword($this->hasher->hashPassword($user, 'admin'));
+        $user->setRoles(['ROLE_ADMIN']);
+        $user->setIsVerified(1);
+        $user->SetNom('Admin');
+        $user->SetPrenom('Admin');
+        $user->SetTelephone('0000000000');
+        $user->SetAdresse("2 rue d\'amins");
+        $user->SetCp('80000');
+        $user->SetVille('Amiens');
+
+        $manager->persist($user);
+
+        $manager->flush();
 
 
         $commande1 =new Commande();

@@ -218,7 +218,7 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
 </div>
 </div>
 
-<div class='row my-5'>
+<div class='row my-5 colorlogofooter '>
 <h2>Historique des commandes</h2>
 
 <div class=\"row\">
@@ -229,7 +229,7 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
         $context['_seq'] = twig_ensure_traversable((isset($context["cmddetail"]) || array_key_exists("cmddetail", $context) ? $context["cmddetail"] : (function () { throw new RuntimeError('Variable "cmddetail" does not exist.', 64, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["cmd"]) {
             // line 65
-            echo "    <div class=\"row\">
+            echo "    <div class=\"row colorlogofooter \">
 
         <div class=\"col test\"><p>";
             // line 67
@@ -354,13 +354,13 @@ class __TwigTemplate_95a66c216ac46982973c18288c2d65df extends Template
 </div>
 </div>
 
-<div class='row my-5'>
+<div class='row my-5 colorlogofooter '>
 <h2>Historique des commandes</h2>
 
 <div class=\"row\">
 
     {% for cmd in cmddetail %}
-    <div class=\"row\">
+    <div class=\"row colorlogofooter \">
 
         <div class=\"col test\"><p>{{ cmd.libelle }}</p></div>
         <div class=\"col test\"><p> prix/u {{ cmd.prix }}</p></div>

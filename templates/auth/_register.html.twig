@@ -1,0 +1,118 @@
+ {# buton login§/insription #}
+        {% if app.user == null %}
+        <div class="position-fixed btnlogin">
+            <button type="button" class="btn btn btn-outline-light btnicon" id="logincharge" data-bs-toggle="modal" data-bs-target="#login">
+            <i class="fa-solid fa-user"></i>
+            <p class="btnlogintext" id="btnlogintext"> Login </p>
+            </button>
+        </div>
+        {% endif %}
+{# Login/Inscription #}
+
+ {% if app.user == null %}
+
+    {# Login Modal #}
+
+<div class="modal" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content loginmodal">
+    <div class="modal-header mx-auto">
+      <h5 class="modal-title" id="exampleModalLabel">Login<label class="switch">
+      <input type="checkbox" id="changemodal">
+      <span class="slider round"></span>
+      </label> Inscription</h5>
+    </div>
+        <div class="modal-body container text-center">
+
+            <div class="text-center login" id="loginchange">
+
+                                <form method="post" action="{{ path('app_login')}}">
+                                    {% if error %}
+                                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                    {% endif %}
+
+                                    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                                    <label class='form-label' for="inputEmail">Email</label>
+                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                                    <label class='form-label' for="inputPassword">Password</label>
+                                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+                                    <input type="hidden" name="_csrf_token"
+                                        value="{{ csrf_token('authenticate') }}"
+                                    >
+
+                                    
+                                        {# Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                        See https://symfony.com/doc/current/security/remember_me.html #}
+
+                                        <div class="checkbox mb-3">
+                                            <label>
+                                                <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                                            </label>
+                                        </div>
+                                    
+
+                                    <button class="btn btn-lg btn-primary" type="submit">
+                                        Login
+                                    </button>
+                                </form>
+            </div>
+        
+              <div class=" text-center inscription" id="inscription">
+              <form method="post" action="{{ path('app_accueil')}}">
+
+    <div class="content row">
+            {{ form_start(registrationForm) }}
+
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.email, { label: 'Adresse email :' }) }}
+            </div>
+
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.nom, { label: 'Nom :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.prenom, { label: 'Prenom :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.ville, { label: 'Ville:' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.cp, { label: 'Code postal :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.adresse, { label: 'Adresse :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.telephone, { label: 'Telephone :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.plainPassword.first, { label: 'Mot de passe :' }) }}
+            </div>
+            <div class="col-9 mx-auto mb-2">
+            {{ form_row(registrationForm.plainPassword.second, { label: 'Confirmez le mot de passe :' }) }}
+
+            </div>
+        </div>
+            <div class="col-9 mx-auto mb-2">
+                        <div class="form-group">
+                        {{ form_widget(registrationForm.agreeTerms) }}
+                        <a href="{{ path("app_cgu") }}"> link</a>
+                         </div>
+
+                <button type="submit" class="button btn btn-primary">Inscription</button>
+            </div>
+            {{ form_end(registrationForm) }}
+
+                    </form>
+              </div>
+  
+
+        </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+    </div>
+</div>
+</div>
+</div>'
+{% endif %}
