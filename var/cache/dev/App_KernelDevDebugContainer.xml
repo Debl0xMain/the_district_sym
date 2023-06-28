@@ -402,8 +402,7 @@
     <service id="App\Controller\PanierController" class="App\Controller\PanierController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\PanierService"/>
-      <argument type="service" id="request_stack"/>
+      <argument type="service" id="App\Repository\PlatRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.CshazM0.App\Controller\PanierController"/>
       </call>

@@ -1,37 +1,20 @@
+const AddPanier = () => {
 
-// $(".btnaddsubmit").on('click',function(e){ e.preventDefault();
+    alert('Ajout');
 
-//     var id = $(".addshopid").val();
-//     var qte = $(".addshopqte").val();
-    
-//     $.ajax({
-//         type: "GET",
-//         url: "_panier",
-//         success: function(){
-//         alert("Plat numero "+ id + "ajouté qte ajout:" + qte);}
-//     })
-// })
+    $.ajax({
 
-    $(function() {
-      $(".btnaddsubmit").click(function(e){
-      e.preventDefault() ;
- 
-     let id = $(".addshopid").val();
-     let qte = $(".addshopqte").val();
+        url: 'test',
+        dataType: 'text',
 
-        $.post({
-          url: "/_panier",
-          data: id + qte,
-          success: onSuccess,
-          error: onError,
-        });
-      });
- 
+        error: function(){
+            alert('Error');
+        },
+
+        success: function(){
+            alert('Work');
+        }
     });
-    function onSuccess(data) {
-			console.log('Request OK');
-            console.log(data);
-    }
-    function onError() {
-      alert('Une erreur a été détectée');
-    }
+}
+
+$('#loadplats').on('click',AddPanier);
