@@ -23,13 +23,23 @@ class PanierService
     {
         $session = $this->requestStack->getSession();
         // stores an attribute in the session for later reuse
-        $session->set('panier', []);
+        $session->set('panier', ["Article","prix"]);
 
         // gets an attribute by name
         $foo = $session->get('panier');
         $panier = [];
 
-        return $session;
+        return $panier;
+    }
+
+    public function AddPanierServ($idplat,$qteplat)
+    {
+
+        $panier = [];
+
+        array_push($panier, $idplat,$qteplat);
+
+        return $panier;
     }
 
 }

@@ -20,5 +20,5 @@ framework:
     php_errors:
         log: true
 
-                
+    http_cache: true
     fragments: { path: /_fragment }

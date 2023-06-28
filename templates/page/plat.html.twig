@@ -21,7 +21,19 @@
                         <p class="catprix mx-auto">{{ plat.prix }}</p>
                         <input type="hidden" value="{{ plat.id }}" name="cat">
                 </div>
+
 </button>
+              <div class="btnaddshop">
+                {# <form action="{{ path('_panier',{"id" :app.user.id })}}" method="GET"> #}
+                <form action="#">
+                    <input hidden class='addshopid' type="text" value="{{ plat.id }}">
+                     <input hidden class='addshopqte' type="text" value="1">
+                    <button type="submit" class="btn btn-outline-light btnaddsubmit" title="Ajouté au panier">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </form>
+              </div>
+
 </div>
 
 <!-- Modal -->
