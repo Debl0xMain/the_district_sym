@@ -85,49 +85,55 @@ class __TwigTemplate_4676c04c32a45bec405cabd54dbeac69 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
+        echo "<pre>
+  ";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 7, $this->source); })()), "session", [], "any", false, false, false, 7), "get", [0 => "panier"], "method", false, false, false, 7));
         echo "
+</pre>
+
 <div class=\"row my-5 mx-5 text-center row-cols-lg-1\">
   <div class=\"col platmv\"><p>Nos meilleurs catégories </p></div>
 </div>
 <div class=\"row my-5 mx-5 text-center row-cols-lg-3\">
 ";
-        // line 11
+        // line 14
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["AffCatBest"]) || array_key_exists("AffCatBest", $context) ? $context["AffCatBest"] : (function () { throw new RuntimeError('Variable "AffCatBest" does not exist.', 11, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["AffCatBest"]) || array_key_exists("AffCatBest", $context) ? $context["AffCatBest"] : (function () { throw new RuntimeError('Variable "AffCatBest" does not exist.', 14, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-            // line 12
-            if ((twig_get_attribute($this->env, $this->source, $context["categorie"], "active", [], "array", false, false, false, 12) == 1)) {
-                // line 13
+            // line 15
+            if ((twig_get_attribute($this->env, $this->source, $context["categorie"], "active", [], "array", false, false, false, 15) == 1)) {
+                // line 16
                 echo "<div>
                 <a href=\"";
-                // line 14
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_platcat", ["libelle" => twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 14)]), "html", null, true);
+                // line 17
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_platcat", ["libelle" => twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 17)]), "html", null, true);
                 echo "\">
                     <button type=\"submit\" class=\"btn\" name=\"categorie\" value=\"";
-                // line 15
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 15), "html", null, true);
+                // line 18
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 18), "html", null, true);
                 echo "\">
                           <div class=\"boxcat\">
                             <img class=\"catbackground\" src=\"";
-                // line 17
+                // line 20
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/src/img/category/"), "html", null, true);
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "image", [], "any", false, false, false, 17), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "image", [], "any", false, false, false, 20), "html", null, true);
                 echo "\"
                                 alt=\"";
-                // line 18
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 18), "html", null, true);
+                // line 21
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 21), "html", null, true);
                 echo "\"
                                 title=\"";
-                // line 19
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 19), "html", null, true);
+                // line 22
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 22), "html", null, true);
                 echo "\" height=\"255px\" width=\"255px\">
                             <p class=\"catname mx-auto\">";
-                // line 20
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 20), "html", null, true);
+                // line 23
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "libelle", [], "any", false, false, false, 23), "html", null, true);
                 echo "</p>
                             <input type=\"hidden\" value=\"";
-                // line 21
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 21), "html", null, true);
+                // line 24
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 24), "html", null, true);
                 echo "\" name=\"cat\">
                           </a>
                   </button>
@@ -135,13 +141,13 @@ class __TwigTemplate_4676c04c32a45bec405cabd54dbeac69 extends Template
                 </div>
 ";
             }
-            // line 27
+            // line 30
             echo " ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 28
+        // line 31
         echo " </div>
 
 <div class=\"row my-5 mx-5 text-center row-cols-lg-1\"></div>
@@ -151,44 +157,44 @@ class __TwigTemplate_4676c04c32a45bec405cabd54dbeac69 extends Template
 </div>
 <div class=\"row my-1 mx-5 text-center row-cols-lg-3\">
 ";
-        // line 36
+        // line 39
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["detail"]) || array_key_exists("detail", $context) ? $context["detail"] : (function () { throw new RuntimeError('Variable "detail" does not exist.', 36, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["detail"]) || array_key_exists("detail", $context) ? $context["detail"] : (function () { throw new RuntimeError('Variable "detail" does not exist.', 39, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["plat"]) {
-            // line 37
-            if ((twig_get_attribute($this->env, $this->source, $context["plat"], "active", [], "array", false, false, false, 37) == 1)) {
-                // line 38
+            // line 40
+            if ((twig_get_attribute($this->env, $this->source, $context["plat"], "active", [], "array", false, false, false, 40) == 1)) {
+                // line 41
                 echo "<!-- Button trigger modal -->
 <div class='my-5'>
 <button type=\"button\" class=\"btn\" data-bs-toggle=\"modal\" data-bs-target=\"#modal";
-                // line 40
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 40), "html", null, true);
+                // line 43
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 43), "html", null, true);
                 echo "\">
                 <div class=\"boxcat\">
                         <img class=\"catbackground\" src=\"";
-                // line 42
+                // line 45
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/img/plat/"), "html", null, true);
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "image", [], "array", false, false, false, 42), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "image", [], "array", false, false, false, 45), "html", null, true);
                 echo "\"
                             alt=\"";
-                // line 43
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 43), "html", null, true);
+                // line 46
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 46), "html", null, true);
                 echo "\"
                             title=\"";
-                // line 44
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 44), "html", null, true);
+                // line 47
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 47), "html", null, true);
                 echo "\" height=\"255px\" width=\"255px\">
                         <p class=\"catname mx-auto\">";
-                // line 45
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 45), "html", null, true);
+                // line 48
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 48), "html", null, true);
                 echo "</p>
                         <p class=\"catprix mx-auto\">";
-                // line 46
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "prix", [], "array", false, false, false, 46), "html", null, true);
+                // line 49
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "prix", [], "array", false, false, false, 49), "html", null, true);
                 echo "</p>
                         <input type=\"hidden\" value=\"";
-                // line 47
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 47), "html", null, true);
+                // line 50
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 50), "html", null, true);
                 echo "\" name=\"cat\">
                 </div>
 </button>
@@ -196,46 +202,46 @@ class __TwigTemplate_4676c04c32a45bec405cabd54dbeac69 extends Template
 
 <!-- Modal -->
 <div class=\"modal fade\" id=\"modal";
-                // line 53
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 53), "html", null, true);
+                // line 56
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 56), "html", null, true);
                 echo "\" data-bs-backdrop=\"static\" data-bs-keyboard=\"false\" tabindex=\"-1\" aria-labelledby=\"modal";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 53), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 56), "html", null, true);
                 echo "Label\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
     <div class=\"modal-content modalaffcss \">
       <div class=\"modal-header\">
         <h1 class=\"modal-title fs-5\"><p class=\"libellemv \">";
-                // line 57
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 57), "html", null, true);
+                // line 60
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 60), "html", null, true);
                 echo "</p></h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
       <div class=\"modal-body\">
             <img class=\"catbackground\" src=\"";
-                // line 61
+                // line 64
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/img/plat/"), "html", null, true);
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "image", [], "array", false, false, false, 61), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "image", [], "array", false, false, false, 64), "html", null, true);
                 echo "\"
                             alt=\"";
-                // line 62
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 62), "html", null, true);
+                // line 65
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 65), "html", null, true);
                 echo "\"
                             title=\"";
-                // line 63
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 63), "html", null, true);
+                // line 66
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 66), "html", null, true);
                 echo "\" height=\"255px\" width=\"255px\">
                        
                         <input type=\"hidden\" value=\"";
-                // line 65
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 65), "html", null, true);
+                // line 68
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "array", false, false, false, 68), "html", null, true);
                 echo "\" name=\"cat\">
             <p class=\"descmodal\">Description : ";
-                // line 66
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 66), "html", null, true);
+                // line 69
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "array", false, false, false, 69), "html", null, true);
                 echo "</p>
              <p class=\"descmodal\">Prix : ";
-                // line 67
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "prix", [], "array", false, false, false, 67), "html", null, true);
+                // line 70
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "prix", [], "array", false, false, false, 70), "html", null, true);
                 echo "</p>
       </div>
       <div class=\"modal-footer\">
@@ -248,13 +254,13 @@ class __TwigTemplate_4676c04c32a45bec405cabd54dbeac69 extends Template
  
 ";
             }
-            // line 78
+            // line 81
             echo " ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['plat'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 79
+        // line 82
         echo " ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -276,7 +282,7 @@ class __TwigTemplate_4676c04c32a45bec405cabd54dbeac69 extends Template
 
     public function getDebugInfo()
     {
-        return array (  258 => 79,  252 => 78,  238 => 67,  234 => 66,  230 => 65,  225 => 63,  221 => 62,  216 => 61,  209 => 57,  200 => 53,  191 => 47,  187 => 46,  183 => 45,  179 => 44,  175 => 43,  170 => 42,  165 => 40,  161 => 38,  159 => 37,  155 => 36,  145 => 28,  139 => 27,  130 => 21,  126 => 20,  122 => 19,  118 => 18,  113 => 17,  108 => 15,  104 => 14,  101 => 13,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  264 => 82,  258 => 81,  244 => 70,  240 => 69,  236 => 68,  231 => 66,  227 => 65,  222 => 64,  215 => 60,  206 => 56,  197 => 50,  193 => 49,  189 => 48,  185 => 47,  181 => 46,  176 => 45,  171 => 43,  167 => 41,  165 => 40,  161 => 39,  151 => 31,  145 => 30,  136 => 24,  132 => 23,  128 => 22,  124 => 21,  119 => 20,  114 => 18,  110 => 17,  107 => 16,  105 => 15,  101 => 14,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -286,6 +292,9 @@ class __TwigTemplate_4676c04c32a45bec405cabd54dbeac69 extends Template
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+<pre>
+  {{ dump(app.session.get('panier')) }}
+</pre>
 
 <div class=\"row my-5 mx-5 text-center row-cols-lg-1\">
   <div class=\"col platmv\"><p>Nos meilleurs catégories </p></div>

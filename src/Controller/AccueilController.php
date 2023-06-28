@@ -25,6 +25,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use App\Service\PanierService;
+
 
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -33,13 +35,14 @@ class AccueilController extends AbstractController
 {
     private $CategorieRepo;
     private $DetailRepo;
+    private $PanierService;
 
 
-
-    public function __construct(AuthenticationUtils $authenticationUtils,EmailVerifier $emailVerifier,CategorieRepository $CategorieRepo,DetailRepository $DetailRepo)
+    public function __construct(PanierService $PanierService,AuthenticationUtils $authenticationUtils,EmailVerifier $emailVerifier,CategorieRepository $CategorieRepo,DetailRepository $DetailRepo)
     {
         $this->CategorieRepo = $CategorieRepo;
         $this->DetailRepo = $DetailRepo;
+        $this->PanierService = $PanierService;
     }
 
     #[Route('/', name: 'app_accueil')]
@@ -47,11 +50,13 @@ class AccueilController extends AbstractController
     {
         $detail = $this->DetailRepo->AffPlatBest();
         $AffCatBest = $this->DetailRepo->AffCatBest();
+        $PanierService = $this->PanierService->panier();
        
         return $this->render('page/accueil.html.twig', [
             'controller_name' => 'AccueilController',
             'detail' => $detail,
             'AffCatBest' => $AffCatBest,
+            'PanierService' => $PanierService
         ]);
     }
     #[Route('/verify/email', name: 'app_verify_email')]

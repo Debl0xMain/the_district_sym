@@ -222,7 +222,7 @@ class __TwigTemplate_83d5ac7c7523d2788c6fa54627da7309 extends Template
     </div>
 </div>
 </div>
-</div>
+</div>'
 ";
         }
         
@@ -366,7 +366,7 @@ class __TwigTemplate_83d5ac7c7523d2788c6fa54627da7309 extends Template
     </div>
 </div>
 </div>
-</div>
+</div>'
 {% endif %}", "auth/_register.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/auth/_register.html.twig");
     }
 }

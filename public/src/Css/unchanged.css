@@ -314,17 +314,13 @@
 /* btn add shop */
 
 .btnaddshop {
-    height: 50px;
-    width: 50px;
-    /* position: absolute; */
+    position: absolute;
     top:160px;
     left: 35px;
     z-index: 5;
 }
 
 .btnaddsubmit {
-    height: 50px;
-    width: 50px;
     box-shadow:2px 2px 2px #ce1053;
     backdrop-filter: blur(15px) !important;
 }
