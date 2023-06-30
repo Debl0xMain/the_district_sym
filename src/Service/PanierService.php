@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -14,6 +15,7 @@ class PanierService
 
     private $requestStack;
 
+
     public function __construct(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
@@ -21,6 +23,7 @@ class PanierService
 
     public function panier()
     {
+        
         $session = $this->requestStack->getSession();
         // stores an attribute in the session for later reuse
         $session->set('panier', []);
@@ -29,7 +32,7 @@ class PanierService
         $foo = $session->get('panier');
         $panier = [];
 
-        return $session;
+        return $panier;
     }
 
 }

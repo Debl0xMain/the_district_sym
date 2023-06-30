@@ -281,9 +281,13 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
             echo "\"></script>  ";
         }
         // line 168
-        echo "         ";
-        $this->displayBlock('javascripts', $context, $blocks);
+        echo "          <script src=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/panier.js"), "html", null, true);
+        echo "\"></script>
+         ";
         // line 169
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 170
         echo "    </body>
 </html>";
         
@@ -385,7 +389,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     }
 
-    // line 168
+    // line 169
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -415,7 +419,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     public function getDebugInfo()
     {
-        return array (  389 => 168,  371 => 125,  353 => 124,  335 => 123,  317 => 22,  298 => 5,  287 => 169,  284 => 168,  278 => 167,  260 => 152,  254 => 149,  229 => 126,  226 => 125,  223 => 124,  220 => 123,  203 => 108,  200 => 107,  179 => 87,  168 => 77,  165 => 75,  157 => 70,  152 => 68,  145 => 64,  142 => 63,  140 => 62,  134 => 58,  132 => 56,  129 => 55,  119 => 47,  113 => 44,  107 => 41,  101 => 38,  89 => 28,  83 => 23,  81 => 22,  77 => 21,  73 => 20,  55 => 5,  49 => 1,);
+        return array (  393 => 169,  375 => 125,  357 => 124,  339 => 123,  321 => 22,  302 => 5,  291 => 170,  289 => 169,  284 => 168,  278 => 167,  260 => 152,  254 => 149,  229 => 126,  226 => 125,  223 => 124,  220 => 123,  203 => 108,  200 => 107,  179 => 87,  168 => 77,  165 => 75,  157 => 70,  152 => 68,  145 => 64,  142 => 63,  140 => 62,  134 => 58,  132 => 56,  129 => 55,  119 => 47,  113 => 44,  107 => 41,  101 => 38,  89 => 28,  83 => 23,  81 => 22,  77 => 21,  73 => 20,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -587,6 +591,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
          {% if app.user == null %}<script src=\"{{asset('src/js/btnclick.js')}}\"></script>  {% endif %}
+          <script src=\"{{asset('src/js/panier.js')}}\"></script>
          {% block javascripts %}{% endblock %}
     </body>
 </html>", "base.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/base.html.twig");

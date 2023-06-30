@@ -342,3 +342,10 @@
 .modal-backdrop  {
     position: relative !important;
 }
+
+.dev {
+    color: red;
+    text-align: center;
+    background-color: white;
+    font-size: 2rem;
+}
