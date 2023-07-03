@@ -19,7 +19,7 @@ $(".addpanier").on('click',function(e){
                                     $.ajax({
                                         type: "POST",
                                         url: "/panierqte",
-                                        data: {qtevalue: qtevalue},
+                                        data: {qtevalue: qtevalue,idplat:id},
                                         success: function(data){
                                             console.log("qte add"+data);
                                     }})
@@ -60,7 +60,6 @@ $(".addpanier").on('click',function(e){
                         }
 
                     else {
-
 
                          console.log("ajout panier"+data["libelle"]);
                          

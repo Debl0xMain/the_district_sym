@@ -2162,3 +2162,8 @@ a4b8ef,127.0.0.1,POST,https://127.0.0.1:8000/panierqte,1688385462,,200
 d00249,127.0.0.1,POST,https://127.0.0.1:8000/panier,1688385463,,200
 28fcd4,127.0.0.1,POST,https://127.0.0.1:8000/panierqte,1688385463,,200
 7d4832,127.0.0.1,POST,https://127.0.0.1:8000/panierdelete,1688385466,,200
+8f4b4e,127.0.0.1,GET,https://127.0.0.1:8000/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DApp%255CController%255CRegistrationController%253A%253Aregister,1688386110,49ee08,200
+d71743,127.0.0.1,GET,https://127.0.0.1:8000/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DApp%255CController%255CPanierController%253A%253Apanier,1688386110,49ee08,200
+49ee08,127.0.0.1,GET,https://127.0.0.1:8000/plat,1688386110,,200
+923c91,127.0.0.1,POST,https://127.0.0.1:8000/panier,1688386112,,200
+cd0012,127.0.0.1,POST,https://127.0.0.1:8000/panierdelete,1688386119,,200

@@ -37,6 +37,8 @@ class PanierController extends AbstractController
         ]);
     }
 
+
+
 //add plat panier
 #[Route('/panier', name: 'app_panier')]
 public function panierajax(Request $request): Response
@@ -73,12 +75,15 @@ public function panierajaxdelete(Request $request): Response
         ]);
     }
 
+
+//gere la quantite
     #[Route('/panierqte', name: 'app_panierqte')]
 public function panierajaxqte(Request $request): Response
     {
         if($request->isXmlHttpRequest()) {
 
             $qteplatmodif= $request->request->get('qtevalue');
+            $qteplatid= $request->request->get('idplat');
 
             return new JsonResponse($qteplatmodif);
         }
