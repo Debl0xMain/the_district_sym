@@ -28,29 +28,73 @@ class PanierService
     {
         
         $session = $this->requestStack->getSession();
-        // stores an attribute in the session for later reuse
-        $session->set('panier', []);
-
-        // gets an attribute by name
         $foo = $session->get('panier');
         $panier = [];
 
-        return $panier;
+        return $foo;
     }
 
     public function structurepanier($idplatpanier)
     {
-        //recup panier
-        $session = $this->requestStack->getSession();
-        $foo = $session->get('panier');
-        
-        //id vers info
         $returninfo = $this->Platrepo->returnpanier($idplatpanier);
 
-        //ajout des info au panier
-        array_push($foo, $returninfo);
-        //return info pour aff panier
         return $returninfo;
+        
+    }
+
+    //ajout au panier
+    public function addpanier($structurepanier,$qte)
+    {
+
+        $idpanier = $structurepanier[0]['id'];
+        $prixpanier = $structurepanier[0]['prix'];
+        $libellepanier = $structurepanier[0]['libelle'];
+        $imagepanier = $structurepanier[0]['image'];
+        $qtepanier = $qte;
+
+
+        $panier =['id'=>$idpanier ,"libelle"=>$libellepanier,"prix"=>$prixpanier,"qte"=>$qtepanier,"img"=>$imagepanier];
+        
+        $session = $this->requestStack->getSession();
+        $sessionpanier = $this->panier();
+
+        array_push($sessionpanier, $panier);
+
+        $addsession = $session->set('panier',$sessionpanier);
+        $foo = $session->get('panier');
+
+        return $foo;
+    }
+
+    public function deleteitem($iddeleteplat) {
+
+        $session = $this->requestStack->getSession();
+        $foo = $session->get('panier');
+        $lenghttable = count($foo);
+        $i = 0;
+      
+        do{
+            $test = $foo[5]['id'];
+            if ($test == $iddeleteplat){
+                unset($foo[$i]);
+                break;
+            }
+            $i++;
+
+        }while($lenghttable>$i);
+
+
+        // echo "terst";
+        // if (in_array("Lasagne",$foo[0])){
+        //     echo "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
+        // }
+        
+        $panierdelete = $session->get('panier');
+        $panierreturn = $session->set('panier');
+
+        return $foo;
+
+
         
     }
 

@@ -39,6 +39,44 @@ class PanierController extends AbstractController
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //add plat panier
 #[Route('/panier', name: 'app_panier')]
 public function panierajax(Request $request): Response
@@ -49,12 +87,12 @@ public function panierajax(Request $request): Response
             $qte = $request->request->get('qte');
 
             $structurepanier = $this->PanierService->structurepanier($idplatpanier);
-
+            $panieradd = $this->PanierService->addpanier($structurepanier,$qte);
             return new JsonResponse($structurepanier[0]);
         }
 
         return $this->render('page/panier.html.twig', [
-            'controller_name' => 'LoginController'
+            'controller_name' => 'LoginController',
         ]);
     }
 
@@ -67,11 +105,16 @@ public function panierajaxdelete(Request $request): Response
 
             $iddeleteplat= $request->request->get('iddelete');
 
+            $deleteitem = $this->PanierService->deleteitem($iddeleteplat);
+
             return new JsonResponse($iddeleteplat);
         }
+        // $iddeleteplat = 212;
+        // $deleteitem = $this->PanierService->deleteitem($iddeleteplat);
 
-        return $this->render('page/panier.html.twig', [
-            'controller_name' => 'LoginController'
+        return $this->render('page/test.html.twig', [
+            'controller_name' => 'LoginController',
+
         ]);
     }
 

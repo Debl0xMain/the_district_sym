@@ -178,3 +178,7 @@
     color: white !important;
     font-size: 1.5rem;
 }
+
+.modal-backdrop {
+    display: none !important;
+}
