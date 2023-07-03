@@ -1,5 +1,3 @@
-{% extends 'base.html.twig' %}
-{% block title %}Plat{% endblock %}
 
 {% block body %}
 
@@ -22,18 +20,24 @@
         <h5 class="modal-title" id="basket-shoppingLabel"><i class="fa-sharp fa-solid fa-basket-shopping"></i>Panier</h5>
       </div>
       <div class="modal-body">
-        
+        <div class="panierbody">
+        </div>
 
 <pre>
   {{ dump(app.session.get('panier')) }}
 </pre>
-             
+{# <button class="btn deletepanierbtn" id="deletepanierbtn" data-id="${id}"><i class="fa-solid fa-trash"></i></button> #}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
-        <a href="../../../src/php/shoping/validcmd.php"><button type="submit" class="btn btn-outline-primary">Paye</button></a>
+        <a href=""><button type="submit" class="btn btn-outline-primary">Paye</button></a>
       </div>
     </div>
   </div>
 </div>
+
  {% endblock %}
+
+          {% block javascripts %}
+         <script src="{{asset('src/js/btndelete.js')}}"></script>
+         {% endblock %}

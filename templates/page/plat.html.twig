@@ -24,14 +24,8 @@
 
 </button>
               <div class="btnaddshop">
-                {# <form action="{{ path('_panier',{"id" :app.user.id })}}" method="GET"> #}
-                <form action="#">
-                    <input hidden class='addshopid' type="text" value="{{ plat.id }}">
-                     <input hidden class='addshopqte' type="text" value="1">
-                    <button type="submit" class="btn btn-outline-light btnaddsubmit" title="Ajouté au panier">
-                    <i class="fa-solid fa-cart-plus"></i>
-                    </button>
-                </form>
+                    <button class="btn btn-outline-light btnaddsubmit addpanier" title="Ajouté au panier" data-id="{{ plat.id }}" value="1">
+                    <i class="fa-solid fa-cart-plus"></i></button>
               </div>
 
 </div>

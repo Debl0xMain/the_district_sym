@@ -50,6 +50,17 @@ class PlatRepository extends ServiceEntityRepository
         ;
     }
 
+    public function returnpanier($idplatpanier):array{
+
+        return $this->createQueryBuilder('p')
+           ->Select('p.id,p.prix,p.libelle,p.image')
+           ->Where('p.id like :search')
+           ->setParameter('search', "%".$idplatpanier."%")
+           ->getQuery()
+           ->getResult()
+       ;
+    }
+
 
 
 

@@ -137,64 +137,57 @@ class __TwigTemplate_01b8a2ab31171861523d6d653b7cd6d6 extends Template
 
 </button>
               <div class=\"btnaddshop\">
-                ";
-                // line 28
-                echo "                <form action=\"#\">
-                    <input hidden class='addshopid' type=\"text\" value=\"";
-                // line 29
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 29), "html", null, true);
-                echo "\">
-                     <input hidden class='addshopqte' type=\"text\" value=\"1\">
-                    <button type=\"submit\" class=\"btn btn-outline-light btnaddsubmit\" title=\"Ajouté au panier\">
-                    <i class=\"fa-solid fa-cart-plus\"></i>
-                    </button>
-                </form>
+                    <button class=\"btn btn-outline-light btnaddsubmit addpanier\" title=\"Ajouté au panier\" data-id=\"";
+                // line 27
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 27), "html", null, true);
+                echo "\" value=\"1\">
+                    <i class=\"fa-solid fa-cart-plus\"></i></button>
               </div>
 
 </div>
 
 <!-- Modal -->
 <div class=\"modal fade\" id=\"modal";
-                // line 40
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 40), "html", null, true);
+                // line 34
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 34), "html", null, true);
                 echo "\" data-bs-backdrop=\"static\" data-bs-keyboard=\"false\" tabindex=\"-1\" aria-labelledby=\"modal";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 40), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 34), "html", null, true);
                 echo "Label\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
     <div class=\"modal-content modalaffcss \">
       <div class=\"modal-header\">
         <h1 class=\"modal-title fs-5\"><p class=\"libellemv \">";
-                // line 44
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 44), "html", null, true);
+                // line 38
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 38), "html", null, true);
                 echo "</p></h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
       <div class=\"modal-body\">
             <img class=\"catbackground\" src=\"";
-                // line 48
+                // line 42
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/img/plat/"), "html", null, true);
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "image", [], "any", false, false, false, 48), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "image", [], "any", false, false, false, 42), "html", null, true);
                 echo "\"
                             alt=\"";
-                // line 49
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 49), "html", null, true);
+                // line 43
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 43), "html", null, true);
                 echo "\"
                             title=\"";
-                // line 50
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 50), "html", null, true);
+                // line 44
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 44), "html", null, true);
                 echo "\" height=\"255px\" width=\"255px\">
                        
                         <input type=\"hidden\" value=\"";
-                // line 52
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 52), "html", null, true);
+                // line 46
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "id", [], "any", false, false, false, 46), "html", null, true);
                 echo "\" name=\"cat\">
             <p class=\"descmodal\">Description : ";
-                // line 53
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 53), "html", null, true);
+                // line 47
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "libelle", [], "any", false, false, false, 47), "html", null, true);
                 echo "</p>
              <p class=\"descmodal\">Prix : ";
-                // line 54
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "prix", [], "any", false, false, false, 54), "html", null, true);
+                // line 48
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["plat"], "prix", [], "any", false, false, false, 48), "html", null, true);
                 echo "</p>
       </div>
       <div class=\"modal-footer\">
@@ -207,13 +200,13 @@ class __TwigTemplate_01b8a2ab31171861523d6d653b7cd6d6 extends Template
  
 ";
             }
-            // line 65
+            // line 59
             echo " ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['plat'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 66
+        // line 60
         echo " ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -235,7 +228,7 @@ class __TwigTemplate_01b8a2ab31171861523d6d653b7cd6d6 extends Template
 
     public function getDebugInfo()
     {
-        return array (  217 => 66,  211 => 65,  197 => 54,  193 => 53,  189 => 52,  184 => 50,  180 => 49,  175 => 48,  168 => 44,  159 => 40,  145 => 29,  142 => 28,  134 => 22,  130 => 21,  126 => 20,  122 => 19,  118 => 18,  113 => 17,  108 => 15,  104 => 13,  102 => 12,  98 => 11,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  210 => 60,  204 => 59,  190 => 48,  186 => 47,  182 => 46,  177 => 44,  173 => 43,  168 => 42,  161 => 38,  152 => 34,  142 => 27,  134 => 22,  130 => 21,  126 => 20,  122 => 19,  118 => 18,  113 => 17,  108 => 15,  104 => 13,  102 => 12,  98 => 11,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -266,14 +259,8 @@ class __TwigTemplate_01b8a2ab31171861523d6d653b7cd6d6 extends Template
 
 </button>
               <div class=\"btnaddshop\">
-                {# <form action=\"{{ path('_panier',{\"id\" :app.user.id })}}\" method=\"GET\"> #}
-                <form action=\"#\">
-                    <input hidden class='addshopid' type=\"text\" value=\"{{ plat.id }}\">
-                     <input hidden class='addshopqte' type=\"text\" value=\"1\">
-                    <button type=\"submit\" class=\"btn btn-outline-light btnaddsubmit\" title=\"Ajouté au panier\">
-                    <i class=\"fa-solid fa-cart-plus\"></i>
-                    </button>
-                </form>
+                    <button class=\"btn btn-outline-light btnaddsubmit addpanier\" title=\"Ajouté au panier\" data-id=\"{{ plat.id }}\" value=\"1\">
+                    <i class=\"fa-solid fa-cart-plus\"></i></button>
               </div>
 
 </div>
@@ -305,6 +292,7 @@ class __TwigTemplate_01b8a2ab31171861523d6d653b7cd6d6 extends Template
  
 {% endif %}
  {% endfor %}
- {% endblock %}", "page/plat.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/plat.html.twig");
+ {% endblock %}
+", "page/plat.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/plat.html.twig");
     }
 }

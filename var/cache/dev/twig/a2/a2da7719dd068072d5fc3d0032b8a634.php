@@ -24,16 +24,12 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
         $this->source = $this->getSourceContext();
 
-        $this->blocks = [
-            'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
-        ];
-    }
+        $this->parent = false;
 
-    protected function doGetParent(array $context)
-    {
-        // line 1
-        return "base.html.twig";
+        $this->blocks = [
+            'body' => [$this, 'block_body'],
+            'javascripts' => [$this, 'block_javascripts'],
+        ];
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,8 +41,16 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "page/_panier.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "page/_panier.html.twig", 1);
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        // line 1
+        echo "
+";
+        // line 2
+        $this->displayBlock('body', $context, $blocks);
+        // line 40
+        echo "
+          ";
+        // line 41
+        $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -56,25 +60,6 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
     }
 
     // line 2
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Plat";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 4
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,10 +69,10 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 5
+        // line 3
         echo "
 ";
-        // line 7
+        // line 5
         echo "
         <div class=\"position-fixed btnlogin btnshop\">
             <button type=\"button\" class=\"btn btn btn-outline-warning btnicon\" id=\"logincharge\" data-bs-toggle=\"modal\" data-bs-target=\"#basket-shopping\">
@@ -98,7 +83,7 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
 
 ";
-        // line 17
+        // line 15
         echo "
 <div class=\"modal fade\" id=\"basket-shopping\" tabindex=\"-1\" aria-labelledby=\"basket-shoppingLabel\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
@@ -107,24 +92,50 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
         <h5 class=\"modal-title\" id=\"basket-shoppingLabel\"><i class=\"fa-sharp fa-solid fa-basket-shopping\"></i>Panier</h5>
       </div>
       <div class=\"modal-body\">
-        
+        <div class=\"panierbody\">
+        </div>
 
 <pre>
   ";
-        // line 28
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 28, $this->source); })()), "session", [], "any", false, false, false, 28), "get", [0 => "panier"], "method", false, false, false, 28));
+        // line 27
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 27, $this->source); })()), "session", [], "any", false, false, false, 27), "get", [0 => "panier"], "method", false, false, false, 27));
         echo "
 </pre>
-             
-      </div>
+";
+        // line 30
+        echo "      </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
-        <a href=\"../../../src/php/shoping/validcmd.php\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
+        <a href=\"\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
       </div>
     </div>
   </div>
 </div>
+
  ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 41
+    public function block_javascripts($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 42
+        echo "         <script src=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/btndelete.js"), "html", null, true);
+        echo "\"></script>
+         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -138,21 +149,14 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
         return "page/_panier.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  115 => 28,  102 => 17,  91 => 7,  88 => 5,  78 => 4,  59 => 2,  36 => 1,);
+        return array (  135 => 42,  125 => 41,  106 => 30,  101 => 27,  87 => 15,  76 => 5,  73 => 3,  63 => 2,  53 => 41,  50 => 40,  48 => 2,  45 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
-{% block title %}Plat{% endblock %}
-
+        return new Source("
 {% block body %}
 
 {# Btn Panier #}
@@ -174,20 +178,26 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
         <h5 class=\"modal-title\" id=\"basket-shoppingLabel\"><i class=\"fa-sharp fa-solid fa-basket-shopping\"></i>Panier</h5>
       </div>
       <div class=\"modal-body\">
-        
+        <div class=\"panierbody\">
+        </div>
 
 <pre>
   {{ dump(app.session.get('panier')) }}
 </pre>
-             
+{# <button class=\"btn deletepanierbtn\" id=\"deletepanierbtn\" data-id=\"\${id}\"><i class=\"fa-solid fa-trash\"></i></button> #}
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
-        <a href=\"../../../src/php/shoping/validcmd.php\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
+        <a href=\"\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
       </div>
     </div>
   </div>
 </div>
- {% endblock %}", "page/_panier.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/_panier.html.twig");
+
+ {% endblock %}
+
+          {% block javascripts %}
+         <script src=\"{{asset('src/js/btndelete.js')}}\"></script>
+         {% endblock %}", "page/_panier.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/_panier.html.twig");
     }
 }

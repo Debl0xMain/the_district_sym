@@ -403,6 +403,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Service\PanierService"/>
+      <argument type="service" id="App\Repository\PlatRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.CshazM0.App\Controller\PanierController"/>
       </call>
@@ -499,6 +500,7 @@
     </service>
     <service id="App\Service\PanierService" class="App\Service\PanierService" autowire="true" autoconfigure="true">
       <argument type="service" id="request_stack"/>
+      <argument type="service" id="App\Repository\PlatRepository"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">

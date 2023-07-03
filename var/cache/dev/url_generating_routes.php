@@ -26,6 +26,8 @@ return [
     'app_platsearch' => [[], ['_controller' => 'App\\Controller\\CatController::platsearch'], [], [['text', '/search']], [], [], []],
     'app_contact' => [[], ['_controller' => 'App\\Controller\\FormContactController::contactform'], [], [['text', '/contact']], [], [], []],
     'app_mailer_sendemail' => [[], ['_controller' => 'App\\Controller\\MailerController::sendEmail'], [], [['text', '/email']], [], [], []],
+    'app_panier' => [[], ['_controller' => 'App\\Controller\\PanierController::panierajax'], [], [['text', '/panier']], [], [], []],
+    'app_panierdelete' => [[], ['_controller' => 'App\\Controller\\PanierController::panierajaxdelete'], [], [['text', '/panierdelete']], [], [], []],
     'app_platadd' => [[], ['_controller' => 'App\\Controller\\PlatController::platform'], [], [['text', '/plat_add']], [], [], []],
     'app_plat' => [[], ['_controller' => 'App\\Controller\\PlatController::cat'], [], [['text', '/plat']], [], [], []],
     'app_profil' => [[], ['_controller' => 'App\\Controller\\ProfilController::index'], [], [['text', '/profil']], [], [], []],

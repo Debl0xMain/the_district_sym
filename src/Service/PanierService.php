@@ -9,16 +9,19 @@ use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
+use App\Repository\PlatRepository;
 
 class PanierService
 {
 
     private $requestStack;
+    private $Platrepo;
 
 
-    public function __construct(RequestStack $requestStack)
+    public function __construct(RequestStack $requestStack,PlatRepository $Platrepo)
     {
         $this->requestStack = $requestStack;
+        $this->Platrepo = $Platrepo;
     }
 
     public function panier()
@@ -33,6 +36,22 @@ class PanierService
         $panier = [];
 
         return $panier;
+    }
+
+    public function structurepanier($idplatpanier)
+    {
+        //recup panier
+        $session = $this->requestStack->getSession();
+        $foo = $session->get('panier');
+        
+        //id vers info
+        $returninfo = $this->Platrepo->returnpanier($idplatpanier);
+
+        //ajout des info au panier
+        array_push($foo, $returninfo);
+        //return info pour aff panier
+        return $returninfo;
+        
     }
 
 }
