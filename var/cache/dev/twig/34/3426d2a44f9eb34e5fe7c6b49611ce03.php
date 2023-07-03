@@ -66,7 +66,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
     <!-- Logo -->
 
     <link rel=\"icon\" type=\"image/png\" href=\"./src/img/logo/favicon.png\" />
-    
+
     <title>The District - Index</title>
     <link rel=\"stylesheet\" href=\"";
         // line 20
@@ -136,7 +136,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
         ";
         // line 62
-        echo "<div class=\"position-fixed btnlogin\">
+        echo "<div>
     ";
         // line 63
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("App\\Controller\\PanierController::panier"));
@@ -144,25 +144,26 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
         echo "
 </div>
 
+
         ";
-        // line 68
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 68, $this->source); })()), "user", [], "any", false, false, false, 68)) {
-            // line 69
+        // line 69
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 69, $this->source); })()), "user", [], "any", false, false, false, 69)) {
+            // line 70
             echo "
             <a href=\"";
-            // line 70
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profil");
+            // line 71
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profil", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71), "id", [], "any", false, false, false, 71)]), "html", null, true);
             echo "\">
             <div class=\"position-fixed btnlogin\">
             <button type=\"button\" class=\"btn btn-outline-light btnprofil\">
             <i class=\"fa-solid fa-user\"></i>
             <p class=\"btnlogintext\">";
-            // line 74
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 74, $this->source); })()), "user", [], "any", false, false, false, 74), "Nom", [], "any", false, false, false, 74), "html", null, true);
+            // line 75
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 75, $this->source); })()), "user", [], "any", false, false, false, 75), "Nom", [], "any", false, false, false, 75), "html", null, true);
             echo "</p>
             </button></a>
             <a href=\"";
-            // line 76
+            // line 77
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\" class=\"profildeco btn btn-outline-danger\"><i class=\"fa-solid fa-arrow-right-from-bracket\" style=\"color: #ff0000;\"></i></a>
             </div>
@@ -170,14 +171,14 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
         ";
         }
-        // line 81
-        echo "
+        // line 82
+        echo "</header>
 
 ";
-        // line 84
+        // line 85
         echo "<div class='row my-2'>
 <form action=\"";
-        // line 85
+        // line 86
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_platsearch");
         echo "\" method=\"POST\">
     <div class=\"input-group searchdiv\">
@@ -194,16 +195,16 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
 <div class=\"background\"><img class=\"background\" src=\"/src/img/background/background.jpg\" alt=\"\"></div>
 ";
-        // line 100
-        echo "        ";
-        $this->displayBlock('login', $context, $blocks);
         // line 101
         echo "        ";
-        $this->displayBlock('register', $context, $blocks);
+        $this->displayBlock('login', $context, $blocks);
         // line 102
         echo "        ";
-        $this->displayBlock('body', $context, $blocks);
+        $this->displayBlock('register', $context, $blocks);
         // line 103
+        echo "        ";
+        $this->displayBlock('body', $context, $blocks);
+        // line 104
         echo "
 <footer>
 <nav class=\"navbar navbar-expand-sm justify-content-center fixed-bottom bg-nav\">
@@ -228,13 +229,13 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
             </li>
             <li class=\"nav-item pt-3\">
                 <a class=\"nav-link navtext reveal-bot\" href=\"";
-        // line 126
+        // line 127
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mlegal");
         echo "\"><p>Mentions Legales</p></a>
             </li>
             <li class=\"nav-item pt-3\">
                 <a class=\"nav-link navtext reveal-bot\" href=\"";
-        // line 129
+        // line 130
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cgu");
         echo "\"><p>Cgu</p></a>
             </li>
@@ -252,18 +253,14 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
          ";
-        // line 144
-        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 144, $this->source); })()), "user", [], "any", false, false, false, 144) == null)) {
+        // line 145
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 145, $this->source); })()), "user", [], "any", false, false, false, 145) == null)) {
             echo "<script src=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/btnclick.js"), "html", null, true);
             echo "\"></script>  ";
         }
-        // line 145
-        echo "          <script src=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/panier.js"), "html", null, true);
-        echo "\"></script>
-         ";
         // line 146
+        echo "         ";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 147
         echo "    </body>
@@ -313,7 +310,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     }
 
-    // line 100
+    // line 101
     public function block_login($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -331,7 +328,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     }
 
-    // line 101
+    // line 102
     public function block_register($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -349,7 +346,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     }
 
-    // line 102
+    // line 103
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -397,7 +394,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
     public function getDebugInfo()
     {
-        return array (  371 => 146,  353 => 102,  335 => 101,  317 => 100,  299 => 22,  280 => 5,  269 => 147,  267 => 146,  262 => 145,  256 => 144,  238 => 129,  232 => 126,  207 => 103,  204 => 102,  201 => 101,  198 => 100,  181 => 85,  178 => 84,  174 => 81,  166 => 76,  161 => 74,  154 => 70,  151 => 69,  149 => 68,  144 => 65,  142 => 63,  139 => 62,  134 => 58,  132 => 56,  129 => 55,  119 => 47,  113 => 44,  107 => 41,  101 => 38,  89 => 28,  83 => 23,  81 => 22,  77 => 21,  73 => 20,  55 => 5,  49 => 1,);
+        return array (  368 => 146,  350 => 103,  332 => 102,  314 => 101,  296 => 22,  277 => 5,  266 => 147,  263 => 146,  257 => 145,  239 => 130,  233 => 127,  208 => 104,  205 => 103,  202 => 102,  199 => 101,  182 => 86,  179 => 85,  175 => 82,  167 => 77,  162 => 75,  155 => 71,  152 => 70,  150 => 69,  144 => 65,  142 => 63,  139 => 62,  134 => 58,  132 => 56,  129 => 55,  119 => 47,  113 => 44,  107 => 41,  101 => 38,  89 => 28,  83 => 23,  81 => 22,  77 => 21,  73 => 20,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -419,7 +416,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
     <!-- Logo -->
 
     <link rel=\"icon\" type=\"image/png\" href=\"./src/img/logo/favicon.png\" />
-    
+
     <title>The District - Index</title>
     <link rel=\"stylesheet\" href=\"{{asset('src/Css/unchanged.css')}}\">
     <link rel=\"stylesheet\" href=\"{{asset('src/Css/categorie.css')}}\">
@@ -462,16 +459,17 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
     )) }}
 </div>
 
-        {# panier #}
-<div class=\"position-fixed btnlogin\">
+        {# login/register #}
+<div>
     {{ render(controller(
         'App\\\\Controller\\\\PanierController::panier'
     )) }}
 </div>
 
+
         {% if app.user %}
 
-            <a href=\"{{ path('app_profil') }}\">
+            <a href=\"{{ path('app_profil', {id: app.user.id}) }}\">
             <div class=\"position-fixed btnlogin\">
             <button type=\"button\" class=\"btn btn-outline-light btnprofil\">
             <i class=\"fa-solid fa-user\"></i>
@@ -482,7 +480,7 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
 
 
         {% endif %}
-
+</header>
 
 {# SearchBar #}
 <div class='row my-2'>
@@ -546,7 +544,6 @@ class __TwigTemplate_9656f0bfeac108758a11e02b0169f227 extends Template
         <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
          {% if app.user == null %}<script src=\"{{asset('src/js/btnclick.js')}}\"></script>  {% endif %}
-          <script src=\"{{asset('src/js/panier.js')}}\"></script>
          {% block javascripts %}{% endblock %}
     </body>
 </html>", "base.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/base.html.twig");

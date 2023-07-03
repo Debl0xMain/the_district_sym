@@ -1,26 +1,18 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Panier{% endblock %}
-{% block stylesheets %}
-<link rel="stylesheet" href="{{('src/Css/contact.css')}}">
-{% endblock %}
+{% block title %}Plat{% endblock %}
 
 {% block body %}
-<pre>
-    {{ dump(panier) }}
-</pre>
 
+{# Btn Panier #}
 
- {# Buton panier #}
         <div class="position-fixed btnlogin btnshop">
             <button type="button" class="btn btn btn-outline-warning btnicon" id="logincharge" data-bs-toggle="modal" data-bs-target="#basket-shopping">
             <i class="fa-sharp fa-solid fa-basket-shopping"></i>
             <p class="btnlogintext" id="btnlogintext">Panier</p>
             </button>
         </div>
-    </nav>
-</header>
-    
+
+
 {# Modal Panier #}
 
 <div class="modal fade" id="basket-shopping" tabindex="-1" aria-labelledby="basket-shoppingLabel" aria-hidden="true">
@@ -31,7 +23,11 @@
       </div>
       <div class="modal-body">
         
-                                        
+
+<pre>
+  {{ dump(app.session.get('panier')) }}
+</pre>
+             
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
@@ -40,4 +36,4 @@
     </div>
   </div>
 </div>
-{% endblock %}
+ {% endblock %}
