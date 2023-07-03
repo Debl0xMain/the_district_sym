@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{('src/Css/contact.css')}}">
+{% endblock %}
+
+{% block body %}
+<pre>
+    {{ dump(panier) }}
+</pre>
+
+
+ {# Buton panier #}
+        <div class="position-fixed btnlogin btnshop">
+            <button type="button" class="btn btn btn-outline-warning btnicon" id="logincharge" data-bs-toggle="modal" data-bs-target="#basket-shopping">
+            <i class="fa-sharp fa-solid fa-basket-shopping"></i>
+            <p class="btnlogintext" id="btnlogintext">Panier</p>
+            </button>
+        </div>
+    </nav>
+</header>
+    
+{# Modal Panier #}
+
+<div class="modal fade" id="basket-shopping" tabindex="-1" aria-labelledby="basket-shoppingLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content shopmodal">
+      <div class="modal-header mx-auto">
+        <h5 class="modal-title" id="basket-shoppingLabel"><i class="fa-sharp fa-solid fa-basket-shopping"></i>Panier</h5>
+      </div>
+      <div class="modal-body">
+        
+                                        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+        <a href="../../../src/php/shoping/validcmd.php"><button type="submit" class="btn btn-outline-primary">Paye</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
