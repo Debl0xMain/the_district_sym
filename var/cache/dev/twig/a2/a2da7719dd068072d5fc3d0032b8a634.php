@@ -28,7 +28,6 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
         $this->blocks = [
             'body' => [$this, 'block_body'],
-            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -46,11 +45,6 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 ";
         // line 2
         $this->displayBlock('body', $context, $blocks);
-        // line 40
-        echo "
-          ";
-        // line 41
-        $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -59,7 +53,6 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
     }
 
-    // line 2
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -121,29 +114,6 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
     }
 
-    // line 41
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 42
-        echo "         <script src=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/btndelete.js"), "html", null, true);
-        echo "\"></script>
-         ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
     public function getTemplateName()
     {
         return "page/_panier.html.twig";
@@ -151,7 +121,7 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 42,  125 => 41,  106 => 30,  101 => 27,  87 => 15,  76 => 5,  73 => 3,  63 => 2,  53 => 41,  50 => 40,  48 => 2,  45 => 1,);
+        return array (  99 => 30,  94 => 27,  80 => 15,  69 => 5,  66 => 3,  47 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -195,9 +165,6 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 </div>
 
  {% endblock %}
-
-          {% block javascripts %}
-         <script src=\"{{asset('src/js/btndelete.js')}}\"></script>
-         {% endblock %}", "page/_panier.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/_panier.html.twig");
+", "page/_panier.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/_panier.html.twig");
     }
 }

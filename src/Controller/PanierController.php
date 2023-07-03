@@ -73,4 +73,19 @@ public function panierajaxdelete(Request $request): Response
         ]);
     }
 
+    #[Route('/panierqte', name: 'app_panierqte')]
+public function panierajaxqte(Request $request): Response
+    {
+        if($request->isXmlHttpRequest()) {
+
+            $qteplatmodif= $request->request->get('qtevalue');
+
+            return new JsonResponse($qteplatmodif);
+        }
+
+        return $this->render('page/panier.html.twig', [
+            'controller_name' => 'LoginController'
+        ]);
+    }
+
 }
