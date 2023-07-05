@@ -26,6 +26,8 @@ return [
         '/panier' => [[['_route' => 'app_panier', '_controller' => 'App\\Controller\\PanierController::panierajax'], null, null, null, false, false, null]],
         '/panierdelete' => [[['_route' => 'app_panierdelete', '_controller' => 'App\\Controller\\PanierController::panierajaxdelete'], null, null, null, false, false, null]],
         '/panierqte' => [[['_route' => 'app_panierqte', '_controller' => 'App\\Controller\\PanierController::panierajaxqte'], null, null, null, false, false, null]],
+        '/commande' => [[['_route' => 'app_commande', '_controller' => 'App\\Controller\\PanierController::paniercmd'], null, null, null, false, false, null]],
+        '/sendcommande' => [[['_route' => 'app_sendcommande', '_controller' => 'App\\Controller\\PanierController::paniersendcmd'], null, null, null, false, false, null]],
         '/plat_add' => [[['_route' => 'app_platadd', '_controller' => 'App\\Controller\\PlatController::platform'], null, null, null, false, false, null]],
         '/plat' => [[['_route' => 'app_plat', '_controller' => 'App\\Controller\\PlatController::cat'], null, null, null, false, false, null]],
         '/profil' => [[['_route' => 'app_profil', '_controller' => 'App\\Controller\\ProfilController::index'], null, null, null, false, false, null]],

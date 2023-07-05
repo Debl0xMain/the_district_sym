@@ -9,6 +9,9 @@ use App\Service\PanierService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Repository\PlatRepository;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use App\Service\MailService;
+
 
 
 class PanierController extends AbstractController
@@ -36,46 +39,6 @@ class PanierController extends AbstractController
             'panier' => $AffPanier 
         ]);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //add plat panier
 #[Route('/panier', name: 'app_panier')]
@@ -134,6 +97,47 @@ public function panierajaxqte(Request $request): Response
         return $this->render('page/panier.html.twig', [
             'controller_name' => 'LoginController'
         ]);
+    }
+
+#[isGranted('ROLE_USER')]
+#[Route('/commande', name: 'app_commande')]
+public function paniercmd(Request $request): Response
+    {
+        $Panier = $this->PanierService->panier();
+
+        return $this->render('page/commande.html.twig', [
+            'controller_name' => 'LoginController',
+            'panier' => $Panier
+        ]);
+    }
+
+#[isGranted('ROLE_USER')]
+#[Route('/sendcommande', name: 'app_sendcommande')]
+public function paniersendcmd(Request $request,MailService $ms): Response
+    {
+        // $Panier = $this->PanierService->panier();
+        // //resultat du post
+        // $ var = $request->request->get(' ');
+        // $infouser = $thisapp -> info user;
+
+        // //envoi ver service
+
+        // //send mail
+        $ms->sendMail($expediteur, $destinataire, $sujet, $message);
+
+        // $expediteur = 'the_discrit@contact.fr';
+        // $destinataire = "emailclient"
+        // $sujet = "Commande n°".idcommande;
+        // $message = 
+
+        // //inscription base de donne
+
+
+        return $this->render('page/commande.html.twig', [
+            'controller_name' => 'LoginController',
+            'panier' => $Panier
+        ]);
+        return $this->redirectToRoute('app_accueil');
     }
 
 }

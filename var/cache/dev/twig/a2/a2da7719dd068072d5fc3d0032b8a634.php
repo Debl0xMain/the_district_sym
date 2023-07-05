@@ -41,9 +41,6 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "page/_panier.html.twig"));
 
         // line 1
-        echo "
-";
-        // line 2
         $this->displayBlock('body', $context, $blocks);
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -62,10 +59,10 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 3
+        // line 2
         echo "
 ";
-        // line 5
+        // line 4
         echo "
         <div class=\"position-fixed btnlogin btnshop\">
             <button type=\"button\" class=\"btn btn btn-outline-warning btnicon\" id=\"logincharge\" data-bs-toggle=\"modal\" data-bs-target=\"#basket-shopping\">
@@ -76,7 +73,7 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
 
 ";
-        // line 15
+        // line 14
         echo "
 <div class=\"modal fade\" id=\"basket-shopping\" tabindex=\"-1\" aria-labelledby=\"basket-shoppingLabel\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
@@ -87,19 +84,42 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
       <div class=\"modal-body\">
         <div class=\"panierbody\">
         </div>
+        <form method=\"post\">
 
+        ";
+        // line 26
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($context["panier"]);
+        foreach ($context['_seq'] as $context["_key"] => $context["panier"]) {
+            // line 27
+            echo "        
+                     <script src=\"";
+            // line 28
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/panier.js"), "html", null, true);
+            echo "\">writepanier();</script>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['panier'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 30
+        echo "
 <pre>
   ";
-        // line 27
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 27, $this->source); })()), "session", [], "any", false, false, false, 27), "get", [0 => "panier"], "method", false, false, false, 27));
+        // line 32
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 32, $this->source); })()), "session", [], "any", false, false, false, 32), "get", [0 => "panier"], "method", false, false, false, 32));
         echo "
 </pre>
+
+        <div class=\"paniertotal\">
+        </div>
 ";
-        // line 30
+        // line 38
         echo "      </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
-        <a href=\"\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
+        <button type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</button></a>
+        </form>
       </div>
     </div>
   </div>
@@ -121,13 +141,12 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
     public function getDebugInfo()
     {
-        return array (  99 => 30,  94 => 27,  80 => 15,  69 => 5,  66 => 3,  47 => 2,  44 => 1,);
+        return array (  118 => 38,  110 => 32,  106 => 30,  98 => 28,  95 => 27,  91 => 26,  77 => 14,  66 => 4,  63 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("
-{% block body %}
+        return new Source("{% block body %}
 
 {# Btn Panier #}
 
@@ -150,15 +169,25 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
       <div class=\"modal-body\">
         <div class=\"panierbody\">
         </div>
+        <form method=\"post\">
+
+        {% for panier in panier %}
+        
+                     <script src=\"{{asset('src/js/panier.js')}}\">writepanier();</script>
+        {% endfor %}
 
 <pre>
   {{ dump(app.session.get('panier')) }}
 </pre>
+
+        <div class=\"paniertotal\">
+        </div>
 {# <button class=\"btn deletepanierbtn\" id=\"deletepanierbtn\" data-id=\"\${id}\"><i class=\"fa-solid fa-trash\"></i></button> #}
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
-        <a href=\"\"><button type=\"submit\" class=\"btn btn-outline-primary\">Paye</button></a>
+        <button type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</button></a>
+        </form>
       </div>
     </div>
   </div>

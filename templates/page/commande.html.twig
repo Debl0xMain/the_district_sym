@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande{% endblock %}
+
+{% block body %}
+
+<form action='{{path("app_sendcommande")}}' method='POST'>
+            //affichage donne utilisateur
+            {% if app.user %}
+
+
+            {app.user.Nom}// modifable
+            {app.user.adresse}//ajoute cp etc en input modif
+
+
+            {% endif %}
+            //affichage panier
+            <div class="panierbody">
+            </div>
+            {% for panier in panier %}
+            <script src="{{asset('src/js/panier.js')}}">writepanier();</script>
+            {% endif %}
+            </form>
+{% endblock %}
