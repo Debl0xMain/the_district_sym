@@ -28,9 +28,13 @@
         
                      <script src="{{asset('src/js/panier.js')}}">writepanier();</script>
         {% endif %}
+
 <pre>
   {{ dump(app.session.get('panier')) }}
 </pre>
+
+        <div class="paniertotal">
+        </div>
 {# <button class="btn deletepanierbtn" id="deletepanierbtn" data-id="${id}"><i class="fa-solid fa-trash"></i></button> #}
       </div>
       <div class="modal-footer">
