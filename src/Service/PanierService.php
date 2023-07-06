@@ -29,7 +29,12 @@ class PanierService
         
         $session = $this->requestStack->getSession();
         $foo = $session->get('panier');
-        $panier = [];
+        // $clear = $session->clear();
+        if(empty($foo)){
+            $panier = [];
+            $setpanier = $session->set('panier',$panier);
+        }
+        $foo = $session->get('panier');
 
         return $foo;
     }
@@ -43,59 +48,62 @@ class PanierService
     }
 
     //ajout au panier
-    public function addpanier($structurepanier,$qte)
+    public function addpanier($qte,$idplatpanier)
     {
+        $sessiontest = $this->requestStack->getSession();
+        $paniercheck = $sessiontest->get('panier', []);
 
-        $idpanier = $structurepanier[0]['id'];
-        $prixpanier = $structurepanier[0]['prix'];
-        $libellepanier = $structurepanier[0]['libelle'];
-        $imagepanier = $structurepanier[0]['image'];
-        $qtepanier = $qte;
+        $plat = $this->Platrepo->returnpanier($idplatpanier);
+        $idplat = $plat[0]['id'];
+        $prixplat = $plat[0]['prix'];
+        $libelleplat = $plat[0]['libelle'];
+        $imageplat = $plat[0]['image'];
 
 
-        $panier =['id'=>$idpanier ,"libelle"=>$libellepanier,"prix"=>$prixpanier,"qte"=>$qtepanier,"img"=>$imagepanier];
+        $qteplat = $qte;
+        $old_quantite = 0;
+
+        if(isset($panier[$idplat])){
+            $old_quantite = $paniercheck[$idplatplat]["qte"];
+        } 
         
+        $qteplat += $old_quantite;
+
+        
+
+        $plattable = ['id'=>$idplat ,"libelle"=>$libelleplat,"prix"=>$prixplat,"qte"=>$qteplat,"img"=>$imageplat];
+
         $session = $this->requestStack->getSession();
-        $sessionpanier = $this->panier();
+        $sessionpanier = $session->get('panier', []);
+        
+        $sessionpanier[$idplat] = $plattable;
 
-        array_push($sessionpanier, $panier);
-
-        $addsession = $session->set('panier',$sessionpanier);
+        $addsession = $session->set('panier', $sessionpanier);
+        
         $foo = $session->get('panier');
 
         return $foo;
+
     }
 
     public function deleteitem($iddeleteplat) {
 
         $session = $this->requestStack->getSession();
         $foo = $session->get('panier');
-        $lenghttable = count($foo);
-        $i = 0;
-      
-        do{
-            $test = $foo[5]['id'];
-            if ($test == $iddeleteplat){
-                unset($foo[$i]);
-                break;
-            }
-            $i++;
-
-        }while($lenghttable>$i);
-
-
-        // echo "terst";
-        // if (in_array("Lasagne",$foo[0])){
-        //     echo "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
-        // }
+        unset($foo[$iddeleteplat]);
+        $addsession = $session->set('panier',$foo);
+        $foo = $session->get('panier');
         
-        $panierdelete = $session->get('panier');
-        $panierreturn = $session->set('panier');
+        return $foo; 
+    }
 
-        return $foo;
+    public function deletepanier() {
 
+        $session = $this->requestStack->getSession();
+        $foo = $session->get('panier');
+        $clear = $session->clear('panier');
 
-        
+        return $clear;
     }
 
 }

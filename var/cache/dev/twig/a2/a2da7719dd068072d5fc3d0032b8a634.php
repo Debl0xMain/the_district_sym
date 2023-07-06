@@ -84,46 +84,128 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
       <div class=\"modal-body\">
         <div class=\"panierbody\">
         </div>
-        <form method=\"post\">
-
+        <div class='prixpaniertotal'>
+      <div>Prix total du panier</div>
+      <div class=\"paniertotal\"></div>
+</div>
         ";
-        // line 26
+        // line 28
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["panier"]);
         foreach ($context['_seq'] as $context["_key"] => $context["panier"]) {
-            // line 27
-            echo "        
-                     <script src=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("src/js/panier.js"), "html", null, true);
-            echo "\">writepanier();</script>
+            // line 29
+            echo "
+<script>
+
+var id = ";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["panier"], "id", [], "any", false, false, false, 32), "html", null, true);
+            echo ";
+var qtevalue = ";
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["panier"], "qte", [], "any", false, false, false, 33), "html", null, true);
+            echo ";
+var prix = ";
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["panier"], "prix", [], "any", false, false, false, 34), "html", null, true);
+            echo ";
+var newprix = prix*qtevalue;
+
+
+
+var recup_valeur_input_html = \$('#recupvaleur').val()
+if(recup_valeur_input_html == undefined || recup_valeur_input_html == 0 || recup_valeur_input_html == null){
+  recup_valeur_input_html = 0;
+}
+var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
+\$('.paniertotal').replaceWith(`<div class=\"paniertotal\">\${prix_total_panier}</div>`);
+\$('.paniertotal').append(`<input type='text' hidden class='paniertotalinput' id='recupvaleur' value=\"\${prix_total_panier}\" readonly>`);
+                                                   
+                                                   
+
+    var img = '";
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["panier"], "img", [], "any", false, false, false, 49), "html", null, true);
+            echo "';
+    var libelle = '";
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["panier"], "libelle", [], "any", false, false, false, 50), "html", null, true);
+            echo "';
+        
+        \$('.panierbody').append(`<div class=\"row rows-col-4 panierrow\${id}\" id='panierrow\${id}'></div>`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto imgpaniercol\${id}\"></div>`);
+        \$('.imgpaniercol'+id).append(`<img class=\"panierimg\" src=\"src/img/plat/\${img}\" alt=\"\${img}\" height=\"32px\" width=\"32px\">`);
+        
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierlibelle\${id}\"></div>`);
+        \$('.panierlibelle'+id).append(`\${libelle}`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierprixu\${id}\"></div>`);
+        \$('.panierprixu'+id).append(`prix/u\${prix}`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierprixt\${id}\"></div>`);
+        \$('.panierprixt'+id).append(`Prix/t\${newprix}`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierqte\${id}\"></div>`);
+        \$('.panierqte'+id).append(`<select name=\"\${id}\" class=\"changeqte\" id=\"qteselect\${id}\"><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option><option value=\"7\">7</option><option value=\"8\">8</option><option value=\"9\">9</option></select>`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierpaniersup\${id}\"></div>`);
+        \$('.panierpaniersup'+id).append(`<button onclick=\"dlton(\${id})\" type=\"submit\" class=\"btn deletepanierbtn\" id='deletepanierbtn' data-id=\"\${id}\"><i class=\"fa-solid fa-trash\"></i></button>`);
+
+              if(qtevalue == 2){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+                }
+               if(qtevalue == 3){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               }
+               if(qtevalue == 4){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);   
+               } 
+               if(qtevalue == 5){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               }
+               if(qtevalue == 6){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               } 
+               if(qtevalue == '7'){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               } 
+               if(qtevalue == '8'){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               } 
+               if(qtevalue == '9'){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               }
+      
+          
+</script>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['panier'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 30
-        echo "
-<pre>
-  ";
-        // line 32
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 32, $this->source); })()), "session", [], "any", false, false, false, 32), "get", [0 => "panier"], "method", false, false, false, 32));
-        echo "
-</pre>
-
-        <div class=\"paniertotal\">
-        </div>
-";
-        // line 38
-        echo "      </div>
+        // line 108
+        echo "      <button class=\"btn deletepanierbtnall\" id=\"deletepanierbtn\" data-id=\"\${id}\" onclick='dltonalll()'><i class=\"fa-solid fa-trash\"></i></button>
+      </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
         <button type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</button></a>
-        </form>
       </div>
     </div>
   </div>
 </div>
+<script
+  src=\"https://code.jquery.com/jquery-3.7.0.js\"
+  integrity=\"sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=\"
+  crossorigin=\"anonymous\"></script>
 
  ";
         
@@ -141,7 +223,7 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
     public function getDebugInfo()
     {
-        return array (  118 => 38,  110 => 32,  106 => 30,  98 => 28,  95 => 27,  91 => 26,  77 => 14,  66 => 4,  63 => 2,  44 => 1,);
+        return array (  196 => 108,  132 => 50,  128 => 49,  110 => 34,  106 => 33,  102 => 32,  97 => 29,  93 => 28,  77 => 14,  66 => 4,  63 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -169,29 +251,103 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
       <div class=\"modal-body\">
         <div class=\"panierbody\">
         </div>
-        <form method=\"post\">
-
+        <div class='prixpaniertotal'>
+      <div>Prix total du panier</div>
+      <div class=\"paniertotal\"></div>
+</div>
         {% for panier in panier %}
+
+<script>
+
+var id = {{panier.id}};
+var qtevalue = {{panier.qte}};
+var prix = {{panier.prix}};
+var newprix = prix*qtevalue;
+
+
+
+var recup_valeur_input_html = \$('#recupvaleur').val()
+if(recup_valeur_input_html == undefined || recup_valeur_input_html == 0 || recup_valeur_input_html == null){
+  recup_valeur_input_html = 0;
+}
+var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
+\$('.paniertotal').replaceWith(`<div class=\"paniertotal\">\${prix_total_panier}</div>`);
+\$('.paniertotal').append(`<input type='text' hidden class='paniertotalinput' id='recupvaleur' value=\"\${prix_total_panier}\" readonly>`);
+                                                   
+                                                   
+
+    var img = '{{panier.img}}';
+    var libelle = '{{panier.libelle}}';
         
-                     <script src=\"{{asset('src/js/panier.js')}}\">writepanier();</script>
+        \$('.panierbody').append(`<div class=\"row rows-col-4 panierrow\${id}\" id='panierrow\${id}'></div>`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto imgpaniercol\${id}\"></div>`);
+        \$('.imgpaniercol'+id).append(`<img class=\"panierimg\" src=\"src/img/plat/\${img}\" alt=\"\${img}\" height=\"32px\" width=\"32px\">`);
+        
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierlibelle\${id}\"></div>`);
+        \$('.panierlibelle'+id).append(`\${libelle}`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierprixu\${id}\"></div>`);
+        \$('.panierprixu'+id).append(`prix/u\${prix}`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierprixt\${id}\"></div>`);
+        \$('.panierprixt'+id).append(`Prix/t\${newprix}`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierqte\${id}\"></div>`);
+        \$('.panierqte'+id).append(`<select name=\"\${id}\" class=\"changeqte\" id=\"qteselect\${id}\"><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option><option value=\"7\">7</option><option value=\"8\">8</option><option value=\"9\">9</option></select>`);
+
+        \$('.panierrow'+id).append(`<div class=\"col my-auto col my-auto panierpaniersup\${id}\"></div>`);
+        \$('.panierpaniersup'+id).append(`<button onclick=\"dlton(\${id})\" type=\"submit\" class=\"btn deletepanierbtn\" id='deletepanierbtn' data-id=\"\${id}\"><i class=\"fa-solid fa-trash\"></i></button>`);
+
+              if(qtevalue == 2){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+                }
+               if(qtevalue == 3){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               }
+               if(qtevalue == 4){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);   
+               } 
+               if(qtevalue == 5){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               }
+               if(qtevalue == 6){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               } 
+               if(qtevalue == '7'){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               } 
+               if(qtevalue == '8'){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               } 
+               if(qtevalue == '9'){
+                \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
+                \$('.panierprix'+id).append(`\${newprix}`);
+               }
+      
+          
+</script>
         {% endfor %}
-
-<pre>
-  {{ dump(app.session.get('panier')) }}
-</pre>
-
-        <div class=\"paniertotal\">
-        </div>
-{# <button class=\"btn deletepanierbtn\" id=\"deletepanierbtn\" data-id=\"\${id}\"><i class=\"fa-solid fa-trash\"></i></button> #}
+      <button class=\"btn deletepanierbtnall\" id=\"deletepanierbtn\" data-id=\"\${id}\" onclick='dltonalll()'><i class=\"fa-solid fa-trash\"></i></button>
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
         <button type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</button></a>
-        </form>
       </div>
     </div>
   </div>
 </div>
+<script
+  src=\"https://code.jquery.com/jquery-3.7.0.js\"
+  integrity=\"sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=\"
+  crossorigin=\"anonymous\"></script>
 
  {% endblock %}
 ", "page/_panier.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/_panier.html.twig");

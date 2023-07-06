@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\PanierService;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Repository\PlatRepository;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -18,25 +19,30 @@ class PanierController extends AbstractController
 {
     private $PanierService;
     private $Platrepo;
+    private $requestStack;
 
 
 
-    public function __construct(PanierService $PanierService,PlatRepository $Platrepo)
+    public function __construct(RequestStack $requestStack,PanierService $PanierService,PlatRepository $Platrepo)
     {
+        $this->requestStack = $requestStack;
     $this->PanierService = $PanierService;
     $this->Platrepo = $Platrepo;
 
     }
 
-    // #[Route('/_panier', name: 'app_panier')]
+    //#[Route('/_panier', name: 'app_panier')]
     public function panier(Request $request): Response
     {
-
         $AffPanier = $this->PanierService->panier();
+        $nombre_item_panier = count($AffPanier);
+
+
 
         return $this->render('page/_panier.html.twig', [
             'controller_name' => 'LoginController',
-            'panier' => $AffPanier 
+            'panier' => $AffPanier,
+            'prix_panier' => $nombre_item_panier
         ]);
     }
 
@@ -44,19 +50,41 @@ class PanierController extends AbstractController
 #[Route('/panier', name: 'app_panier')]
 public function panierajax(Request $request): Response
     {
+        
         if($request->isXmlHttpRequest()) {
 
             $idplatpanier= $request->request->get('id');
             $qte = $request->request->get('qte');
 
+
             $structurepanier = $this->PanierService->structurepanier($idplatpanier);
-            $panieradd = $this->PanierService->addpanier($structurepanier,$qte);
-            return new JsonResponse($structurepanier[0]);
+            $panieradd = $this->PanierService->addpanier($qte,$idplatpanier);
+            return new JsonResponse($panieradd);
         }
 
         return $this->render('page/panier.html.twig', [
             'controller_name' => 'LoginController',
         ]);
+    }
+
+    //gere la quantite
+    #[Route('/panierqte', name: 'app_panierqte')]
+public function panierajaxqte(Request $request): Response
+    {
+       if($request->isXmlHttpRequest()) {
+
+    $idplatpanier= $request->request->get('id');
+    $qte = $request->request->get('qteadd');
+
+
+    $structurepanier = $this->PanierService->structurepanier($idplatpanier);
+    $panieradd = $this->PanierService->addpanier($qte,$idplatpanier);
+    return new JsonResponse($panieradd);
+}
+
+return $this->render('page/panier.html.twig', [
+    'controller_name' => 'LoginController',
+]);
     }
 
 
@@ -66,38 +94,36 @@ public function panierajaxdelete(Request $request): Response
     {
         if($request->isXmlHttpRequest()) {
 
-            $iddeleteplat= $request->request->get('iddelete');
-
+            $iddeleteplat = $request->request->get('iddelete');
+            $AffPanier = $this->PanierService->panier();
             $deleteitem = $this->PanierService->deleteitem($iddeleteplat);
 
-            return new JsonResponse($iddeleteplat);
+            return new JsonResponse($AffPanier[$iddeleteplat]);
         }
-        // $iddeleteplat = 212;
-        // $deleteitem = $this->PanierService->deleteitem($iddeleteplat);
 
-        return $this->render('page/test.html.twig', [
+        return $this->render('page/panier.html.twig', [
             'controller_name' => 'LoginController',
 
         ]);
     }
 
-
-//gere la quantite
-    #[Route('/panierqte', name: 'app_panierqte')]
-public function panierajaxqte(Request $request): Response
+    #[Route('/panierdeleteall', name: 'app_panierdeleteall')]
+public function panierajaxdeleteall(Request $request): Response
     {
         if($request->isXmlHttpRequest()) {
 
-            $qteplatmodif= $request->request->get('qtevalue');
-            $qteplatid= $request->request->get('idplat');
+            $deleteitem = $this->PanierService->deletepanier();
 
-            return new JsonResponse($qteplatmodif);
+
+            return new JsonResponse($deleteitem);
         }
 
         return $this->render('page/panier.html.twig', [
-            'controller_name' => 'LoginController'
+            'controller_name' => 'LoginController',
+
         ]);
     }
+
 
 #[isGranted('ROLE_USER')]
 #[Route('/commande', name: 'app_commande')]
