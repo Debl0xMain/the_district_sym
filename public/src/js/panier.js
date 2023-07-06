@@ -48,7 +48,7 @@ $(".addpanier").on('click',function(e){
                                                                     if(recup_valeur_input_html == undefined || recup_valeur_input_html == 0 || recup_valeur_input_html == null){
                                                                       recup_valeur_input_html = 0;
                                                                     }
-                                                                    var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
+                                                                    var prix_total_panier = newprix + parseFloat(recup_valeur_input_html);
                                                                     $('.paniertotal').replaceWith(`<div class="paniertotal">${prix_total_panier}</div>`);
                                                                     $('.paniertotal').append(`<input type='text' hidden class='paniertotalinput' id='recupvaleur' value="${prix_total_panier}" readonly>`);
                                                                  }
@@ -115,8 +115,6 @@ $(".addpanier").on('click',function(e){
                         $('.panierrow'+id).append(`<div class="col my-auto col my-auto panierpaniersup${id}"></div>`);
                         $('.panierpaniersup'+id).append(`<button onclick="dlton(${id})" type="submit" class="btn deletepanierbtn" id='deletepanierbtn' data-id="${id}"><i class="fa-solid fa-trash"></i></button>`);
                     
-                        $('.paniertotal').append(`${majtotalajax()}`);
-                        $('.paniertotal').append(`<input hidden class='paniertotalinput' value="${majtotalajax()}" readonly>`);
                     }
 
             }   
@@ -144,8 +142,8 @@ $(".addpanier").on('click',function(e){
               recup_valeur_input_html = 0;
             }
 
-            if (parseInt(recup_valeur_input_html) >= newprix){ var prix_total_panier = parseInt(recup_valeur_input_html) - newprix;}
-            if (parseInt(recup_valeur_input_html) < newprix){var prix_total_panier =parseInt(recup_valeur_input_html) -  newprix;}
+            if (parseFloat(recup_valeur_input_html) >= newprix){ var prix_total_panier = parseFloat(recup_valeur_input_html) - newprix;}
+            if (parseFloat(recup_valeur_input_html) < newprix){var prix_total_panier =parseFloat(recup_valeur_input_html) -  newprix;}
 
 
             $('.paniertotal').replaceWith(`<div class="paniertotal">${prix_total_panier}</div>`);
@@ -208,8 +206,8 @@ const dltonalll = () => {
                             recup_valeur_input_html = 0;
                             }
 
-                                var recup_valeur_input_html_moin_ancien_prix = parseInt(recup_valeur_input_html) - ancien_prix
-                                var prix_total_panier = parseInt(recup_valeur_input_html_moin_ancien_prix) + newprix
+                                var recup_valeur_input_html_moin_ancien_prix = parseFloat(recup_valeur_input_html) - ancien_prix
+                                var prix_total_panier = parseFloat(recup_valeur_input_html_moin_ancien_prix) + newprix
                                 console.log('ancien quantite sup ')
 
                             $('.paniertotal').replaceWith(`<div class="paniertotal">${prix_total_panier}</div>`);

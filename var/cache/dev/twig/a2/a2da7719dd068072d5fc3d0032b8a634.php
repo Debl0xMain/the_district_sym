@@ -42,6 +42,9 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
         // line 1
         $this->displayBlock('body', $context, $blocks);
+        // line 123
+        echo "
+                    ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -50,6 +53,7 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
     }
 
+    // line 1
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -223,7 +227,7 @@ var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
 
     public function getDebugInfo()
     {
-        return array (  196 => 108,  132 => 50,  128 => 49,  110 => 34,  106 => 33,  102 => 32,  97 => 29,  93 => 28,  77 => 14,  66 => 4,  63 => 2,  44 => 1,);
+        return array (  200 => 108,  136 => 50,  132 => 49,  114 => 34,  110 => 33,  106 => 32,  101 => 29,  97 => 28,  81 => 14,  70 => 4,  67 => 2,  57 => 1,  46 => 123,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -350,6 +354,7 @@ var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
   crossorigin=\"anonymous\"></script>
 
  {% endblock %}
-", "page/_panier.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/_panier.html.twig");
+
+                    ", "page/_panier.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/page/_panier.html.twig");
     }
 }
