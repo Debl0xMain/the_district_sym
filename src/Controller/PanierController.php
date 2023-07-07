@@ -192,6 +192,7 @@ public function paniersendcmd(EntityManagerInterface $entityManager,Request $req
                     $dtl->setPlat($intid);
                     $dtl->setCommande($cmd);
                 $entityManager->persist($dtl);
+                $entityManager->flush();
             }
         
 
@@ -234,7 +235,22 @@ public function paniersendcmd(EntityManagerInterface $entityManager,Request $req
 
                 $mi->send($email);
 
+                $session = $this->requestStack->getSession();
 
+                $session->clear();
+/*
+        return $this->render('page/commandesend.html.twig', [
+            'controller_name' => 'LoginController',
+            'panier' => $panier,
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'adresse' => $adresse,
+            'pay' => $pay,
+            'cp' => $cp,
+            'ville' => $ville,
+            'prix_total'=>$prix_total
+        ]);
+        */
         return $this->redirectToRoute('app_accueil');
     }
 
