@@ -178,7 +178,30 @@
     color: white !important;
     font-size: 1.5rem;
 }
+.cmdvalid {
+    font-size: 2rem;
+    font-family: 'craie';
+    z-index: 2;
+    color: white;
+    text-shadow: 4px 0px 4px #9e0e40, 0 0 1em #9e0e40 , 0 0 0.2em #ff0059f3;
+}
+.cmdvalidprix {
+    font-size: 2.3rem;
+    font-family: 'craie';
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 0px 4px #ff0000, 0 0 1em #ff0000 , 0 0 0.2em #ff0000;
+}
 
 .modal-backdrop {
     display: none !important;
+}
+
+.form_style {
+    width: 25rem;
+}
+.hr {
+    color: rgb(0, 0, 0) !important;
+    width: 20rem !important;
+    height: 0.3rem !important;
 }

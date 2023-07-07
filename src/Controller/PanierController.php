@@ -12,6 +12,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Repository\PlatRepository;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use App\Service\MailService;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use App\Entity\Commande;
+use App\Entity\Detail;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mailer\MailerInterface;
+
 
 
 
@@ -139,30 +148,93 @@ public function paniercmd(Request $request): Response
 
 #[isGranted('ROLE_USER')]
 #[Route('/sendcommande', name: 'app_sendcommande')]
-public function paniersendcmd(Request $request,MailService $ms): Response
+public function paniersendcmd(EntityManagerInterface $entityManager,Request $request,MailService $ms, MailerInterface $mi): Response
     {
-        // $Panier = $this->PanierService->panier();
-        // //resultat du post
-        // $ var = $request->request->get(' ');
-        // $infouser = $thisapp -> info user;
+        //id
+        $nom = $request->request->get('nom');
+        $prenom = $request->request->get('prenom');
+        $adresse = $request->request->get('adresse');
+        $cp = $request->request->get('cp');
+        $ville = $request->request->get('ville');
+        $email= $request->request->get('email');
 
-        // //envoi ver service
+        //name
+        $pay = $request->request->get('pay');
+        
+        //panier
+        $panier = $this->PanierService->panier();
+        $prix_total = $this->PanierService->prixtotal($panier);
+
+
+
+            // get user id
+            $utilisateur = $this->getUser();
+            $session = $this->requestStack->getSession();
+            $panier = $session->get('panier');
+    
+            // Create new cmd
+            $cmd = new Commande();
+                $cmd->setDateCommande(new \DateTime());
+                $cmd->setTotal($prix_total);
+                $cmd->setUtilisateur($utilisateur);
+                $cmd->setEtat(0);
+            $entityManager->persist($cmd);
+            $entityManager->flush();
+    
+            // add detail in cmd
+    
+            foreach ($panier as $paniers) {
+                $id = $paniers['id'];
+                $intid = $this->Platrepo->find($id);
+
+                $dtl = new Detail();
+                    $dtl->setQuantite($paniers['qte']);
+                    $dtl->setPlat($intid);
+                    $dtl->setCommande($cmd);
+                $entityManager->persist($dtl);
+            }
+        
+
+        //envoi ver service
+
+        // $expediteur = 'the_district@contact.fr';
+        // $destinataire = $email;
+        // $sujet = 'Commande';
+        // $message = (__DIR__ . '/page\commandesend.twig');
 
         // //send mail
-        $ms->sendMail($expediteur, $destinataire, $sujet, $message);
+        // $ms->sendMail($expediteur, $destinataire, $sujet, $message);
 
-        // $expediteur = 'the_discrit@contact.fr';
-        // $destinataire = "emailclient"
-        // $sujet = "Commande n°".idcommande;
-        // $message = 
+                //envoi ver service
 
-        // //inscription base de donne
+                $expediteur = 'the_district@contact.fr';
+                $destinataire = $email;
+                $sujet = 'Commande detail';
+        
+                $email = (new TemplatedEmail())
+                    ->from($expediteur)
+                    ->to($destinataire)
+                    ->subject($sujet)
+            
+            
+                    ->htmlTemplate('page/commandesend.html.twig')
+            
+                    ->context([
+            
+                        'panier' => $panier,
+                        'nom' => $nom,
+                        'prenom' => $prenom,
+                        'adresse' => $adresse,
+                        'pay' => $pay,
+                        'cp' => $cp,
+                        'ville' => $ville,
+                        'prix_total'=>$prix_total
+            
+                        ]);
+
+                $mi->send($email);
 
 
-        return $this->render('page/commande.html.twig', [
-            'controller_name' => 'LoginController',
-            'panier' => $Panier
-        ]);
         return $this->redirectToRoute('app_accueil');
     }
 

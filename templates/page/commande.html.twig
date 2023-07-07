@@ -5,20 +5,87 @@
 {% block body %}
 
 <form action='{{path("app_sendcommande")}}' method='POST'>
-            //affichage donne utilisateur
+
             {% if app.user %}
 
-
-            {app.user.Nom}// modifable
-            {app.user.adresse}//ajoute cp etc en input modif
-
-
+        <div class="row my-5">
+        <hr class="hr text-center">
+            <fieldset>
+                <legend class="cmdvalid text-center">Information personnel</legend>
+                 <div class="text-center">
+                    <label class="cmdvalid" for="scales">Nom</label><input name="nom" class="form-control mx-auto form_style" type="text" value="{{app.user.Nom}}">
+                     <label class="cmdvalid mx-3" for="scales">Prenom</label><input name="prenom" class="form-control mx-auto form_style" type="text" value="{{app.user.Prenom}}"><br>
+                     <div class="row">
+                    <label class="cmdvalid mx-3" id="adresse" for="scales">Adresse</label>
+                    <input class="form-control mx-auto form_style" name="adresse" type="text mx-3" value="{{app.user.adresse}}">
+                     <label class="cmdvalid mx-3" for="scales">Ville</label>
+                    <input class="form-control mx-auto form_style" name="ville" type="text mx-3" value="{{app.user.ville}}">
+                                         <label class="cmdvalid mx-3" for="scales">Code postal</label>
+                    <input class="form-control mx-auto form_style" name="cp" type="text mx-3" value="{{app.user.cp}}">
+                                                             <label class="cmdvalid mx-3" for="scales">Email</label>
+                    <input class="form-control mx-auto form_style" name="email" type="text mx-3" value="{{app.user.email}}">
+                    </div>
+                </div>
+        </div>
+        <div class="row my-5"></div>
+        <hr class="hr text-center">
+            <fieldset>
+                <legend class="cmdvalid text-center">Moyen de paiement</legend>
+                 <div class="text-center">
+                    <input class="pay_check mx-3" name="pay" value="paypal" type="radio"><label class="cmdvalid" for="scales">Paypal</label> <br>
+                    <input class="pay_check mx-3" name="pay" value="cb" type="radio"><label class="cmdvalid" for="scales">Carte Bancaire</label>
+                </div>
             {% endif %}
-            //affichage panier
-            <div class="panierbody">
+            <div class="row my-5 text-center">
+                <div class="panierbodycmd">
+                <p class="vald"></p>
+                </div>
+                <hr class="hr text-center">
+                                        <div class='cmdvalid prixpaniertotal'>
+                        <div>Prix total du panier</div>
+                        <div class="cmdvalidprix paniertotalcmd"></div>
+                {% for panier in panier %}
+                <script>
+                        var id = {{panier.id}};
+                        var qtevalue = {{panier.qte}};
+                        var prix = {{panier.prix}};
+                        var newprix = prix*qtevalue;
+
+                            var img = '{{panier.img}}';
+                            var libelle = '{{panier.libelle}}';
+                                $('.panierbodycmd').append(`<hr class="hr text-center">`);
+                                $('.panierbodycmd').append(`<div class="cmdvalid row rows-col-4 panierrowcmd${id}" id='panierrowcmd${id}'></div>`);
+
+                                $('.panierrowcmd'+id).append(`<div class="cmdvalid col my-auto imgpaniercolcmd${id}"></div>`);
+                                $('.imgpaniercolcmd'+id).append(`<img class="panierimg" src="src/img/plat/${img}" alt="${img}" height="32px" width="32px">`);
+                                
+                                $('.panierrowcmd'+id).append(`<div class="cmdvalid col my-auto col my-auto panierlibellecmd${id}"></div>`);
+                                $('.panierlibellecmd'+id).append(` ${libelle}`);
+
+                                $('.panierrowcmd'+id).append(`<div class=" cmdvalid col my-auto col my-auto panierprixucmd${id}"></div>`);
+                                $('.panierprixucmd'+id).append(`prix/unité : ${prix}`);
+
+                                $('.panierrowcmd'+id).append(`<div class="cmdvalid col my-auto col my-auto panierprixtcmd${id}"></div>`);
+                                $('.panierprixtcmd'+id).append(`Prix/total : ${newprix} €`);
+
+                                $('.panierrowcmd'+id).append(`<div class="cmdvalid col my-auto col my-auto panierqtecmd${id}"></div>`);
+                                $('.panierqtecmd'+id).append(`Quantité : ${qtevalue} €`);
+
+                                $('.panierrowcmdcmd'+id).append(`<div class="col cmdvalid my-auto col my-auto panierpaniersupcmd${id}"></div>`);
+                                $('.panierpaniersupcmd'+id).append(`<button onclick="dlton(${id})" type="submit" class="btn deletepanierbtn" id='deletepanierbtn' data-id="${id}"><i class="fa-solid fa-trash"></i></button>`);
+                        
+                                var recup_valeur_input_html = $('#recupvaleur').val()
+                                if(recup_valeur_input_html == undefined || recup_valeur_input_html == 0 || recup_valeur_input_html == null){
+                                recup_valeur_input_html = 0;
+                                }
+                                var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
+                                $('.paniertotalcmd').replaceWith(`<div class="cmdvalidprix paniertotalcmd">${prix_total_panier}</div>`);
+                                $('.paniertotalcmd').append(`<input type='text' hidden class='paniertotalinput' id="total_panier" value="${prix_total_panier}" readonly>`);
+                                </script>
+                {% endfor %}
+                <button type='submit' class="btn btn-danger btn-lg my-5">Valide La Commande</button>
+                </form>
             </div>
-            {% for panier in panier %}
-            <script src="{{asset('src/js/panier.js')}}">writepanier();</script>
-            {% endif %}
-            </form>
+            <hr class="hr text-center">
+            <div class="my-5"></div>
 {% endblock %}

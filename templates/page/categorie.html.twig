@@ -40,7 +40,9 @@
 {% block title %}categorie{% endblock %}
 
 {% block body %}
-
+{% if is_granted ('ROLE_CHEF') or is_granted ('ROLE_ADMIN') %}
+<a href='{{path('app_Categorieadd')}}' class="btn btn-warning">Add  Categorie<a/>
+{% endif %}
 <div class="row my-2 mx-5 text-center row-cols-1">
 <div class="col platmv"><p>Nos categorie | {{ categorie | length }}</p>
 </div>
@@ -60,6 +62,9 @@
                           </a>
                   </button>
                   </form>
+                                  {% if is_granted ('ROLE_CHEF') or is_granted ('ROLE_ADMIN') %}
+                <a href='{{path('app_catmodif')}}' class="btn btn-warning" name="id_modif_cat" id="id_modif_cat" value="{{categorie.id}}">Modif<a/>
+                {% endif %}
                 </div>
  
 {% endif %}

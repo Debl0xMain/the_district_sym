@@ -39,6 +39,17 @@ class CategorieRepository extends ServiceEntityRepository
         }
     }
 
+    public function info_modif($idcat):array{
+
+        return $this->createQueryBuilder('c')
+
+        ->Where('c.id like :search')
+        ->setParameter('search', "%".$idcat."%")
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Categorie[] Returns an array of Categorie objects
 //     */

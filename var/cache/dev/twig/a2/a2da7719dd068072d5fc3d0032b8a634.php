@@ -42,7 +42,7 @@ class __TwigTemplate_8a2790f1fc0ae4f5d026dd671e276b76 extends Template
 
         // line 1
         $this->displayBlock('body', $context, $blocks);
-        // line 123
+        // line 122
         echo "
                     ";
         
@@ -188,20 +188,22 @@ var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
                 \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
                 \$('.panierprix'+id).append(`\${newprix}`);
                }
-      
-          
+    
 </script>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['panier'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 108
+        // line 107
         echo "      <button class=\"btn deletepanierbtnall\" id=\"deletepanierbtn\" data-id=\"\${id}\" onclick='dltonalll()'><i class=\"fa-solid fa-trash\"></i></button>
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
-        <button type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</button></a>
+        <a href=\"";
+        // line 111
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_commande");
+        echo "\" type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</a>
       </div>
     </div>
   </div>
@@ -227,7 +229,7 @@ var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
 
     public function getDebugInfo()
     {
-        return array (  200 => 108,  136 => 50,  132 => 49,  114 => 34,  110 => 33,  106 => 32,  101 => 29,  97 => 28,  81 => 14,  70 => 4,  67 => 2,  57 => 1,  46 => 123,  44 => 1,);
+        return array (  205 => 111,  199 => 107,  136 => 50,  132 => 49,  114 => 34,  110 => 33,  106 => 32,  101 => 29,  97 => 28,  81 => 14,  70 => 4,  67 => 2,  57 => 1,  46 => 122,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -335,15 +337,14 @@ var prix_total_panier = newprix + parseInt(recup_valeur_input_html);
                 \$(`#qteselect\${id} option[value=\"\${qtevalue}\"]`).prop('selected', true);
                 \$('.panierprix'+id).append(`\${newprix}`);
                }
-      
-          
+    
 </script>
         {% endfor %}
       <button class=\"btn deletepanierbtnall\" id=\"deletepanierbtn\" data-id=\"\${id}\" onclick='dltonalll()'><i class=\"fa-solid fa-trash\"></i></button>
       </div>
       <div class=\"modal-footer\">
         <button type=\"button\" class=\"btn btn-outline-danger\" data-bs-dismiss=\"modal\">Close</button>
-        <button type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</button></a>
+        <a href=\"{{ path(\"app_commande\") }}\" type=\"submit\" class=\"btn btn-outline-primary\">Valide Panier</a>
       </div>
     </div>
   </div>

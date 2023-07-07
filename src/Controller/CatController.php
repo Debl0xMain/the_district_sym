@@ -48,6 +48,53 @@ class CatController extends AbstractController
     }
 
     #[isGranted('ROLE_ADMIN')]
+    #[Route('/categorie_modif', name: 'app_catmodif')]
+    public function catmodif(Security $security,Request $request): Response
+    {
+        $form = $this->createForm(CatType::class);
+        $form->handleRequest($request);
+        $idcat = $request->request->get('id_modif_cat');
+        $categorie = info_modif($idcat);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $libelle = $request->request->get('plat_libelle');
+            $image = $request->request->get('plat_image');
+            $active = $request->request->get('plat_active');
+
+            $query = $this->createQueryBuilder('p')
+            ->update()
+            ->set('p.libelle', ':libelle')
+            ->set('p.image', ':image')
+            ->set('p.active', ':active')
+
+            ->where('p.id = :editId')
+
+            ->setParameter('libelle',  $libelle)
+            ->setParameter('categorie', $categorie)
+            ->setParameter('image', $image)
+            ->setParameter('description', $description)
+            ->setParameter('prix', $prix)
+            ->setParameter('active', $active)
+
+            ->setParameter('editId', $idplat['id'])
+
+            ->getQuery()
+            ->execute();
+            return $this->redirectToRoute('app_Categorieadd');
+        }
+
+        return $this->render('admin/addcategorie.html.twig', [
+            'form' => $form,
+            'controller_name' => 'AccueilController',
+            'categorie' => $categorie,
+    ]);
+
+
+}
+
+    #[isGranted('ROLE_ADMIN')]
     #[Route('/categorie_add', name: 'app_Categorieadd')]
     public function contactform(Security $security,Request $request): Response
     {

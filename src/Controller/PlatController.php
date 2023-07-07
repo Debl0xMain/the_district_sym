@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Form\PlatModif;
 
 class PlatController extends AbstractController
 {
@@ -24,6 +25,35 @@ class PlatController extends AbstractController
     {
         $this->PlatRepo = $PlatRepo;
     }
+
+
+    #[isGranted('ROLE_ADMIN')]
+    #[Route('/plat_modif', name: 'app_modif')]
+    public function platmodif(Request $request,): Response
+    {
+        $idplat = $request->request->get('id_modif_plat');
+        $plat = $this->PlatRepo->info_modif($idplat);
+
+        $form = $this->createForm(PlatModif::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $plat = $this->PlatRepo->update_plat($idplat);
+            
+            // Redirection vers accueil
+            return $this->redirectToRoute('app_platadd');
+        }
+
+        return $this->render('admin/addplat.html.twig', [
+                //'form' => $form->createView(),
+                'form' => $form,
+                'controller_name' => 'AccueilController',
+                'plat' => $plat
+
+        ]);
+    }
+    ////////////////////////
 
     #[isGranted('ROLE_ADMIN')]
     #[Route('/plat_add', name: 'app_platadd')]

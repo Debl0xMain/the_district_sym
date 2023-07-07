@@ -11,6 +11,7 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
  use Symfony\Component\Mime\Part\DataPart;
  use Symfony\Component\Mime\Part\File;
+ 
 
 class MailerController extends AbstractController
 {
@@ -40,4 +41,38 @@ class MailerController extends AbstractController
 
         $mailer->send($email);
     }
+
+#[Route('/emailcmd')]
+public function sendEmailcmd(MailerInterface $mailer): Response
+{        //envoi ver service
+
+    $expediteur = 'the_district@contact.fr';
+    $destinataire = $email;
+    $sujet = 'Commande';
+
+    $email = (new TemplatedEmail())
+    ->from($expediteur)
+    ->to($destinataire)
+    ->subject($sujet)
+
+
+    ->html('/path/to/page/commandesend.html.twig')
+    ->text('/path/to/page/commandesend.html.twig')
+
+    ->context([
+
+        'panier' => $panier,
+        'nom' => $nom,
+        'prenom' => $prenom,
+        'adresse' => $adresse,
+        'pay' => $pay,
+        'cp' => $cp,
+        'ville' => $ville,
+        'prix_total'=>$prix_total
+
+        ]);
+
+        $ms>send($email);
+}
+
 }

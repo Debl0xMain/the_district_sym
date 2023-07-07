@@ -61,7 +61,49 @@ class PlatRepository extends ServiceEntityRepository
        ;
     }
 
+    public function info_modif($idplat):array{
 
+        return $this->createQueryBuilder('p')
+
+        ->Where('p.id like :search')
+        ->setParameter('search', "%".$idplat."%")
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
+    public function update_plat($idplat) {
+
+        $libelle = $request->request->get('plat_libelle');
+        $categorie = $request->request->get('plat_categorie');
+        $image = $request->request->get('plat_image');
+        $description = $request->request->get('plat_description');
+        $prix = $request->request->get('plat_prix');
+        $active = $request->request->get('plat_active');
+
+        $query = $this->createQueryBuilder('p')
+        ->update()
+        ->set('p.libelle', ':libelle')
+        ->set('p.email', ':email')
+        ->set('p.image', ':image')
+        ->set('p.description', ':description')
+        ->set('p.prix', ':prix')
+        ->set('p.active', ':active')
+
+        ->where('p.id = :editId')
+
+        ->setParameter('libelle',  $libelle)
+        ->setParameter('categorie', $categorie)
+        ->setParameter('image', $image)
+        ->setParameter('description', $description)
+        ->setParameter('prix', $prix)
+        ->setParameter('active', $active)
+
+        ->setParameter('editId', $idplat['id'])
+
+        ->getQuery()
+        ->execute();
+    }
 
 
     

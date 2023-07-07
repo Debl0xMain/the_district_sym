@@ -106,4 +106,24 @@ class PanierService
         return $clear;
     }
 
+    public function prixtotal($panier) {
+
+        $panierclc = [];
+        foreach($panier as $panier):
+            $qteprix = $panier['prix'] * $panier['qte'];
+            array_push($panierclc,$qteprix);
+        endforeach;
+
+        $prix_total = array_sum($panierclc) ;
+
+        return $prix_total;
+    }
+
+    public function changetype($platid) {
+
+        $rint = intval($platid);
+
+        return $rint;
+
+    }
 }
