@@ -8,35 +8,65 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Serializer\Annotation\Groups;
+
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+
 #[ORM\Entity(repositoryClass: PlatRepository::class)]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+    operations: [
+      new Get(),  
+  //    new Put(),
+  //    new Patch(),
+  //    new Delete(),
+      new GetCollection(),
+  //    new Post(),
+  ]
+)]
 class Plat
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+   #[ORM\Id]
+   #[ORM\GeneratedValue]
+   #[ORM\Column]
+   #[Groups(['read'])]
+   private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $libelle = null;
+   #[ORM\Column(length: 50)]
+   #[Groups(['read'])]
+   private ?string $libelle = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $description = null;
+   #[ORM\Column(type: Types::TEXT, nullable: true)]
+   #[Groups(['read'])]
+   private ?string $description = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
-    private ?string $prix = null;
+   #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
+   #[Groups(['read'])]
+   private ?string $prix = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $image = null;
+   #[ORM\Column(length: 50, nullable: true)]
+   #[Groups(['read'])]
+   private ?string $image = null;
 
-    #[ORM\Column]
-    private ?bool $active = null;
+   #[ORM\Column]
+   #[Groups(['read'])]
+   private ?bool $active = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plats')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Categorie $categorie = null;
+   #[ORM\ManyToOne(inversedBy: 'plats')]
+   #[ORM\JoinColumn(nullable: false)]
+   #[Groups(['read'])]
+   private ?Categorie $categorie = null;
 
-    #[ORM\OneToMany(mappedBy: 'plat', targetEntity: Detail::class)]
-    private Collection $details;
+   #[ORM\OneToMany(mappedBy: 'plat', targetEntity: Detail::class)]
+   #[Groups(['read'])]
+   private Collection $details;
 
     public function __construct()
     {

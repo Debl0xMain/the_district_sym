@@ -153,7 +153,7 @@ class CatController extends AbstractController
     }
 
     #[Route('/search', name: 'app_platsearch')]
-    public function platsearch(): Response
+    public function platsearch(Request $request): Response
     {
 
         $plat = $this->PlatRepo->findAll();

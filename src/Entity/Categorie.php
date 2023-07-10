@@ -3,29 +3,59 @@
 namespace App\Entity;
 
 use App\Repository\CategorieRepository;
+
+use Symfony\Component\Serializer\Annotation\Groups;
+
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
+
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
-class Categorie
-{
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+#[ApiResource(
+  normalizationContext: ['groups' => ['read']],
+  denormalizationContext: ['groups' => ['write']],
+  operations: [
+    new Get(),  
+//    new Put(),
+//    new Patch(),
+//    new Delete(),
+    new GetCollection(),
+//    new Post(),
+]
+)]
+class Categorie {
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $libelle = null;
+   #[ORM\Id]
+   #[ORM\GeneratedValue]
+   #[ORM\Column]
+   #[Groups(['read'])]
+   private ?int $id = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $image = null;
+   #[ORM\Column(length: 50, nullable: true)]
+   #[Groups(['read'])]
+   private ?string $libelle = null;
 
-    #[ORM\Column]
-    private ?bool $active = null;
+   #[ORM\Column(length: 50, nullable: true)]
+   #[Groups(['read'])]
+   private ?string $image = null;
 
-    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Plat::class, orphanRemoval: true)]
-    private Collection $plats;
+   #[ORM\Column]
+   #[Groups(['read'])]
+   private ?bool $active = null;
+
+   #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Plat::class, orphanRemoval: true)]
+   #[Groups(['read'])]
+   private Collection $plats;
 
     public function __construct()
     {
