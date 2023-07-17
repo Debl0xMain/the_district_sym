@@ -1,3 +1,0 @@
-<?php //ApiPlatform%255CApi%255CEntrypoint
-
-return [PHP_INT_MAX, []];
