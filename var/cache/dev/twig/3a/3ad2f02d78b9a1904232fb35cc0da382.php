@@ -85,7 +85,7 @@ class __TwigTemplate_0acff3b23ff9edf7dbc048aaf8b3cfae extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "     <div id=\"react-app\"></div>
+        echo "     <div id=\"react-app\"></div>   
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -117,7 +117,8 @@ class __TwigTemplate_0acff3b23ff9edf7dbc048aaf8b3cfae extends Template
 {% block title %}React{% endblock %}
 
 {% block body %}
-     <div id=\"react-app\"></div>
-{% endblock %}", "react/index.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/react/index.html.twig");
+     <div id=\"react-app\"></div>   
+{% endblock %}
+", "react/index.html.twig", "/home/antoine/Bureau/FormatioAfpa/the_district_sym/templates/react/index.html.twig");
     }
 }
