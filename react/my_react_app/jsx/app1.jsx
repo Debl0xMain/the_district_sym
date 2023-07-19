@@ -43,8 +43,8 @@ const Api = () => {
         console.log("enter " + e.target.id)
         console.log(e.target.id)
         var test = e.target.id
+        var parent = document.getElementById(test);
         document.getElementById(test).style.zIndex = "30";
-
         // zplus;
 
       }
@@ -93,7 +93,7 @@ const Api = () => {
                                                     
                                                       
 <button className="btn" id={p.id} data-bs-toggle="modal" data-bs-target={"#modal" + p.id} onMouseEnter={handleClickEnter} onMouseLeave={handleClickLeave}>
-                                                                  <div className="boxcat">
+                                                                  <div className="testcatbox">
                                                                           <img className="catbackground" src={'src/img/plat/' + p.image}
                                                                               alt={p.libelle}
                                                                               title={p.libelle} height="255px" width="255px"/>
