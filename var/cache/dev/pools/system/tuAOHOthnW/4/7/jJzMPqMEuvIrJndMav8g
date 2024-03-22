@@ -1,0 +1,71 @@
+<?php //App_Entity_Plat
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Plat',
+                'id',
+                'libelle',
+                'description',
+                'prix',
+                'image',
+                'active',
+                'categorie',
+                'details',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'libelle' => $o[2],
+                    'description' => $o[3],
+                    'prix' => $o[4],
+                    'image' => $o[5],
+                    'active' => $o[6],
+                    'categorie' => $o[7],
+                    'details' => $o[8],
+                ],
+            ],
+            'groups' => [
+                1 => [
+                    'read',
+                ],
+                [
+                    'read',
+                ],
+                [
+                    'read',
+                ],
+                [
+                    'read',
+                ],
+                [
+                    'read',
+                ],
+                [
+                    'read',
+                ],
+                [
+                    'read',
+                ],
+                [
+                    'read',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
